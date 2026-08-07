@@ -344,13 +344,9 @@ function renderAllPortfolioSections() {
 
     const heroBgPhoto = document.getElementById('hero-bg-photo');
     if (heroBgPhoto) {
-        const photoUrl = prof.heroBgPhoto || prof.avatar;
-        if (photoUrl) {
-            heroBgPhoto.src = photoUrl;
-            heroBgPhoto.style.display = 'block';
-        } else {
-            heroBgPhoto.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23F8F4EC'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' font-weight='bold' fill='%23B45309'%3EFoto Background Hero (Upload di Admin CMS)%3C/text%3E%3C/svg%3E";
-        }
+        const photoUrl = prof.heroBgPhoto || "./assets/foto.png";
+        heroBgPhoto.src = photoUrl;
+        heroBgPhoto.style.display = 'block';
     }
 
     const bioLeft = document.getElementById('hero-bio-left');
@@ -374,11 +370,7 @@ function renderAllPortfolioSections() {
     
     const aboutPhoto = document.getElementById('about-photo');
     if (aboutPhoto) {
-        if (prof.aboutPhoto) {
-            aboutPhoto.src = prof.aboutPhoto;
-        } else {
-            aboutPhoto.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='460' viewBox='0 0 500 460'%3E%3Crect width='500' height='460' fill='%23FFF2F6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='%23D81B60'%3EUpload Foto About Di Admin CMS%3C/text%3E%3C/svg%3E";
-        }
+        aboutPhoto.src = prof.aboutPhoto || prof.heroBgPhoto || "./assets/foto.png";
     }
 
     // Stat Counters
