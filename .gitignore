@@ -1,0 +1,18 @@
+# Vercel & system files
+.vercel
+.DS_Store
+Thumbs.db
+node_modules/
+
+# Secret Environment & Configuration files
+*.env
+*.env.local
+*.env.*.local
+js/firebase-config.js
+js/jsonbin-config.js
+**/js/firebase-config.js
+**/js/jsonbin-config.js
+
+# Local deployment workspace repos
+deploy_repo/
+**/deploy_repo/

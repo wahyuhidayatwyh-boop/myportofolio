@@ -1,0 +1,825 @@
+/* ==========================================================================
+   PORTOFOLIO DESTINA - LUXURY CREAM & WHITE GRADIENT DESIGN SYSTEM (v38.0)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. CUSTOM PROPERTIES & COLOR THEMES (LUXURY SOFT CREAM & WHITE GRADIENT)
+   -------------------------------------------------------------------------- */
+:root {
+    --accent-bronze: #B45309;
+    --accent-bronze-hover: #92400E;
+    --accent-bronze-light: rgba(180, 83, 9, 0.08);
+    --accent-bronze-glow: rgba(180, 83, 9, 0.22);
+    
+    --bg-card: #FFFFFF;
+    --text-primary: #292524;
+    --text-secondary: #57534E;
+    --text-muted: #78716C;
+    --text-giant-bg: rgba(168, 162, 158, 0.22);
+    
+    --border-color: rgba(226, 216, 203, 0.8);
+    --border-accent: rgba(180, 83, 9, 0.4);
+    --border-dashed: rgba(214, 196, 175, 0.6);
+    --nav-bg: rgba(252, 249, 244, 0.94);
+    
+    --shadow-sm: 0 4px 14px rgba(180, 83, 9, 0.05);
+    --shadow-md: 0 12px 32px rgba(180, 83, 9, 0.08), 0 2px 8px rgba(0, 0, 0, 0.02);
+    --shadow-lg: 0 20px 48px rgba(180, 83, 9, 0.14), 0 4px 14px rgba(0, 0, 0, 0.04);
+
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 24px;
+    --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-script: 'Caveat', cursive, sans-serif;
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.font-script {
+    font-family: var(--font-script) !important;
+    font-weight: 700;
+    font-size: 1.45em;
+    line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   2. SEAMLESS INTERLOCKING MULTI-SECTION GRADIENT FLOW
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    min-height: 100%;
+}
+
+body {
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background var(--transition-normal), color var(--transition-normal);
+}
+
+body.admin-cms-page {
+    background: #F4EFE6 !important;
+}
+
+h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.text-bronze { color: var(--accent-bronze) !important; }
+.bg-bronze { background-color: var(--accent-bronze) !important; }
+.border-bronze { border-color: var(--accent-bronze) !important; }
+
+.dashed-line-h {
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--border-dashed) 50%, transparent 50%);
+    background-size: 12px 1px;
+    background-repeat: repeat-x;
+    opacity: 0.4;
+}
+
+/* SECTION GRADIENTS (LUXURY SOFT CREAM & WHITE) */
+#home.hero-editorial { background: linear-gradient(180deg, #F8F4EC 0%, #FAF6F0 65%, #FFFFFF 100%) !important; }
+#about.portfolio-section { background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F0 50%, #F8F4EC 100%) !important; }
+#projects.portfolio-section { background: linear-gradient(180deg, #F8F4EC 0%, #FAF6F0 60%, #FFFFFF 100%) !important; }
+#skills.portfolio-section { background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F0 50%, #F8F4EC 100%) !important; }
+#experience.portfolio-section { background: linear-gradient(180deg, #F8F4EC 0%, #FAF6F0 60%, #FFFFFF 100%) !important; }
+#education.portfolio-section { background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F0 50%, #F8F4EC 100%) !important; }
+#contact.portfolio-section { background: linear-gradient(180deg, #F8F4EC 0%, #FAF6F0 60%, #FFFFFF 100%) !important; }
+
+/* --------------------------------------------------------------------------
+   3. EDITORIAL HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-editorial {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    overflow: hidden;
+    background: #F8F4EC !important;
+}
+
+/* NATURAL SEAMLESS MASK-FADE HERO PHOTO (NO LINES, 100% SHARP PHOTO ON RIGHT) */
+.hero-bg-photo-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 58%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 22%, black 50%);
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 22%, black 50%);
+}
+
+.hero-bg-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.hero-bg-photo-overlay {
+    display: none !important;
+}
+
+@media (max-width: 1023px) {
+    .hero-bg-photo-container {
+        position: relative;
+        width: 100%;
+        height: 380px;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 100%);
+        mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 100%);
+    }
+    .hero-bg-photo-img {
+        object-position: top center;
+    }
+}
+
+/* REMOVE OVERLAPPING GIANT BACKGROUND TEXT TO ELIMINATE CLUTTER & OVERLAPS */
+.hero-giant-bg-text {
+    display: none !important;
+}
+
+.hero-portrait-wrapper {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    max-width: 520px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: transparent !important;
+}
+
+.hero-portrait-img {
+    width: auto;
+    max-width: 100%;
+    max-height: 560px;
+    object-fit: contain;
+    object-position: bottom center;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    filter: drop-shadow(0 15px 32px rgba(2, 132, 199, 0.22));
+    transition: transform 0.5s ease;
+}
+
+.hero-portrait-img:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+@media (max-width: 1023px) {
+    .hero-portrait-wrapper {
+        max-width: 440px;
+        margin: 0 auto;
+    }
+    .hero-portrait-img {
+        max-height: 440px;
+    }
+}
+
+.hero-bio-text {
+    max-width: 540px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.hero-subtag-text {
+    max-width: 520px;
+    text-align: left;
+    font-size: 0.925rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.scroll-down-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.scroll-down-link:hover {
+    color: var(--accent-bronze);
+}
+
+/* --------------------------------------------------------------------------
+   4. NAVIGATION BAR & MOBILE SIDEBAR DRAWER
+   -------------------------------------------------------------------------- */
+nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+    nav.navbar {
+        padding: 1.25rem 2.5rem;
+    }
+}
+
+.brand-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+}
+
+@media (min-width: 768px) {
+    .brand-logo-text {
+        font-size: 1.35rem;
+    }
+}
+
+.nav-pill-menu-btn {
+    background-color: var(--accent-bronze);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 7px 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px var(--accent-bronze-glow);
+    transition: var(--transition-fast);
+}
+
+.nav-pill-menu-btn:hover {
+    background-color: var(--accent-bronze-hover);
+    transform: translateY(-2px);
+}
+
+/* MOBILE ADMIN SIDEBAR DRAWER */
+@media (max-width: 767px) {
+    #admin-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        z-index: 100;
+        overflow-y: auto;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* ADMIN CMS DESIGN SYSTEM (CRISP WHITE CARDS WITH HIGH CONTRAST AGAINST SOFT WARM BACKDROP) */
+.admin-card, body.admin-cms-page .bg-card {
+    background-color: #FFFFFF !important;
+    border: 1.5px solid rgba(214, 196, 175, 0.85) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(180, 83, 9, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+}
+
+.admin-subcard-cream {
+    background-color: #FDFBF7 !important;
+    border: 1.5px solid rgba(226, 216, 203, 0.9) !important;
+    border-radius: 16px !important;
+    padding: 1.25rem 1.5rem !important;
+    box-shadow: 0 4px 14px rgba(180, 83, 9, 0.04) !important;
+}
+
+.admin-tab-btn {
+    color: var(--text-secondary);
+    background: transparent;
+    border-radius: 14px;
+    font-weight: 700;
+}
+
+.admin-tab-btn:hover {
+    background: #FFFFFF !important;
+    color: var(--accent-bronze) !important;
+}
+
+.admin-tab-btn.active {
+    background-color: var(--accent-bronze) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 18px var(--accent-bronze-glow) !important;
+}
+
+.admin-tab-btn.active i {
+    color: #ffffff !important;
+}
+
+.p-subbtn {
+    background-color: #FFFFFF;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.p-subbtn:hover {
+    border-color: var(--accent-bronze);
+    color: var(--accent-bronze);
+}
+
+.p-subbtn.active {
+    background-color: var(--accent-bronze) !important;
+    color: #FFFFFF !important;
+    border-color: var(--accent-bronze) !important;
+    box-shadow: 0 4px 12px var(--accent-bronze-glow) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. CREATIVE STAGGERED GRID LAYOUT
+   -------------------------------------------------------------------------- */
+section.portfolio-section {
+    padding: 60px 0;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    section.portfolio-section {
+        padding: 90px 0;
+    }
+}
+
+.section-title-wrapper {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .section-title-wrapper {
+        margin-bottom: 50px;
+    }
+}
+
+.section-subtitle {
+    font-family: var(--font-script);
+    color: var(--accent-bronze);
+    font-weight: 700;
+    font-size: 1.85rem;
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 2.75rem;
+    }
+}
+
+/* PROJECTS & CERTIFICATES GRID */
+#projects-grid, #certifications-photos-grid {
+    display: grid !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    padding-bottom: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+    #projects-grid, #certifications-photos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 2rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    #projects-grid, #certifications-photos-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+    
+    #projects-grid > div:nth-child(2), #certifications-photos-grid > div:nth-child(2) {
+        transform: translateY(28px);
+    }
+}
+
+/* EXECUTIVE BUSINESS CARD LAYOUT STYLING */
+.creative-normal-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.creative-normal-card:hover {
+    transform: translateY(-6px) !important;
+    border-color: var(--accent-bronze);
+    box-shadow: 0 16px 36px rgba(180, 83, 9, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.creative-normal-card:hover .creative-card-img-box img {
+    transform: scale(1.05);
+}
+
+.creative-card-img-box {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    background-color: rgba(248, 244, 236, 0.5);
+}
+
+.creative-card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.creative-card-footer {
+    padding: 1.15rem 1.35rem;
+    background-color: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+}
+
+/* EXECUTIVE SKILL BUSINESS CARDS */
+#skills-container-grid {
+    display: grid !important;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+}
+
+@media (min-width: 768px) {
+    #skills-container-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 1.75rem !important;
+    }
+}
+
+.creative-skill-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 1.25rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.creative-skill-card:hover {
+    transform: translateY(-5px) !important;
+    border-color: var(--accent-bronze);
+    box-shadow: 0 14px 32px rgba(180, 83, 9, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   6. WORK EXPERIENCE EDITORIAL
+   -------------------------------------------------------------------------- */
+.experience-editorial-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .experience-editorial-container {
+        gap: 4.5rem;
+    }
+}
+
+.exp-editorial-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .exp-editorial-row {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+    .exp-editorial-row.reverse-row {
+        flex-direction: row-reverse;
+    }
+}
+
+.exp-editorial-photo-box {
+    position: relative;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.exp-editorial-photo-box:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-bronze);
+    box-shadow: 0 14px 32px rgba(180, 83, 9, 0.1);
+}
+
+@media (min-width: 768px) {
+    .exp-editorial-photo-box {
+        width: 48%;
+        shrink: 0;
+    }
+}
+
+.exp-editorial-photo-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.6s ease;
+}
+
+@media (min-width: 768px) {
+    .exp-editorial-photo-box img {
+        height: 280px;
+    }
+}
+
+.exp-editorial-content-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .exp-editorial-content-box {
+        width: 52%;
+        padding: 0 1rem;
+    }
+}
+
+/* FORM CONTROLS IN ADMIN CMS */
+.form-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    background-color: var(--bg-card);
+    border: 1.5px solid var(--border-color);
+    border-radius: 14px;
+    padding: 10px 14px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+@media (min-width: 640px) {
+    .form-input, .form-textarea {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+}
+
+.form-input:focus, .form-textarea:focus {
+    border-color: var(--accent-bronze);
+}
+
+/* --------------------------------------------------------------------------
+   7. BUTTONS & TOASTS
+   -------------------------------------------------------------------------- */
+.btn-bronze {
+    background-color: var(--accent-bronze);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px var(--accent-bronze-glow);
+    transition: var(--transition-fast);
+}
+
+@media (min-width: 640px) {
+    .btn-bronze {
+        padding: 12px 28px;
+    }
+}
+
+.btn-bronze:hover {
+    background-color: var(--accent-bronze-hover);
+    transform: translateY(-2px);
+}
+
+.btn-bronze-outline {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: 1.5px solid var(--border-color);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-fast);
+}
+
+@media (min-width: 640px) {
+    .btn-bronze-outline {
+        padding: 12px 28px;
+    }
+}
+
+.btn-bronze-outline:hover {
+    border-color: var(--accent-bronze);
+    color: var(--accent-bronze);
+    background: var(--accent-bronze-light);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(43, 33, 37, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--border-color);
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+@media (min-width: 640px) {
+    .toast-container {
+        left: auto;
+        bottom: 24px;
+        right: 24px;
+    }
+}
+
+.toast {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1.5px solid var(--border-color);
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   ULTRA-RESPONSIVE MOBILE VIEW ENHANCEMENTS (SMARTPHONES & TABLETS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 639px) {
+    /* Hero Section Mobile */
+    .hero-editorial {
+        padding-top: 84px !important;
+        padding-bottom: 24px !important;
+        min-height: auto !important;
+    }
+    
+    .hero-bg-photo-container {
+        height: 280px !important;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%) !important;
+        mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%) !important;
+    }
+
+    .hero-bio-text {
+        font-size: 0.875rem !important;
+        line-height: 1.6 !important;
+    }
+
+    .hero-subtag-text {
+        font-size: 0.825rem !important;
+    }
+
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+
+    .section-subtitle {
+        font-size: 1.45rem !important;
+    }
+
+    /* Admin Drawer Mobile Width */
+    #admin-sidebar {
+        width: 88vw !important;
+        max-width: 300px !important;
+    }
+
+    /* Mobile Form Sub-tab Buttons horizontal scrollable */
+    .admin-card {
+        padding: 1rem !important;
+        border-radius: 16px !important;
+    }
+
+    .admin-subcard-cream {
+        padding: 1rem !important;
+        border-radius: 14px !important;
+    }
+}

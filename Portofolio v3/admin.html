@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin CMS Dashboard - Destina Natasya Personal Portfolio">
+    <title>Admin CMS Dashboard | Destina Natasya</title>
+    
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="./assets/logo tab chrome.png">
+
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="admin-cms-page">
+
+    <!-- PIN SECURITY AUTH SCREEN (HIGH-SECURITY ADMIN PIN) -->
+    <div id="cms-pin-screen" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#FFFFFF]">
+        <div class="max-w-md w-full bg-card border-2 border-border rounded-3xl p-6 sm:p-8 shadow-2xl text-center">
+            <img src="./assets/logo navfooter.png" alt="Destina Logo" class="h-16 sm:h-20 w-auto object-contain mx-auto mb-4">
+            <h2 class="text-xl sm:text-2xl font-bold font-display text-primary mb-1">CMS Admin Security</h2>
+            <p class="text-xs text-muted mb-6">Masukkan Kata Sandi / PIN Keamanan untuk mengakses Admin Dashboard</p>
+            
+            <form id="cms-pin-form" class="space-y-4">
+                <input type="password" id="cms-pin-input" class="w-full text-center text-lg font-bold tracking-widest bg-card border-2 border-border focus:border-bronze outline-none rounded-2xl py-3 text-primary transition-colors" placeholder="Masukkan Kata Sandi Admin..." required>
+                <button type="submit" class="btn-bronze w-full justify-center text-sm font-bold uppercase tracking-wider py-3.5 shadow-lg">
+                    <i class="fa-solid fa-key"></i> Masuk Dashboard Admin
+                </button>
+            </form>
+
+            <a href="index.html" class="inline-block mt-6 text-xs font-bold text-muted hover:text-bronze transition-colors">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Website Utama
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN ADMIN DASHBOARD LAYOUT -->
+    <div id="cms-admin-dashboard" class="hidden flex-1 flex flex-col md:flex-row min-h-screen">
+        
+        <!-- MOBILE NAVBAR TOP HEADER -->
+        <div class="md:hidden sticky top-0 z-40 p-4 flex items-center justify-between shadow-sm" style="background:#FFFFFF;border-bottom:1px solid rgba(226,216,203,0.8);">
+            <div class="flex items-center gap-3">
+                <img src="./assets/logo navfooter.png" alt="Logo" class="h-8 w-auto object-contain">
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="text-xs font-bold text-bronze hover:underline mr-1">Live Site ↗</a>
+                <button onclick="toggleAdminMobileMenu()" class="nav-pill-menu-btn text-xs py-1.5 px-3.5">
+                    <i class="fa-solid fa-bars"></i> Navigasi
+                </button>
+            </div>
+        </div>
+
+        <!-- SIDEBAR NAVIGATION (SOLID WHITE) -->
+        <aside id="admin-sidebar" class="hidden md:flex w-full md:w-72 p-5 md:p-6 flex-col justify-between shrink-0 transition-all duration-300" style="background:#FFFFFF;border-bottom:1px solid rgba(226,216,203,0.8);border-right:1px solid rgba(226,216,203,0.8);box-shadow:2px 0 8px rgba(180,83,9,0.04);position:relative;z-index:30;">
+            <div>
+                <!-- Brand Header -->
+                <div class="flex items-center justify-between pb-6 border-b border-border mb-6">
+                    <div class="flex items-center gap-3">
+                        <img src="./assets/logo navfooter.png" alt="Destina Logo" class="h-9 sm:h-10 w-auto object-contain">
+                    </div>
+                    <!-- Close Mobile Sidebar -->
+                    <button onclick="toggleAdminMobileMenu()" class="md:hidden text-muted hover:text-bronze text-xl p-1">
+                        &times;
+                    </button>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <nav class="space-y-1.5">
+                    <button onclick="switchAdminTab('profile')" class="admin-tab-btn active w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="profile">
+                        <i class="fa-solid fa-user w-5 text-center"></i> <span>Profil & Hero</span>
+                    </button>
+                    <button onclick="switchAdminTab('projects')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="projects">
+                        <i class="fa-solid fa-layer-group w-5 text-center"></i> <span>Proyek Karya</span>
+                    </button>
+                    <button onclick="switchAdminTab('skills')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="skills">
+                        <i class="fa-solid fa-code w-5 text-center"></i> <span>Skills & Keahlian</span>
+                    </button>
+                    <button onclick="switchAdminTab('experience')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="experience">
+                        <i class="fa-solid fa-briefcase w-5 text-center"></i> <span>Jejak Karir</span>
+                    </button>
+                    <button onclick="switchAdminTab('education')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="education">
+                        <i class="fa-solid fa-graduation-cap w-5 text-center"></i> <span>Pendidikan</span>
+                    </button>
+                    <button onclick="switchAdminTab('certifications')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="certifications">
+                        <i class="fa-solid fa-award w-5 text-center"></i> <span>Sertifikat & Piagam</span>
+                    </button>
+                    <button onclick="switchAdminTab('cloudapi')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="cloudapi">
+                        <i class="fa-solid fa-cloud w-5 text-center text-amber-600"></i> <span>Cloud API Setup</span>
+                    </button>
+                    <button onclick="switchAdminTab('firebase')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="firebase">
+                        <i class="fa-solid fa-fire w-5 text-center text-orange-500"></i> <span>Firebase Setup</span>
+                    </button>
+                    <button onclick="switchAdminTab('settings')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="settings">
+                        <i class="fa-solid fa-gear w-5 text-center"></i> <span>Backup & Reset</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Footer Quick Links -->
+            <div class="pt-6 border-t border-border space-y-3 mt-6 md:mt-0">
+                <a href="index.html" target="_blank" class="btn-bronze w-full justify-center text-xs py-2.5 shadow-sm">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Live Website
+                </a>
+                <button onclick="lockAdminCMS()" class="w-full text-center text-xs font-semibold text-muted hover:text-bronze transition-colors py-1">
+                    <i class="fa-solid fa-lock"></i> Kunci Session Admin
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 flex flex-col min-w-0" style="background:#F4EFE6;">
+            
+            <!-- TOP BAR HEADER -->
+            <header class="px-4 sm:px-8 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm" style="background:#FFFFFF;border-bottom:1px solid rgba(226,216,203,0.8);">
+                <div>
+                    <h2 id="admin-active-title" class="text-lg sm:text-xl font-extrabold font-display text-primary">Manajemen Profil & Hero Section</h2>
+                    <p class="text-xs text-muted font-medium">Kelola data portofolio personal secara real-time</p>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <span id="firebase-status-badge" class="text-[11px] sm:text-xs font-bold text-bronze bg-bronze/10 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-bronze/20 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> JSONBin Cloud Active
+                    </span>
+                    <a href="index.html" class="btn-bronze-outline text-xs py-1.5 px-3 sm:py-2 sm:px-4">
+                        <i class="fa-solid fa-globe"></i> Live Web
+                    </a>
+                </div>
+            </header>
+
+            <!-- TAB CONTENT CONTAINER -->
+            <div id="admin-content-area" class="p-4 sm:p-6 md:p-8 flex-1 overflow-y-auto" style="background:#F4EFE6;"></div>
+
+        </main>
+    </div>
+
+    <!-- Firebase JS SDK (Compatibility Mode) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="./js/firebase-config.js"></script>
+    <script src="./js/jsonbin-config.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="./js/app.js"></script>
+    <script src="./js/cms.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initFirebaseApp();
+            initAdminPage();
+        });
+        
+        function toggleAdminMobileMenu() {
+            const sidebar = document.getElementById('admin-sidebar');
+            if (sidebar) {
+                if (sidebar.classList.contains('hidden')) {
+                    sidebar.classList.remove('hidden');
+                    sidebar.classList.add('flex');
+                    // Ensure solid background when shown on mobile
+                    sidebar.style.background = '#FFFFFF';
+                    sidebar.style.borderRight = '1px solid rgba(226,216,203,0.8)';
+                } else {
+                    sidebar.classList.add('hidden');
+                    sidebar.classList.remove('flex');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

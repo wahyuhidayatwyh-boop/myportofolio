@@ -1,0 +1,6 @@
+.vercel
+*.env
+*.env.local
+js/jsonbin-config.js
+js/firebase-config.js
+deploy_repo
