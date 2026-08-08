@@ -36,7 +36,7 @@
             <h2 class="text-xl sm:text-2xl font-bold font-display text-primary mb-1">CMS Admin Security</h2>
             <p class="text-xs text-muted mb-6">Masukkan Kata Sandi / PIN Keamanan untuk mengakses Admin Dashboard</p>
 
-            <form id="cms-pin-form" class="space-y-4">
+            <form id="cms-pin-form" class="space-y-4" onsubmit="event.preventDefault();">
                 <input type="password" id="cms-pin-input"
                     class="w-full text-center text-lg font-bold tracking-widest bg-card border-2 border-border focus:border-bronze outline-none rounded-2xl py-3 text-primary transition-colors"
                     placeholder="Masukkan Kata Sandi Admin..." required>
@@ -61,6 +61,7 @@
             style="background:#FFFFFF;border-bottom:1px solid rgba(244,114,182,0.35);">
             <div class="flex items-center gap-3">
                 <img src="./assets/logo.png" alt="Logo" class="h-8 w-auto object-contain">
+                <span class="font-bold text-sm text-primary font-display">Destina Admin</span>
             </div>
             <div class="flex items-center gap-2">
                 <a href="index.html" class="text-xs font-bold text-bronze hover:underline mr-1">Live Site ↗</a>
@@ -79,6 +80,10 @@
                 <div class="flex items-center justify-between pb-6 border-b border-border mb-6">
                     <div class="flex items-center gap-3">
                         <img src="./assets/logo.png" alt="Destina Logo" class="h-9 sm:h-10 w-auto object-contain">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-sm text-primary font-display leading-tight">Destina Admin</span>
+                            <span class="text-[10px] text-bronze font-semibold uppercase tracking-wider">CMS Dashboard</span>
+                        </div>
                     </div>
                     <!-- Close Mobile Sidebar -->
                     <button onclick="toggleAdminMobileMenu()"
@@ -118,16 +123,6 @@
                         class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all"
                         data-tab="certifications">
                         <i class="fa-solid fa-award w-5 text-center"></i> <span>Sertifikat & Piagam</span>
-                    </button>
-                    <button onclick="switchAdminTab('cloudapi')"
-                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all"
-                        data-tab="cloudapi">
-                        <i class="fa-solid fa-cloud w-5 text-center text-amber-600"></i> <span>Cloud API Setup</span>
-                    </button>
-                    <button onclick="switchAdminTab('firebase')"
-                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all"
-                        data-tab="firebase">
-                        <i class="fa-solid fa-fire w-5 text-center text-orange-500"></i> <span>Firebase Setup</span>
                     </button>
                     <button onclick="switchAdminTab('settings')"
                         class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all"
@@ -182,17 +177,24 @@
     <!-- Firebase JS SDK (Compatibility Mode) -->
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-    <script src="./js/firebase-config.js"></script>
-    <script src="./js/jsonbin-config.js"></script>
-
     <!-- Application Scripts -->
     <script src="./js/app.js"></script>
     <script src="./js/cms.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            initFirebaseApp();
-            initAdminPage();
-        });
+        function runAdminInit() {
+            if (typeof initFirebaseApp === 'function') {
+                try { initFirebaseApp(); } catch (e) { console.warn(e); }
+            }
+            if (typeof initAdminPage === 'function') {
+                try { initAdminPage(); } catch (e) { console.error(e); }
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runAdminInit);
+        } else {
+            runAdminInit();
+        }
 
         function toggleAdminMobileMenu() {
             const sidebar = document.getElementById('admin-sidebar');
