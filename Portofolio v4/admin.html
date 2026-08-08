@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin CMS Dashboard - Farah Cella Personal Portfolio v4">
+    <title>Admin CMS Dashboard | Farah Cella v4</title>
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="./assets/image.png">
+
+    <!-- Google Fonts: Syne & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="admin-cms-page">
+
+    <!-- PIN SECURITY AUTH SCREEN -->
+    <div id="cms-pin-screen"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md">
+        <div class="max-w-md w-full bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl text-center">
+            <img src="./assets/image.png" alt="Farah Cella Logo" class="h-16 w-auto object-contain mx-auto mb-4"
+                onerror="this.style.display='none'">
+            <h2 class="text-2xl font-bold font-display text-slate-900 mb-1">CMS Admin Security</h2>
+            <p class="text-xs text-slate-500 mb-6">Masukkan Kata Sandi / PIN Keamanan (Default: admin123)</p>
+
+            <form id="cms-pin-form" class="space-y-4">
+                <input type="password" id="cms-pin-input"
+                    class="w-full text-center text-lg font-bold tracking-widest bg-slate-50 border-2 border-slate-200 focus:border-sky-500 outline-none rounded-2xl py-3 text-slate-900 transition-colors"
+                    placeholder="Masukkan PIN Admin..." required>
+                <button type="submit" class="btn-primary-blue w-full justify-center text-sm py-3.5 shadow-lg">
+                    <i class="fa-solid fa-key"></i> Masuk Dashboard Admin
+                </button>
+            </form>
+
+            <a href="index.html"
+                class="inline-block mt-6 text-xs font-bold text-slate-500 hover:text-sky-600 transition-colors">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Website Utama
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN ADMIN DASHBOARD LAYOUT -->
+    <div id="cms-admin-dashboard" class="hidden min-h-screen flex flex-col md:flex-row">
+
+        <!-- MOBILE NAVBAR HEADER -->
+        <div
+            class="md:hidden sticky top-0 z-40 bg-white border-b border-slate-200 p-4 flex items-center justify-between shadow-sm">
+            <div class="flex items-center gap-3">
+                <img src="./assets/image.png" alt="Farah Cella Logo" class="h-8 w-auto object-contain"
+                    onerror="this.style.display='none'">
+                <span class="font-display font-bold text-sky-600 text-sm">CMS v4</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="text-xs font-bold text-sky-600 hover:underline mr-1">Live Web ↗</a>
+                <button onclick="toggleAdminMobileMenu()" class="btn-secondary-white text-xs py-1.5 px-3">
+                    <i class="fa-solid fa-bars"></i> Navigasi
+                </button>
+            </div>
+        </div>
+
+        <!-- SIDEBAR NAVIGATION -->
+        <aside id="admin-sidebar"
+            class="hidden md:flex w-full md:w-72 bg-white border-r border-slate-200 p-6 flex-col justify-between shrink-0 shadow-sm">
+            <div>
+                <!-- Brand Header -->
+                <div class="pb-6 border-b border-slate-100 mb-6 flex items-center justify-between md:justify-center relative">
+                    <img src="./assets/image.png" alt="Farah Cella Logo" class="h-10 sm:h-12 w-auto object-contain mx-auto"
+                        onerror="this.style.display='none'">
+                    <button onclick="toggleAdminMobileMenu()"
+                        class="md:hidden absolute right-0 text-slate-400 hover:text-slate-700 text-xl">
+                        &times;
+                    </button>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <nav class="space-y-1.5">
+                    <button onclick="switchAdminTab('profile')"
+                        class="admin-tab-btn active w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm"
+                        data-tab="profile">
+                        <i class="fa-solid fa-user w-5 text-center"></i> <span>Profil & Hero</span>
+                    </button>
+                    <button onclick="switchAdminTab('services')"
+                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm"
+                        data-tab="services">
+                        <i class="fa-solid fa-bell-concierge w-5 text-center"></i> <span>Layanan & Services</span>
+                    </button>
+                    <button onclick="switchAdminTab('projects')"
+                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm"
+                        data-tab="projects">
+                        <i class="fa-solid fa-layer-group w-5 text-center"></i> <span>Proyek Karya</span>
+                    </button>
+                    <button onclick="switchAdminTab('skills')"
+                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm"
+                        data-tab="skills">
+                        <i class="fa-solid fa-code w-5 text-center"></i> <span>Skills & Keahlian</span>
+                    </button>
+                    <button onclick="switchAdminTab('experience')"
+                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm"
+                        data-tab="experience">
+                        <i class="fa-solid fa-briefcase w-5 text-center"></i> <span>Jejak Karir</span>
+                    </button>
+                    <button onclick="switchAdminTab('education')"
+                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm"
+                        data-tab="education">
+                        <i class="fa-solid fa-graduation-cap w-5 text-center"></i> <span>Pendidikan</span>
+                    </button>
+                    <button onclick="switchAdminTab('certifications')"
+                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm"
+                        data-tab="certifications">
+                        <i class="fa-solid fa-award w-5 text-center"></i> <span>Sertifikat & Piagam</span>
+                    </button>
+                    <button onclick="switchAdminTab('settings')"
+                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm"
+                        data-tab="settings">
+                        <i class="fa-solid fa-gear w-5 text-center"></i> <span>Backup & Reset</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Footer Quick Links -->
+            <div class="pt-6 border-t border-slate-100 space-y-3 mt-6">
+                <a href="index.html" target="_blank"
+                    class="btn-primary-blue w-full justify-center text-xs py-2.5 shadow-sm">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Lihat Live Website
+                </a>
+                <button onclick="lockAdminCMS()"
+                    class="w-full text-center text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors py-1">
+                    <i class="fa-solid fa-lock"></i> Kunci Session Admin
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 flex flex-col min-w-0 bg-slate-50">
+
+            <!-- TOP BAR HEADER -->
+            <header
+                class="bg-white border-b border-slate-200 px-6 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
+                <div>
+                    <h2 id="admin-active-title" class="text-xl font-bold font-display text-slate-900">Manajemen Profil &
+                        Hero Section</h2>
+                    <p class="text-xs text-slate-500">Kelola data portofolio secara real-time</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span
+                        class="text-xs font-bold text-sky-700 bg-sky-50 px-3 py-1.5 rounded-full border border-sky-200 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> LocalStorage Mode Active
+                    </span>
+                    <a href="index.html" class="btn-secondary-white text-xs py-2 px-3">
+                        <i class="fa-solid fa-globe"></i> Live Web
+                    </a>
+                </div>
+            </header>
+
+            <!-- TAB CONTENT CONTAINER -->
+            <div id="admin-content-area" class="p-6 md:p-8 flex-1 overflow-y-auto"></div>
+
+        </main>
+    </div>
+
+    <!-- Firebase JS SDK (Compatibility Mode) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="./js/firebase-config.js"></script>
+    <script src="./js/jsonbin-config.js"></script>
+
+    <!-- Application JavaScript Files -->
+    <script src="./js/app.js"></script>
+    <script src="./js/cms.js"></script>
+</body>
+
+</html>

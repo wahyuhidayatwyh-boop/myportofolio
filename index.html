@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wahyu Hidayat - Portfolio Directory Hub</title>
+    <meta name="description" content="Direktori Portal Portofolio Wahyu Hidayat. Akses semua versi portofolio (v2, v3, v4) dalam satu tempat.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: rgba(18, 24, 38, 0.7);
+            --bg-card-hover: rgba(28, 36, 56, 0.85);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.4);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.35);
+            --cyan: #06b6d4;
+            --emerald: #10b981;
+            --violet: #8b5cf6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            animation: pulseOrb 12s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            top: -10%;
+            left: 20%;
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+        }
+
+        .orb-2 {
+            bottom: 10%;
+            right: 10%;
+            width: 450px;
+            height: 450px;
+            background: var(--cyan);
+            animation-delay: -4s;
+        }
+
+        .orb-3 {
+            top: 40%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: var(--violet);
+            animation-delay: -8s;
+        }
+
+        @keyframes pulseOrb {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+            100% { transform: scale(1.15) translate(30px, -20px); opacity: 0.35; }
+        }
+
+        /* Grid lines pattern overlay */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Main Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+        }
+
+        .avatar-badge {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--violet));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #fff;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .brand-info h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .brand-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .repo-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.825rem;
+            color: var(--text-muted);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--emerald);
+            box-shadow: 0 0 10px var(--emerald);
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            color: #a5b4fc;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 70%, #67e8f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--violet));
+            color: #fff;
+            box-shadow: 0 4px 25px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Auto-redirect banner */
+        .redirect-notice {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 14px;
+            padding: 0.85rem 1.25rem;
+            margin: 0 auto 3rem auto;
+            max-width: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #a7f3d0;
+        }
+
+        .redirect-notice.hidden {
+            display: none;
+        }
+
+        .btn-sm-cancel {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-sm-cancel:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section Title */
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Versions Grid */
+        .versions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 4rem;
+        }
+
+        .version-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .version-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .version-card.featured {
+            border-color: rgba(99, 102, 241, 0.5);
+            background: linear-gradient(180deg, rgba(30, 37, 60, 0.8) 0%, rgba(18, 24, 38, 0.8) 100%);
+        }
+
+        .version-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--emerald), var(--primary), var(--cyan));
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+
+        .version-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .tag-v4 {
+            background: rgba(16, 185, 129, 0.15);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .tag-v3 {
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .tag-v2 {
+            background: rgba(6, 182, 212, 0.15);
+            color: #67e8f9;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .release-date {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .tech-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #cbd5e1;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .card-actions .btn {
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 640px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .card-actions {
+                grid-template-columns: 1fr;
+            }
+            .redirect-notice {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <a href="#" class="brand-logo">
+                <div class="avatar-badge">WH</div>
+                <div class="brand-info">
+                    <h2>Wahyu Hidayat</h2>
+                    <p>Web Developer & UI/UX Designer</p>
+                </div>
+            </a>
+            <div class="repo-status">
+                <span class="status-dot"></span>
+                <span>GitHub Pages Ready</span>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span>✨ Official Portfolio Hub</span>
+            </div>
+            <h1>Evolusi Portofolio Web Wahyu Hidayat</h1>
+            <p>
+                Selamat datang di repositori portofolio resmi. Pilih dan akses versi portofolio yang ingin Anda lihat di bawah ini. Versi terbaru <strong>Portofolio v4</strong> direkomendasikan dengan tampilan modern & CMS cloud.
+            </p>
+            <div class="quick-actions">
+                <a href="./Portofolio%20v4/index.html" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    Buka Portofolio v4 (Terbaru)
+                </a>
+                <a href="#versions" class="btn btn-secondary">
+                    Lihat Semua Versi
+                </a>
+            </div>
+        </section>
+
+        <!-- Auto Redirect Notice -->
+        <div id="redirectNotice" class="redirect-notice">
+            <div>
+                ⚡ <strong>Mengarahkan otomatis:</strong> Membuka <em>Portofolio v4 (Terbaru)</em> dalam <span id="countdown">7</span> detik...
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button id="btnGoNow" class="btn-sm-cancel" style="background: var(--emerald); color: #000; font-weight:700;">Buka Sekarang</button>
+                <button id="btnCancelRedirect" class="btn-sm-cancel">Batalkan Redirect</button>
+            </div>
+        </div>
+
+        <!-- Versions Section -->
+        <section id="versions">
+            <div class="section-header">
+                <h2>Direktori Versi Portofolio</h2>
+                <p>Klik versi yang ingin Anda jelajahi atau kelola via Admin Dashboard</p>
+            </div>
+
+            <div class="versions-grid">
+                <!-- Portofolio v4 -->
+                <div class="version-card featured">
+                    <div class="card-top">
+                        <span class="version-tag tag-v4">v4.0 • Terbaru (Rekomendasi)</span>
+                        <span class="release-date">Agustus 2026</span>
+                    </div>
+                    <h3 class="card-title">Portofolio v4</h3>
+                    <p class="card-desc">
+                        Desain Glassmorphism ultra-modern dengan dynamic theme engine (Light/Dark), CMS berbasis JSONBin Cloud API & LocalStorage fallback, animasi responsif, dan dashboard admin interaktif.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS3 Glassmorphism</span>
+                        <span class="tech-pill">JS ES6+</span>
+                        <span class="tech-pill">JSONBin REST API</span>
+                        <span class="tech-pill">CMS Engine</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="./Portofolio%20v4/index.html" class="btn btn-primary">
+                            <span>🚀 Lihat Website</span>
+                        </a>
+                        <a href="./Portofolio%20v4/admin.html" class="btn btn-secondary">
+                            <span>⚙️ Admin CMS</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portofolio v3 -->
+                <div class="version-card">
+                    <div class="card-top">
+                        <span class="version-tag tag-v3">v3.0 • Edisi Interaktif</span>
+                        <span class="release-date">2026</span>
+                    </div>
+                    <h3 class="card-title">Portofolio v3</h3>
+                    <p class="card-desc">
+                        Versi portofolio interaktif dengan dukungan filter galeri proyek, timeline pengalaman, mode gelap, dan manajemen konten CMS lokal.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS Modern</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">LocalStorage CMS</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="./Portofolio%20v3/index.html" class="btn btn-secondary">
+                            <span>🌐 Lihat Website</span>
+                        </a>
+                        <a href="./Portofolio%20v3/admin.html" class="btn btn-secondary">
+                            <span>⚙️ Admin CMS</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portofolio v2 -->
+                <div class="version-card">
+                    <div class="card-top">
+                        <span class="version-tag tag-v2">v2.0 • Klasik</span>
+                        <span class="release-date">2025</span>
+                    </div>
+                    <h3 class="card-title">Portofolio v2</h3>
+                    <p class="card-desc">
+                        Tampilan bersih dan minimalis dengan navigasi responsif, seksi keahlian, dan ringkasan bio profesional.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS3</span>
+                        <span class="tech-pill">Vanilla JS</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="./Portofolio%20v2/index.html" class="btn btn-secondary">
+                            <span>🌐 Lihat Website</span>
+                        </a>
+                        <a href="./Portofolio%20v2/admin.html" class="btn btn-secondary">
+                            <span>⚙️ Admin CMS</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div>
+                © 2026 <strong>Wahyu Hidayat</strong>. All rights reserved.
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/wahyuhidayatwyh-boop/myportofolio" target="_blank" rel="noopener">GitHub Repository</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Auto redirect timer logic
+        let timeLeft = 7;
+        const countdownEl = document.getElementById('countdown');
+        const noticeEl = document.getElementById('redirectNotice');
+        const cancelBtn = document.getElementById('btnCancelRedirect');
+        const goNowBtn = document.getElementById('btnGoNow');
+
+        // Check if user disabled auto-redirect previously
+        if (localStorage.getItem('disable_hub_redirect') === 'true') {
+            noticeEl.classList.add('hidden');
+        } else {
+            const timer = setInterval(() => {
+                timeLeft--;
+                if (countdownEl) countdownEl.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    window.location.href = './Portofolio%20v4/index.html';
+                }
+            }, 1000);
+
+            cancelBtn.addEventListener('click', () => {
+                clearInterval(timer);
+                noticeEl.classList.add('hidden');
+                localStorage.setItem('disable_hub_redirect', 'true');
+            });
+
+            goNowBtn.addEventListener('click', () => {
+                clearInterval(timer);
+                window.location.href = './Portofolio%20v4/index.html';
+            });
+        }
+    </script>
+</body>
+</html>

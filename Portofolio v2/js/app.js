@@ -21,14 +21,14 @@ let currentCertificationPage = 1;
 const CERTIFICATIONS_PER_PAGE = 3;
 
 // --------------------------------------------------------------------------
-// 1. FULL STATIC DUMMY DATASET TEMPLATE (DESTINA NATASYA PINK TEMA)
+// 1. FULL STATIC DUMMY DATASET TEMPLATE (MegaChan Cella PINK TEMA)
 // --------------------------------------------------------------------------
 const DEFAULT_PORTFOLIO_DATA = {
     updatedAt: Date.now(),
     profile: {
-        name: "Destina Natasya",
+        name: "MegaChan Cella",
         title: "Senior Full Stack Web Developer & UI/UX Specialist",
-        heroBio: "Hello, I'm Destina Natasya, a developer & UI/UX specialist based in Indonesia. I transform ideas into impactful designs and bring them to life through creative collaboration.",
+        heroBio: "Hello, I'm MegaChan Cella, a developer & UI/UX specialist based in Indonesia. I transform ideas into impactful designs and bring them to life through creative collaboration.",
         tagline: "I turn innovative ideas into designs that inspire action and drive results.",
         aboutSubtitle: "Behind The Code",
         aboutTitle: "Crafting Exceptional Digital Experiences Through Clean Code & Visual Elegance.",
@@ -271,7 +271,7 @@ function getPortfolioData() {
         if (!parsed.certifications || parsed.certifications.length === 0) parsed.certifications = DEFAULT_PORTFOLIO_DATA.certifications;
         if (!parsed.profile) parsed.profile = DEFAULT_PORTFOLIO_DATA.profile;
         if (!parsed.updatedAt) parsed.updatedAt = Date.now();
-        
+
         localStorage.setItem('destina_portfolio_db', JSON.stringify(parsed));
         return parsed;
     } catch (e) {
@@ -285,7 +285,7 @@ function getPortfolioData() {
 function savePortfolioData(data) {
     data.updatedAt = Date.now();
     localStorage.setItem('destina_portfolio_db', JSON.stringify(data));
-    
+
     // Auto-sync to Firebase Firestore if connected
     if (typeof isFirebaseConnected !== 'undefined' && isFirebaseConnected && dbFirestore) {
         dbFirestore.collection('portfolio').doc('db').set(data)
@@ -311,7 +311,7 @@ function resetPortfolioData() {
     currentExperiencePage = 1;
     currentEducationPage = 1;
     currentCertificationPage = 1;
-    
+
     if (typeof saveToJSONBinCloud === 'function') {
         saveToJSONBinCloud(cleanData);
     }
@@ -330,17 +330,17 @@ function renderAllPortfolioSections() {
     // 1. Footer Brand Name
 
     const footerBrand = document.getElementById('footer-brand-name');
-    if (footerBrand) footerBrand.textContent = (prof.name || "DESTINA NATASYA").toUpperCase();
+    if (footerBrand) footerBrand.textContent = (prof.name || "MegaChan Cella").toUpperCase();
 
     const footerCopy = document.getElementById('footer-copyright-text');
-    if (footerCopy) footerCopy.textContent = `© 2026 ${prof.name || 'Destina Natasya'}. All rights reserved.`;
+    if (footerCopy) footerCopy.textContent = `© 2026 ${prof.name || 'MegaChan Cella'}. All rights reserved.`;
 
     // 2. Editorial Hero Section Data
     const bgName = document.getElementById('hero-name-bg');
-    if (bgName) bgName.textContent = (prof.name || "DESTINA NATASYA").toUpperCase();
+    if (bgName) bgName.textContent = (prof.name || "MegaChan Cella").toUpperCase();
 
     const titleName = document.getElementById('hero-title-name');
-    if (titleName) titleName.textContent = "Halo, Saya " + (prof.name || "DESTINA NATASYA");
+    if (titleName) titleName.textContent = "Halo, Saya " + (prof.name || "MegaChan Cella");
 
     const heroBgPhoto = document.getElementById('hero-bg-photo');
     if (heroBgPhoto) {
@@ -367,7 +367,7 @@ function renderAllPortfolioSections() {
 
     const aboutDesc = document.getElementById('about-description');
     if (aboutDesc) aboutDesc.textContent = prof.about || "Deskripsi profil Anda.";
-    
+
     const aboutPhoto = document.getElementById('about-photo');
     if (aboutPhoto) {
         aboutPhoto.src = prof.aboutPhoto || prof.heroBgPhoto || "./assets/foto.png";
@@ -389,7 +389,7 @@ function renderAllPortfolioSections() {
         emailLink.href = `mailto:${prof.email || ''}`;
         document.getElementById('contact-email-text').textContent = prof.email || '';
     }
-    
+
     const waPhone = prof.whatsapp || prof.phone || '';
     const waLink = document.getElementById('contact-wa-link');
     if (waLink) {
@@ -909,7 +909,7 @@ ${(db.certifications || []).map(c => `
 
 document.addEventListener('DOMContentLoaded', async () => {
     initThemeEngine();
-    
+
     // 1. Initial Render from LocalStorage immediately
     renderAllPortfolioSections();
     initScrollAnimations();

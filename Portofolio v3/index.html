@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="id" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Destina Natasya - High-End Editorial Personal Portfolio & Interactive CMS.">
-    <meta name="author" content="Destina Natasya">
-    <title>Destina Natasya | Personal Portfolio</title>
+    <meta name="description" content="MegaChan Cella - High-End Editorial Personal Portfolio & Interactive CMS.">
+    <meta name="author" content="MegaChan Cella">
+    <title>MegaChan Cella | Personal Portfolio</title>
 
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" href="./assets/logo tab chrome.png">
-    
+
     <!-- Google Fonts: Montserrat, Inter & Caveat Signature Script -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body class="relative">
 
     <!-- Minimalist Navbar -->
@@ -36,7 +40,8 @@
             <!-- Action Controls -->
             <div class="flex items-center space-x-4">
                 <a href="admin.html" class="cms-trigger-btn flex items-center gap-2">
-                    <img src="./assets/logo navfooter.png" alt="Admin Logo" class="h-5 w-auto object-contain" onerror="this.style.display='none'">
+                    <img src="./assets/logo navfooter.png" alt="Admin Logo" class="h-5 w-auto object-contain"
+                        onerror="this.style.display='none'">
                     <span class="hidden sm:inline">Admin CMS</span>
                 </a>
                 <button onclick="toggleMobileMenu()" class="nav-pill-menu-btn">
@@ -46,15 +51,18 @@
         </div>
 
         <!-- Hidden Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden max-w-7xl mx-auto bg-card border border-border rounded-2xl p-5 mt-3 flex flex-col space-y-2.5 shadow-xl">
+        <div id="mobile-menu"
+            class="hidden max-w-7xl mx-auto bg-card border border-border rounded-2xl p-5 mt-3 flex flex-col space-y-2.5 shadow-xl">
             <a href="#home" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5">Home</a>
             <a href="#about" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5">About Me</a>
             <a href="#projects" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5">Featured Projects</a>
             <a href="#skills" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5">Technical Skills</a>
             <a href="#experience" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5">Work Experience</a>
-            <a href="#education" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5">Education & Certificates</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5">Education &
+                Certificates</a>
             <a href="#contact" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5">Contact</a>
-            <a href="admin.html" onclick="toggleMobileMenu()" class="nav-link text-sm py-1.5 text-bronze font-bold">Admin CMS Dashboard ↗</a>
+            <a href="admin.html" onclick="toggleMobileMenu()"
+                class="nav-link text-sm py-1.5 text-bronze font-bold">Admin CMS Dashboard ↗</a>
         </div>
     </nav>
 
@@ -67,39 +75,57 @@
         </div>
 
         <!-- Giant Background Typography -->
-        <h1 id="hero-name-bg" class="hero-giant-bg-text">DESTINA NATASYA</h1>
+        <h1 id="hero-name-bg" class="hero-giant-bg-text">MegaChan Cella</h1>
 
         <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex-1 flex items-center relative z-10 py-12 lg:py-20">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
-                
+
                 <!-- LEFT COLUMN: 50% Focused Typography & Text Content -->
                 <div class="lg:col-span-6 flex flex-col justify-center space-y-5 fade-in-up">
-                    <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-bronze/10 border border-bronze/20 text-bronze text-xs font-extrabold uppercase tracking-wider w-fit shadow-sm backdrop-blur-md">
-                        <span class="w-2.5 h-2.5 rounded-full bg-bronze animate-pulse"></span> <span class="font-script text-base normal-case tracking-normal text-bronze font-bold">Executive Personal Portfolio</span>
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-bronze/10 border border-bronze/20 text-bronze text-xs font-extrabold uppercase tracking-wider w-fit shadow-sm backdrop-blur-md">
+                        <span class="w-2.5 h-2.5 rounded-full bg-bronze animate-pulse"></span> <span
+                            class="font-script text-base normal-case tracking-normal text-bronze font-bold">Executive
+                            Personal Portfolio</span>
                     </div>
-                    
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-primary leading-[1.1] tracking-tight">
-                        <span class="font-script text-4xl sm:text-5xl lg:text-6xl text-bronze font-normal block mb-1">Halo, Saya</span>
-                        <span id="hero-title-name" class="text-primary font-bold">DESTINA NATASYA</span>
+
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-primary leading-[1.1] tracking-tight">
+                        <span
+                            class="font-script text-4xl sm:text-5xl lg:text-6xl text-bronze font-normal block mb-1">Halo,
+                            Saya</span>
+                        <span id="hero-title-name" class="text-primary font-bold">MegaChan Cella</span>
                     </h1>
 
-                    <p id="hero-bio-left" class="hero-bio-text text-base sm:text-lg text-secondary leading-relaxed max-w-xl font-medium"></p>
+                    <p id="hero-bio-left"
+                        class="hero-bio-text text-base sm:text-lg text-secondary leading-relaxed max-w-xl font-medium">
+                    </p>
 
-                    <p id="hero-tagline-right" class="hero-subtag-text text-sm sm:text-base text-muted font-medium max-w-lg"></p>
+                    <p id="hero-tagline-right"
+                        class="hero-subtag-text text-sm sm:text-base text-muted font-medium max-w-lg"></p>
 
                     <!-- Minimalist Stat Counters Row in Hero -->
                     <div class="grid grid-cols-3 gap-4 py-3 border-y border-border/80 max-w-lg">
                         <div>
-                            <span id="stat-years-exp" class="text-2xl sm:text-3xl font-extrabold font-display text-bronze">04+</span>
-                            <p id="stat-years-exp-label" class="text-[10px] sm:text-xs text-muted font-bold uppercase tracking-wider mt-0.5">Tahun Pengalaman</p>
+                            <span id="stat-years-exp"
+                                class="text-2xl sm:text-3xl font-extrabold font-display text-bronze">04+</span>
+                            <p id="stat-years-exp-label"
+                                class="text-[10px] sm:text-xs text-muted font-bold uppercase tracking-wider mt-0.5">
+                                Tahun Pengalaman</p>
                         </div>
                         <div>
-                            <span id="stat-projects-done" class="text-2xl sm:text-3xl font-extrabold font-display text-bronze">25+</span>
-                            <p id="stat-projects-done-label" class="text-[10px] sm:text-xs text-muted font-bold uppercase tracking-wider mt-0.5">Proyek Selesai</p>
+                            <span id="stat-projects-done"
+                                class="text-2xl sm:text-3xl font-extrabold font-display text-bronze">25+</span>
+                            <p id="stat-projects-done-label"
+                                class="text-[10px] sm:text-xs text-muted font-bold uppercase tracking-wider mt-0.5">
+                                Proyek Selesai</p>
                         </div>
                         <div>
-                            <span id="stat-happy-clients" class="text-2xl sm:text-3xl font-extrabold font-display text-bronze">15+</span>
-                            <p id="stat-happy-clients-label" class="text-[10px] sm:text-xs text-muted font-bold uppercase tracking-wider mt-0.5">Klien Puas</p>
+                            <span id="stat-happy-clients"
+                                class="text-2xl sm:text-3xl font-extrabold font-display text-bronze">15+</span>
+                            <p id="stat-happy-clients-label"
+                                class="text-[10px] sm:text-xs text-muted font-bold uppercase tracking-wider mt-0.5">
+                                Klien Puas</p>
                         </div>
                     </div>
 
@@ -107,12 +133,14 @@
                         <a href="#projects" class="btn-bronze shadow-lg">
                             <i class="fa-solid fa-layer-group"></i> Lihat Karya Proyek
                         </a>
-                        <a href="#about" class="scroll-down-link text-sm font-semibold text-secondary hover:text-bronze flex items-center gap-2">
+                        <a href="#about"
+                            class="scroll-down-link text-sm font-semibold text-secondary hover:text-bronze flex items-center gap-2">
                             <span>(Scroll down)</span> <i class="fa-solid fa-arrow-down text-xs"></i>
                         </a>
                     </div>
 
-                    <span id="hero-copyright-tag" class="text-xs text-muted block pt-2 font-semibold opacity-80">© 2026</span>
+                    <span id="hero-copyright-tag" class="text-xs text-muted block pt-2 font-semibold opacity-80">©
+                        2026</span>
                 </div>
 
                 <!-- RIGHT COLUMN: 50% Photo Visual Space -->
@@ -128,23 +156,26 @@
     <!-- 2. Clean Minimalist About Me Section (Behind The Code) -->
     <section id="about" class="portfolio-section">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
+
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- Left Showcase Photo Container -->
                 <div class="lg:col-span-5 fade-in-up">
                     <div class="relative rounded-3xl overflow-hidden shadow-xl border border-border group">
-                        <img id="about-photo" src="./assets/foto.png" class="w-full h-[460px] object-cover object-top group-hover:scale-105 transition-transform duration-700">
-                        <span class="nav-pill-menu-btn absolute top-4 left-4 text-xs py-1 px-3 shadow-lg">01 / ABOUT</span>
+                        <img id="about-photo" src="./assets/foto.png"
+                            class="w-full h-[460px] object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                        <span class="nav-pill-menu-btn absolute top-4 left-4 text-xs py-1 px-3 shadow-lg">01 /
+                            ABOUT</span>
                     </div>
                 </div>
 
                 <!-- Right Clean Minimalist Content -->
                 <div class="lg:col-span-7 space-y-6 fade-in-up">
                     <span id="about-subtitle-tag" class="section-subtitle">Behind The Code</span>
-                    <h2 id="about-title-heading" class="text-3xl sm:text-4xl font-display font-bold text-primary leading-tight">
+                    <h2 id="about-title-heading"
+                        class="text-3xl sm:text-4xl font-display font-bold text-primary leading-tight">
                         Crafting Exceptional Digital Experiences Through Clean Code & Visual Elegance.
                     </h2>
-                    
+
                     <p id="about-description" class="text-secondary leading-relaxed text-base sm:text-lg"></p>
 
                     <!-- Action Link -->
@@ -169,7 +200,7 @@
                 <span class="section-subtitle">Galeri Foto Karya</span>
                 <h2 class="section-title">Featured Projects</h2>
             </div>
-            
+
             <div id="projects-grid"></div>
             <div id="projects-pagination"></div>
         </div>
@@ -212,7 +243,7 @@
     <!-- 6. Education (Cards) & Certifications (Photo Showcase) (3 PER PAGE EACH) -->
     <section id="education" class="portfolio-section">
         <div class="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
-            
+
             <!-- Part A: Education Cards -->
             <div>
                 <div class="section-title-wrapper">
@@ -244,7 +275,7 @@
     <!-- 7. High-End Editorial Contact Section -->
     <section id="contact" class="portfolio-section">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
+
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- Left Minimalist Editorial Direct Contact -->
                 <div class="lg:col-span-6 space-y-6 fade-in-up">
@@ -253,26 +284,36 @@
                         Let's Build Something Extraordinary Together.
                     </h2>
                     <p class="text-secondary text-base leading-relaxed max-w-lg">
-                        Punya ide proyek menarik atau ingin berkolaborasi? Jangan ragu untuk menghubungi saya secara langsung melalui kontak di bawah ini.
+                        Punya ide proyek menarik atau ingin berkolaborasi? Jangan ragu untuk menghubungi saya secara
+                        langsung melalui kontak di bawah ini.
                     </p>
 
                     <!-- Large Clean Email Link -->
                     <div class="pt-4">
-                        <span class="text-xs font-bold text-muted uppercase tracking-widest block mb-2">Direct Email Address</span>
-                        <a id="contact-email-link" href="#" class="text-xl sm:text-2xl font-bold font-display text-bronze hover:underline break-all">
+                        <span class="text-xs font-bold text-muted uppercase tracking-widest block mb-2">Direct Email
+                            Address</span>
+                        <a id="contact-email-link" href="#"
+                            class="text-xl sm:text-2xl font-bold font-display text-bronze hover:underline break-all">
                             <span id="contact-email-text"></span>
                         </a>
                     </div>
 
                     <!-- Clean WhatsApp & Social Buttons -->
                     <div class="flex flex-wrap items-center gap-4 pt-2">
-                        <a id="contact-wa-link" href="#" target="_blank" class="btn-bronze inline-flex items-center gap-2">
+                        <a id="contact-wa-link" href="#" target="_blank"
+                            class="btn-bronze inline-flex items-center gap-2">
                             <i class="fa-brands fa-whatsapp text-lg"></i> <span id="contact-wa-text"></span>
                         </a>
                         <div class="flex items-center gap-3">
-                            <a id="social-github" href="#" target="_blank" class="w-10 h-10 rounded-full border border-border bg-card text-primary flex items-center justify-center hover:border-bronze hover:text-bronze transition-all"><i class="fa-brands fa-github"></i></a>
-                            <a id="social-linkedin" href="#" target="_blank" class="w-10 h-10 rounded-full border border-border bg-card text-primary flex items-center justify-center hover:border-bronze hover:text-bronze transition-all"><i class="fa-brands fa-linkedin"></i></a>
-                            <a id="social-instagram" href="#" target="_blank" class="w-10 h-10 rounded-full border border-border bg-card text-primary flex items-center justify-center hover:border-bronze hover:text-bronze transition-all"><i class="fa-brands fa-instagram"></i></a>
+                            <a id="social-github" href="#" target="_blank"
+                                class="w-10 h-10 rounded-full border border-border bg-card text-primary flex items-center justify-center hover:border-bronze hover:text-bronze transition-all"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a id="social-linkedin" href="#" target="_blank"
+                                class="w-10 h-10 rounded-full border border-border bg-card text-primary flex items-center justify-center hover:border-bronze hover:text-bronze transition-all"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            <a id="social-instagram" href="#" target="_blank"
+                                class="w-10 h-10 rounded-full border border-border bg-card text-primary flex items-center justify-center hover:border-bronze hover:text-bronze transition-all"><i
+                                    class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -281,18 +322,28 @@
                 <div class="lg:col-span-6 p-8 md:p-10 rounded-3xl border border-border bg-card shadow-md fade-in-up">
                     <form id="contact-form" class="space-y-6">
                         <div>
-                            <label class="text-xs font-extrabold text-muted uppercase tracking-wider block mb-2">Nama Anda</label>
-                            <input type="text" id="contact-name" class="w-full bg-transparent border-b-2 border-border focus:border-bronze outline-none py-2 text-primary font-medium transition-colors" placeholder="Masukkan nama Anda" required>
+                            <label class="text-xs font-extrabold text-muted uppercase tracking-wider block mb-2">Nama
+                                Anda</label>
+                            <input type="text" id="contact-name"
+                                class="w-full bg-transparent border-b-2 border-border focus:border-bronze outline-none py-2 text-primary font-medium transition-colors"
+                                placeholder="Masukkan nama Anda" required>
                         </div>
                         <div>
-                            <label class="text-xs font-extrabold text-muted uppercase tracking-wider block mb-2">Alamat Email</label>
-                            <input type="email" id="contact-email" class="w-full bg-transparent border-b-2 border-border focus:border-bronze outline-none py-2 text-primary font-medium transition-colors" placeholder="nama@email.com" required>
+                            <label class="text-xs font-extrabold text-muted uppercase tracking-wider block mb-2">Alamat
+                                Email</label>
+                            <input type="email" id="contact-email"
+                                class="w-full bg-transparent border-b-2 border-border focus:border-bronze outline-none py-2 text-primary font-medium transition-colors"
+                                placeholder="nama@email.com" required>
                         </div>
                         <div>
-                            <label class="text-xs font-extrabold text-muted uppercase tracking-wider block mb-2">Detail Pesan / Proyek</label>
-                            <textarea id="contact-message" class="w-full bg-transparent border-b-2 border-border focus:border-bronze outline-none py-2 text-primary font-medium transition-colors" rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                            <label class="text-xs font-extrabold text-muted uppercase tracking-wider block mb-2">Detail
+                                Pesan / Proyek</label>
+                            <textarea id="contact-message"
+                                class="w-full bg-transparent border-b-2 border-border focus:border-bronze outline-none py-2 text-primary font-medium transition-colors"
+                                rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
                         </div>
-                        <button type="submit" class="btn-bronze w-full justify-center text-sm font-bold uppercase tracking-wider py-3.5 shadow-lg">
+                        <button type="submit"
+                            class="btn-bronze w-full justify-center text-sm font-bold uppercase tracking-wider py-3.5 shadow-lg">
                             <i class="fa-solid fa-paper-plane"></i> Kirim Pesan Sekarang
                         </button>
                     </form>
@@ -306,17 +357,24 @@
     <footer class="bg-card text-primary py-12 border-t border-border">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-3">
-                <img src="./assets/logo navfooter.png" alt="Destina Logo" class="h-10 w-auto object-contain" onerror="this.style.display='none'">
+                <img src="./assets/logo navfooter.png" alt="Destina Logo" class="h-10 w-auto object-contain"
+                    onerror="this.style.display='none'">
                 <div>
-                    <p id="footer-brand-name" class="font-display text-xl font-bold uppercase tracking-wider text-bronze">DESTINA NATASYA</p>
-                    <p class="font-script text-base text-bronze font-semibold -mt-1 block">Executive Personal Portfolio</p>
-                    <p id="footer-copyright-text" class="text-xs text-muted mt-0.5">© 2026 Destina Natasya. All rights reserved.</p>
+                    <p id="footer-brand-name"
+                        class="font-display text-xl font-bold uppercase tracking-wider text-bronze">MegaChan Cella</p>
+                    <p class="font-script text-base text-bronze font-semibold -mt-1 block">Executive Personal Portfolio
+                    </p>
+                    <p id="footer-copyright-text" class="text-xs text-muted mt-0.5">© 2026 MegaChan Cella. All rights
+                        reserved.</p>
                 </div>
             </div>
             <div class="flex items-center space-x-6 text-xl">
-                <a id="footer-github" href="#" target="_blank" class="hover:text-bronze transition-colors"><i class="fa-brands fa-github"></i></a>
-                <a id="footer-linkedin" href="#" target="_blank" class="hover:text-bronze transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                <a id="footer-instagram" href="#" target="_blank" class="hover:text-bronze transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a id="footer-github" href="#" target="_blank" class="hover:text-bronze transition-colors"><i
+                        class="fa-brands fa-github"></i></a>
+                <a id="footer-linkedin" href="#" target="_blank" class="hover:text-bronze transition-colors"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a id="footer-instagram" href="#" target="_blank" class="hover:text-bronze transition-colors"><i
+                        class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
     </footer>
@@ -350,4 +408,5 @@
         }
     </script>
 </body>
+
 </html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farah Cella - Senior Full Stack Developer & UI/UX Specialist Portfolio v4.">
+    <meta name="author" content="Farah Cella">
+    <title>Farah Cella | Executive Personal Portfolio</title>
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="./assets/image.png">
+
+    <!-- Google Fonts: Manrope (Headings & Body) & Caveat (Script Signature) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Manrope:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style Sheet (Airy Light Blue UI Design System) -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="relative">
+
+    <!-- Minimalist Navbar -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3">
+                <img src="./assets/image.png" alt="Farah Cella Logo" class="h-9 sm:h-10 w-auto object-contain">
+            </a>
+
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-sm">Home</a>
+                <a href="#services" class="nav-link text-sm">Services</a>
+                <a href="#about" class="nav-link text-sm">About Me</a>
+                <a href="#skills" class="nav-link text-sm">Tools & Skills</a>
+                <a href="#projects" class="nav-link text-sm">Projects</a>
+                <a href="#experience" class="nav-link text-sm">Experience</a>
+                <a href="#contact" class="nav-link text-sm">Contact</a>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex items-center space-x-4">
+                <a href="admin.html" class="btn-navbar-pill">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>Admin CMS</span>
+                </a>
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-700 text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Hidden Mobile Dropdown Menu -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden max-w-7xl mx-auto bg-white border border-slate-200 rounded-2xl p-5 mt-3 flex flex-col space-y-3 shadow-xl">
+            <a href="#home" onclick="toggleMobileMenu()" class="nav-link text-sm py-1">Home</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="nav-link text-sm py-1">Services I Provide</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="nav-link text-sm py-1">About Me</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="nav-link text-sm py-1">Tools & Technical Skills</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="nav-link text-sm py-1">Featured Projects</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="nav-link text-sm py-1">Work Experience</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="nav-link text-sm py-1">Education &
+                Certifications</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="nav-link text-sm py-1">Contact</a>
+            <a href="admin.html" onclick="toggleMobileMenu()" class="nav-link text-sm py-1 text-sky-600 font-bold">Admin
+                CMS Dashboard ↗</a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="home" class="hero-volume-one">
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left Column Content -->
+                <div class="lg:col-span-7 flex flex-col space-y-6 fade-in-up">
+                    <div>
+                        <span class="hero-tag-pill-cyan">Senior Full Stack Developer & UI/UX Specialist</span>
+                        <h1 class="hero-title-volume">
+                            Executive Personal<br>
+                            Portfolio <span id="hero-title-name" class="text-sky-500 font-display">😊</span>
+                        </h1>
+                    </div>
+
+                    <p id="hero-bio-left" class="text-secondary text-base sm:text-lg leading-relaxed max-w-xl">
+                        I'm Farah Cella, an experienced Full Stack Web Developer & UI/UX Specialist with 4+ years
+                        building high-performance web applications and digital products.
+                    </p>
+
+                    <!-- CTA Row -->
+                    <div class="flex flex-wrap items-center gap-4 pt-1">
+                        <a href="#projects" class="btn-primary-sky">
+                            <span>Lihat Proyek Karya</span>
+                        </a>
+                        <a href="#contact" class="btn-secondary-promo">
+                            <div class="play-icon-circle-blue"><i class="fa-solid fa-play"></i></div>
+                            <span>Watch Live Demo</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Proof Rating Row -->
+                    <div class="social-proof-row pt-2">
+                        <div class="avatar-stack">
+                            <img src="./assets/foto.png" class="avatar-stack-img" alt="Client 1">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+                                class="avatar-stack-img" alt="Client 2">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+                                class="avatar-stack-img" alt="Client 3">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
+                                class="avatar-stack-img" alt="Client 4">
+                        </div>
+                        <div>
+                            <div class="stars-rating-gold">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-600 block mt-0.5">Join 25+ completed projects
+                                & happy clients</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Visual: Organic Sky Backdrop & 3 Floating Cards -->
+                <div class="lg:col-span-5 fade-in-up">
+                    <div class="hero-visual-volume">
+                        <div class="hero-sky-bg-curve"></div>
+                        <img id="hero-photo-img" src="./assets/foto.png" alt="Farah Cella" class="hero-person-cutout"
+                            onerror="this.src='./assets/foto.png'">
+
+                        <!-- Floating Card 1: Freedom Badge (Top Left) -->
+                        <div class="hero-card-float-top">
+                            <div
+                                class="w-7 h-7 rounded-full bg-sky-100 text-sky-500 flex items-center justify-center text-xs shrink-0">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <span>Delivering top-tier web experiences 💙</span>
+                        </div>
+
+                        <!-- Floating Card 2: Analytics Growth (Middle Right) -->
+                        <div class="hero-card-float-chart">
+                            <span class="text-[10px] font-bold text-slate-400 block uppercase">Monthly Metrics</span>
+                            <span class="text-base font-extrabold text-slate-900 block">$8,750</span>
+                            <span class="text-[10px] font-bold text-emerald-500 block mb-1">+28% this month</span>
+                            <svg class="w-full h-8 text-sky-500" viewBox="0 0 100 30" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M0 25 Q 25 15, 50 18 T 100 5" stroke-linecap="round" />
+                            </svg>
+                        </div>
+
+                        <!-- Floating Card 3: Testimonial Review (Bottom Right) -->
+                        <div class="hero-card-float-review">
+                            <div class="flex items-center gap-2 mb-1">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80"
+                                    class="w-7 h-7 rounded-full object-cover" alt="Reviewer">
+                                <div>
+                                    <span class="text-[11px] font-bold text-slate-900 block leading-tight">Jenna
+                                        B.</span>
+                                    <div class="stars-rating-gold text-[8px]"><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p class="text-[10px] text-slate-600 italic leading-snug">"Farah built an amazing platform
+                                for us. Highly recommended!"</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Tech Stack & Logos Bar (PAGE 2 - POLOS PUTIH BERSIH) -->
+    <div class="tech-logos-section">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-4">Trusted by startups,
+                companies, & clients worldwide</span>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <div class="tech-logo-pill"><i class="fa-brands fa-react text-sky-500"></i> React.js</div>
+                <div class="tech-logo-pill"><i class="fa-brands fa-js text-slate-800"></i> Next.js</div>
+                <div class="tech-logo-pill"><i class="fa-brands fa-node-js text-emerald-600"></i> Node.js</div>
+                <div class="tech-logo-pill"><i class="fa-solid fa-code text-blue-600"></i> TypeScript</div>
+                <div class="tech-logo-pill"><i class="fa-solid fa-palette text-sky-400"></i> Tailwind CSS</div>
+                <div class="tech-logo-pill"><i class="fa-brands fa-aws text-amber-500"></i> AWS Cloud</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. SERVICES SECTION (PAGINATED 3 PER PAGE) -->
+    <section id="services" class="portfolio-section bg-slate-50/40 py-16 relative border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span
+                    class="text-xs font-extrabold text-sky-600 uppercase tracking-widest block mb-2 px-3.5 py-1 bg-sky-100/80 rounded-full w-fit mx-auto border border-sky-200">Services
+                    & Solutions</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900 leading-tight">
+                    Everything you need to build a <span class="text-sky-600">successful digital product</span>
+                </h2>
+            </div>
+
+            <!-- COMPACT DYNAMIC GRID (3 ITEMS PER PAGE) -->
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <!-- Dynamically rendered by renderServices in app.js -->
+            </div>
+
+            <!-- PAGINATION CONTROLS -->
+            <div id="services-pagination" class="mt-8 flex justify-center"></div>
+        </div>
+    </section>
+
+    <!-- 4. Featured Sky Blue Banner About Section -->
+    <section id="about" class="portfolio-section py-12">
+        <div class="max-w-[1380px] w-full mx-auto px-4 md:px-8">
+            <div class="sky-blue-banner-card">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+
+                    <!-- Left Photo Frame Box -->
+                    <div class="lg:col-span-3 fade-in-up">
+                        <div class="banner-photo-frame">
+                            <img id="about-photo-img" src="./assets/foto.png" alt="Farah Cella"
+                                class="banner-photo-img" onerror="this.src='./assets/foto.png'">
+                        </div>
+                    </div>
+
+                    <!-- Middle Content -->
+                    <div class="lg:col-span-6 space-y-3 fade-in-up">
+                        <span class="text-[11px] font-bold text-sky-100 uppercase tracking-widest block">Meet Your
+                            Specialist</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-white">
+                            Hi, I'm Farah! 😊
+                        </h2>
+                        <p id="about-description" class="text-sky-50 text-xs sm:text-sm leading-relaxed max-w-xl">
+                            Saya memiliki pengalaman lebih dari 4 tahun dalam merancang dan mengembangkan sistem
+                            aplikasi web modern. Spesialisasi saya meliputi arsitektur frontend dengan React.js/Next.js,
+                            backend RESTful microservices, serta optimasi UI/UX yang elegan & responsif.
+                        </p>
+                        <div class="pt-1.5">
+                            <a href="#contact" class="btn-banner-white">
+                                <span>Learn More About Farah</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Vertical Checklist -->
+                    <div
+                        class="lg:col-span-3 space-y-2.5 pt-3 lg:pt-0 border-t lg:border-t-0 lg:border-l border-white/20 lg:pl-6 fade-in-up">
+                        <div class="banner-check-item">
+                            <div class="banner-check-icon"><i class="fa-solid fa-check"></i></div>
+                            <span>04+ Years Experience</span>
+                        </div>
+                        <div class="banner-check-item">
+                            <div class="banner-check-icon"><i class="fa-solid fa-check"></i></div>
+                            <span>25+ Completed Projects</span>
+                        </div>
+                        <div class="banner-check-item">
+                            <div class="banner-check-icon"><i class="fa-solid fa-check"></i></div>
+                            <span>Proven Systems Architecture</span>
+                        </div>
+                        <div class="banner-check-item">
+                            <div class="banner-check-icon"><i class="fa-solid fa-check"></i></div>
+                            <span>Real-World Enterprise Exp</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Tools & Technical Skills Section (PAGE 5 - BERTEKSTUR FULL COVER) -->
+    <section id="skills" class="portfolio-section bg-slate-50/50 section-textured">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-1">- Technical
+                    Mastery</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900">Technical Skills & Keahlian
+                </h2>
+            </div>
+
+            <div id="skills-container-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+            <div id="skills-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 6. Featured Projects Section (PAGE 6 - POLOS PUTIH BERSIH) -->
+    <section id="projects" class="portfolio-section">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-1">- Portfolio
+                    Showcase</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900">Featured Projects</h2>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+            <div id="projects-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 7. Work Experience Section (PAGE 7 - BERTEKSTUR FULL COVER) -->
+    <section id="experience" class="portfolio-section bg-slate-50/50 section-textured">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-1">- Career Path</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900">Work Experience</h2>
+            </div>
+
+            <div id="experience-timeline" class="max-w-4xl mx-auto"></div>
+            <div id="experience-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 8. Education & Certifications Section (PAGE 8 - POLOS PUTIH BERSIH) -->
+    <section id="education" class="portfolio-section">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+
+            <!-- Education Horizontal Round Flowing Section -->
+            <div>
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span
+                        class="text-xs font-extrabold text-sky-600 uppercase tracking-widest block mb-2 px-3.5 py-1 bg-sky-100/80 rounded-full w-fit mx-auto border border-sky-200">
+                        <i class="fa-solid fa-graduation-cap mr-1"></i> Academic Flow Roadmap
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900 leading-tight">
+                        Pendidikan & <span class="text-sky-600">Kualifikasi Formal</span>
+                    </h2>
+                </div>
+
+                <!-- Dynamic Horizontal/Vertical Flow Container -->
+                <div class="relative max-w-6xl mx-auto py-4">
+                    <!-- Dynamic Grid/Flex of Round Cards -->
+                    <div id="education-cards-grid"
+                        class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-3 relative z-10 w-full">
+                    </div>
+                </div>
+
+                <div id="education-pagination" class="mt-8 flex justify-center"></div>
+            </div>
+
+            <!-- Certifications Showcase -->
+            <div>
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block mb-1">- Verified
+                        Awards</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900">Certifications & Awards
+                    </h2>
+                </div>
+                <div id="certifications-photos-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+                <div id="certifications-pagination"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. Direct Contact Section (PAGE 9 - BERTEKSTUR FULL COVER) -->
+    <section id="contact" class="portfolio-section bg-slate-50/50 section-textured">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left Details -->
+                <div class="lg:col-span-6 space-y-6 fade-in-up">
+                    <span class="text-xs font-bold text-sky-600 uppercase tracking-widest block">- Contact Me</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 leading-tight">
+                        Invest in Your Digital Product Success.
+                    </h2>
+                    <p class="text-secondary text-base leading-relaxed">
+                        Punya ide proyek menarik atau ingin berkolaborasi? Kontak saya langsung melalui informasi di
+                        bawah ini.
+                    </p>
+
+                    <div class="pt-2">
+                        <span class="text-xs font-extrabold text-slate-400 uppercase tracking-widest block mb-1">Direct Email Address</span>
+                        <a id="contact-email-link" href="#" class="text-xl sm:text-2xl font-bold font-display text-sky-600 hover:underline break-all">
+                            <span id="contact-email-text">farah.cella@example.com</span>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a id="contact-wa-link" href="#" target="_blank" class="btn-primary-sky">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> <span id="contact-wa-text">+62
+                                812-3456-7890</span>
+                        </a>
+                        <div class="flex items-center gap-3">
+                            <a id="social-github" href="#" target="_blank"
+                                class="w-10 h-10 rounded-full border border-slate-200 bg-white text-slate-700 flex items-center justify-center hover:border-sky-500 hover:text-sky-600 transition-all"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a id="social-linkedin" href="#" target="_blank"
+                                class="w-10 h-10 rounded-full border border-slate-200 bg-white text-slate-700 flex items-center justify-center hover:border-sky-500 hover:text-sky-600 transition-all"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            <a id="social-instagram" href="#" target="_blank"
+                                class="w-10 h-10 rounded-full border border-slate-200 bg-white text-slate-700 flex items-center justify-center hover:border-sky-500 hover:text-sky-600 transition-all"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="lg:col-span-6 card-v4 p-8 fade-in-up">
+                    <form id="contact-form" class="space-y-5">
+                        <div>
+                            <label class="form-label">Nama Anda</label>
+                            <input type="text" id="contact-name" class="form-input"
+                                placeholder="Masukkan nama lengkap Anda" required>
+                        </div>
+                        <div>
+                            <label class="form-label">Alamat Email</label>
+                            <input type="email" id="contact-email" class="form-input" placeholder="nama@email.com"
+                                required>
+                        </div>
+                        <div>
+                            <label class="form-label">Detail Pesan / Diskusi Proyek</label>
+                            <textarea id="contact-message" class="form-input" rows="4"
+                                placeholder="Tuliskan detail kebutuhan proyek Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary-sky w-full justify-center text-sm py-3.5 shadow-lg">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Kirim Pesan Sekarang
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Footer (PAGE 10 - POLOS PUTIH BERSIH) -->
+    <footer class="bg-white border-t border-slate-200 py-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="./assets/image.png" alt="Farah Cella Logo" class="h-9 w-auto object-contain"
+                    onerror="this.style.display='none'">
+                <div>
+                    <p id="footer-brand-name"
+                        class="font-display text-lg font-bold uppercase tracking-wider text-sky-600">FARAH CELLA</p>
+                    <p class="font-script text-sm text-slate-500 -mt-1 block">Executive Personal Portfolio v4</p>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 font-medium">© 2026 Farah Cella. All rights reserved.</p>
+            <div class="flex items-center space-x-5 text-lg text-slate-600">
+                <a id="footer-github" href="#" target="_blank" class="hover:text-sky-600 transition-colors"><i
+                        class="fa-brands fa-github"></i></a>
+                <a id="footer-linkedin" href="#" target="_blank" class="hover:text-sky-600 transition-colors"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a id="footer-instagram" href="#" target="_blank" class="hover:text-sky-600 transition-colors"><i
+                        class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button onclick="closeProjectModal()" class="modal-close-btn">&times;</button>
+            <div id="project-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Firebase JS SDK (Compatibility Mode) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="./js/firebase-config.js"></script>
+    <script src="./js/jsonbin-config.js"></script>
+
+    <!-- Application JavaScript Engine -->
+    <script src="./js/app.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+
+</html>
