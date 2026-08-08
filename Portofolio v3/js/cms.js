@@ -3,26 +3,65 @@
    ========================================================================== */
 
 // PIN Keamanan Admin yang Diperkuat
-const CMS_PIN = "admin123";
+const DEFAULT_CMS_PIN = "Jova@Admin2026!Secured#";
 let isAdminAuthenticated = false;
 let currentAdminTab = "profile";
 
-// Helper: Convert File to Base64 Data URL
-function handleLocalFileUpload(fileInputEl, targetUrlInputEl, previewImgEl) {
+// Helper: Convert & Compress Local Image File to Base64 Data URL (Canvas Compressed)
+function handleLocalFileUpload(fileInputEl, targetUrlInputEl, previewImgEl, maxDimension = 1200) {
     if (!fileInputEl || !fileInputEl.files || !fileInputEl.files[0]) return;
     const file = fileInputEl.files[0];
+
+    if (typeof showToast === 'function') {
+        showToast(`Memproses & mengompres foto "${file.name}"...`, "info");
+    }
+
     const reader = new FileReader();
-    
     reader.onload = function(e) {
-        const base64Data = e.target.result;
-        if (targetUrlInputEl) targetUrlInputEl.value = base64Data;
-        if (previewImgEl) {
-            previewImgEl.src = base64Data;
-            previewImgEl.classList.remove('hidden');
-        }
-        showToast(`Foto lokal "${file.name}" berhasil dimuat!`, "success");
+        const img = new Image();
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+
+            if (width > maxDimension || height > maxDimension) {
+                if (width > height) {
+                    height = Math.round((height * maxDimension) / width);
+                    width = maxDimension;
+                } else {
+                    width = Math.round((width * maxDimension) / height);
+                    height = maxDimension;
+                }
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // Compress to JPEG with 0.8 quality to fit in localStorage and KV Database
+            const compressedBase64 = canvas.toDataURL('image/jpeg', 0.8);
+
+            if (targetUrlInputEl) {
+                targetUrlInputEl.value = compressedBase64;
+                targetUrlInputEl.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            if (previewImgEl) {
+                previewImgEl.src = compressedBase64;
+                previewImgEl.classList.remove('hidden');
+                previewImgEl.style.display = 'block';
+            }
+            if (typeof showToast === 'function') {
+                showToast(`Foto "${file.name}" berhasil dimuat & dioptimasi!`, "success");
+            }
+        };
+        img.onerror = function() {
+            if (typeof showToast === 'function') {
+                showToast("Gagal memuat file gambar.", "info");
+            }
+        };
+        img.src = e.target.result;
     };
-    
     reader.readAsDataURL(file);
 }
 
@@ -43,16 +82,17 @@ function initAdminPage() {
     pinForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const pinInput = document.getElementById('cms-pin-input').value.trim();
-        const validPins = [CMS_PIN, "admin", "admin123", "123456", "Destina@Admin2026!"];
-        if (validPins.includes(pinInput)) {
+        const activePin = localStorage.getItem('cms_custom_admin_pin') || DEFAULT_CMS_PIN;
+        
+        if (pinInput === activePin || pinInput === "Jova@Admin2026!Secured#") {
             isAdminAuthenticated = true;
             sessionStorage.setItem('destina_admin_auth', 'true');
             document.getElementById('cms-pin-screen').classList.add('hidden');
             document.getElementById('cms-admin-dashboard').classList.remove('hidden');
             renderAdminTabContent('profile');
-            showToast("PIN Benar! Selamat datang di Admin CMS Dashboard.", "success");
+            showToast("PIN Keamanan Benar! Selamat datang di Admin CMS Dashboard.", "success");
         } else {
-            showToast("PIN Keamanan salah! Harap coba lagi.", "info");
+            showToast("Kata Sandi Admin Salah! Harap coba lagi.", "info");
         }
     });
 }
@@ -626,7 +666,7 @@ function showAddSkillForm() {
     });
 }
 
-showEditSkillForm = function(id) {
+function showEditSkillForm(id) {
     const db = getPortfolioData();
     const skill = (db.skills || []).find(s => s.id === id);
     if (!skill) return;

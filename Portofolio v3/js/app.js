@@ -26,226 +26,32 @@ const CERTIFICATIONS_PER_PAGE = 3;
 const DEFAULT_PORTFOLIO_DATA = {
     updatedAt: Date.now(),
     profile: {
-        name: "MegaChan Cella",
-        title: "Senior Full Stack Web Developer & UI/UX Specialist",
-        heroBio: "Hello, I'm MegaChan Cella, a developer & UI/UX specialist based in Indonesia. I transform ideas into impactful designs and bring them to life through creative collaboration.",
-        tagline: "I turn innovative ideas into designs that inspire action and drive results.",
+        name: "Jova",
+        title: "Full Stack Web Developer & Creative Specialist",
+        heroBio: "Halo, saya Jova. Selamat datang di portofolio personal & showcase karya profesional saya.",
+        tagline: "Menciptakan solusi digital berestetika tinggi dan performa optimal.",
         aboutSubtitle: "Behind The Code",
-        aboutTitle: "Crafting Exceptional Digital Experiences Through Clean Code & Visual Elegance.",
-        about: "Saya adalah seorang Full Stack Web Developer dan UI/UX Specialist yang berfokus pada keindahan visual yang bersih, navigasi yang intuitif, dan arsitektur kode modern. Pengalaman lebih dari 4 tahun menangani proyek berskala enterprise.",
-        yearsExp: "04+",
-        projectsDone: "25+",
-        happyClients: "15+",
+        aboutTitle: "Solusi Digital Berbasis Teknologi Modern & Desain Elegan.",
+        about: "Saya berfokus pada pembuatan aplikasi web responsif, arsitektur kode yang bersih, dan antarmuka pengguna yang intuitif.",
+        yearsExp: "01+",
+        projectsDone: "01+",
+        happyClients: "01+",
         avatar: "./assets/foto.png",
         heroBgPhoto: "./assets/foto.png",
         aboutPhoto: "./assets/foto.png",
         cvUrl: "#",
-        email: "destina.natasya@example.com",
-        phone: "+6281234567890",
-        whatsapp: "6281234567890",
-        linkedin: "https://linkedin.com/in/destina-natasya",
-        github: "https://github.com/destina-natasya",
-        instagram: "https://instagram.com/destinadev"
+        email: "jova@example.com",
+        phone: "+628123456789",
+        whatsapp: "628123456789",
+        linkedin: "https://linkedin.com",
+        github: "https://github.com",
+        instagram: "https://instagram.com"
     },
-    skills: [
-        {
-            id: 1,
-            name: "React.js & Next.js",
-            category: "Frontend Architecture",
-            icon: "fa-brands fa-react",
-            image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&q=80",
-            description: "Membangun aplikasi web modern berkecepatan tinggi dengan arsitektur SSR & Component Reusability."
-        },
-        {
-            id: 2,
-            name: "Node.js & Express",
-            category: "Backend Microservices",
-            icon: "fa-brands fa-node-js",
-            image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80",
-            description: "Pengembangan RESTful API scalable, otentikasi JWT secure, dan integrasi cloud."
-        },
-        {
-            id: 3,
-            name: "Tailwind CSS & UI/UX",
-            category: "Visual System & Design",
-            icon: "fa-solid fa-palette",
-            image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&q=80",
-            description: "Desain sistem antarmuka responsif, glassmorphism mewah, dan aksesibilitas standar industri."
-        },
-        {
-            id: 4,
-            name: "PostgreSQL & MongoDB",
-            category: "Database Engineering",
-            icon: "fa-solid fa-database",
-            image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&q=80",
-            description: "Perancangan skema relasional & NoSQL dengan optimasi query performa tinggi."
-        },
-        {
-            id: 5,
-            name: "TypeScript & ES6+",
-            category: "Core Web Language",
-            icon: "fa-solid fa-code",
-            image: "https://images.unsplash.com/photo-1516116211223-4c7142403487?w=400&q=80",
-            description: "Penulisan kode clean, type-safe, maintainable untuk aplikasi skala besar."
-        },
-        {
-            id: 6,
-            name: "AWS & Cloud DevOps",
-            category: "Cloud Infrastructure",
-            icon: "fa-brands fa-aws",
-            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80",
-            description: "Automasi CI/CD pipelines, Docker containerization, dan S3 Cloud deployment."
-        }
-    ],
-    experiences: [
-        {
-            id: 1,
-            company: "PT Tech Innovasi Nusantara",
-            role: "Senior Full Stack Web Developer",
-            period: "2023 - Sekarang",
-            photo: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80",
-            location: "Jakarta, Indonesia",
-            summary: "Memimpin tim pengembangan sistem core SaaS enterprise, mengoptimalkan kecepatan load hingga 40%, dan menangani arsitektur RESTful API skala besar."
-        },
-        {
-            id: 2,
-            company: "Creative Digital Studio",
-            role: "UI/UX & Lead Frontend Specialist",
-            period: "2021 - 2023",
-            photo: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
-            location: "Bandung, Indonesia",
-            summary: "Merancang desain sistem visual untuk 15+ klien korporat, mengimplementasikan animasi mikro intuitif, dan membangun dashboard analisis real-time."
-        },
-        {
-            id: 3,
-            company: "Global Enterprise Solution",
-            role: "Web Application Consultant",
-            period: "2020 - 2021",
-            photo: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80",
-            location: "Surabaya, Indonesia",
-            summary: "Mengembangkan portal e-commerce & backend e-banking dengan fokus utama pada keamanan otentikasi data dan kenyamanan navigasi pengguna."
-        }
-    ],
-    projects: [
-        {
-            id: 1,
-            title: "Fintech Luxury Executive Dashboard",
-            role: "Full Stack Developer & Designer",
-            category: "Web Application",
-            coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-            liveUrl: "https://example.com/fintech",
-            githubUrl: "https://github.com/destina/fintech-dashboard",
-            technologies: ["React.js", "Tailwind CSS", "Node.js", "Chart.js"],
-            description: "Platform analytics keuangan korporat dengan visualisasi data real-time, transaksi berkecepatan tinggi, dan interface berstandar eksekutif."
-        },
-        {
-            id: 2,
-            title: "Luxury E-Commerce & Brand Showcase",
-            role: "Lead Frontend Engineer",
-            category: "E-Commerce",
-            coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-            liveUrl: "https://example.com/luxury-store",
-            githubUrl: "https://github.com/destina/luxury-store",
-            technologies: ["Next.js", "TypeScript", "PostgreSQL", "Stripe API"],
-            description: "Platform belanja online eksklusif berdesain minimalis mewah dengan integrasi payment gateway otomatis dan sistem katalog dinamis."
-        },
-        {
-            id: 3,
-            title: "AI Digital Asset Management Hub",
-            role: "UI/UX & Backend Engineer",
-            category: "SaaS Cloud Platform",
-            coverImage: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80",
-            liveUrl: "https://example.com/ai-asset-hub",
-            githubUrl: "https://github.com/destina/ai-asset-hub",
-            technologies: ["React", "Python FastAPI", "Docker", "AWS S3"],
-            description: "Aplikasi cloud pengelola media digital berbasis kecerdasan buatan dengan fitur auto-tagging, pencarian gambar pintar, dan enkripsi aman."
-        },
-        {
-            id: 4,
-            title: "HealthTech Telemedicine Portal",
-            role: "Full Stack Engineer",
-            category: "Health Application",
-            coverImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-            liveUrl: "https://example.com/healthtech",
-            githubUrl: "https://github.com/destina/healthtech",
-            technologies: ["Vue.js", "Express.js", "MongoDB", "WebRTC"],
-            description: "Portal layanan kesehatan terpadu dengan konsultasi dokter langsung secara video, rekam medis digital, dan booking janji online."
-        },
-        {
-            id: 5,
-            title: "Corporate Logistics & Fleet Tracker",
-            role: "Senior Developer",
-            category: "Enterprise System",
-            coverImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
-            liveUrl: "https://example.com/logistics",
-            githubUrl: "https://github.com/destina/logistics-tracker",
-            technologies: ["Next.js", "Go Backend", "PostgreSQL", "Leaflet Maps"],
-            description: "Sistem pelacak rute armada logistik skala nasional dengan pemantauan lokasi GPS real-time dan notifikasi pengiriman otomatis."
-        },
-        {
-            id: 6,
-            title: "Smart Property & Real Estate Portal",
-            role: "Product Designer & Developer",
-            category: "Real Estate",
-            coverImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
-            liveUrl: "https://example.com/realestate",
-            githubUrl: "https://github.com/destina/smart-property",
-            technologies: ["React", "Tailwind CSS", "Firebase", "3D Virtual Tour"],
-            description: "Website pencarian properti mewah dengan tur 3D virtual room, kalkulator KPR interaktif, dan fitur filter lokasi presisi."
-        }
-    ],
-    education: [
-        {
-            id: 1,
-            degree: "S1 Teknik Informatika / Computer Science",
-            institution: "Universitas Indonesia (UI)",
-            year: "2016 - 2020",
-            photo: "https://images.unsplash.com/photo-1562774053-701939374585?w=400&q=80",
-            description: "Lulus dengan Predikat Pujian (Cum Laude). Berfokus pada Rekayasa Perangkat Lunak, Struktur Data, dan Sistem Basis Data."
-        },
-        {
-            id: 2,
-            degree: "Executive Product Design & UI/UX Masterclass",
-            institution: "General Assembly Global",
-            year: "2021",
-            photo: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=400&q=80",
-            description: "Sertifikasi intensif perancangan riset pengguna, pembuatan wireframe high-fidelity, dan arsitektur informasi."
-        },
-        {
-            id: 3,
-            degree: "Advanced Full Stack Software Engineering",
-            institution: "Hacktiv8 Indonesia Academy",
-            year: "2020",
-            photo: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80",
-            description: "Program bootcamp intensif pengembangan web full stack menggunakan React, Node.js, Express, dan PostgreSQL."
-        }
-    ],
-    certifications: [
-        {
-            id: 1,
-            title: "AWS Certified Solutions Architect – Associate",
-            issuer: "Amazon Web Services (AWS)",
-            year: "2023",
-            image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
-            credentialUrl: "https://aws.amazon.com"
-        },
-        {
-            id: 2,
-            title: "Meta Certified Senior Front-End Developer",
-            issuer: "Meta / Coursera Professional Certificate",
-            year: "2022",
-            image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80",
-            credentialUrl: "https://coursera.org"
-        },
-        {
-            id: 3,
-            title: "Professional Scrum Master (PSM I)",
-            issuer: "Scrum.org International Certification",
-            year: "2022",
-            image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
-            credentialUrl: "https://scrum.org"
-        }
-    ]
+    skills: [],
+    experiences: [],
+    projects: [],
+    education: [],
+    certifications: []
 };
 
 // --------------------------------------------------------------------------
@@ -264,11 +70,11 @@ function getPortfolioData() {
     try {
         const parsed = JSON.parse(saved);
         // Hydrate empty arrays with DEFAULT_PORTFOLIO_DATA
-        if (!parsed.skills || parsed.skills.length === 0) parsed.skills = DEFAULT_PORTFOLIO_DATA.skills;
-        if (!parsed.experiences || parsed.experiences.length === 0) parsed.experiences = DEFAULT_PORTFOLIO_DATA.experiences;
-        if (!parsed.projects || parsed.projects.length === 0) parsed.projects = DEFAULT_PORTFOLIO_DATA.projects;
-        if (!parsed.education || parsed.education.length === 0) parsed.education = DEFAULT_PORTFOLIO_DATA.education;
-        if (!parsed.certifications || parsed.certifications.length === 0) parsed.certifications = DEFAULT_PORTFOLIO_DATA.certifications;
+        if (!parsed.skills) parsed.skills = [];
+        if (!parsed.experiences) parsed.experiences = [];
+        if (!parsed.projects) parsed.projects = [];
+        if (!parsed.education) parsed.education = [];
+        if (!parsed.certifications) parsed.certifications = [];
         if (!parsed.profile) parsed.profile = DEFAULT_PORTFOLIO_DATA.profile;
         if (!parsed.updatedAt) parsed.updatedAt = Date.now();
 
@@ -286,6 +92,9 @@ function savePortfolioData(data) {
     data.updatedAt = Date.now();
     localStorage.setItem('destina_portfolio_db', JSON.stringify(data));
     renderAllPortfolioSections();
+    if (typeof syncToCloudflareKV === 'function') {
+        syncToCloudflareKV(data);
+    }
 }
 
 function resetPortfolioData() {
@@ -313,17 +122,17 @@ function renderAllPortfolioSections() {
     // 1. Footer Brand Name
 
     const footerBrand = document.getElementById('footer-brand-name');
-    if (footerBrand) footerBrand.textContent = (prof.name || "MegaChan Cella").toUpperCase();
+    if (footerBrand) footerBrand.textContent = (prof.name || "Jova").toUpperCase();
 
     const footerCopy = document.getElementById('footer-copyright-text');
-    if (footerCopy) footerCopy.textContent = `© 2026 ${prof.name || 'MegaChan Cella'}. All rights reserved.`;
+    if (footerCopy) footerCopy.textContent = `© 2026 ${prof.name || 'Jova'}. All rights reserved.`;
 
     // 2. Editorial Hero Section Data
     const bgName = document.getElementById('hero-name-bg');
-    if (bgName) bgName.textContent = (prof.name || "MegaChan Cella").toUpperCase();
+    if (bgName) bgName.textContent = (prof.name || "Jova").toUpperCase();
 
     const titleName = document.getElementById('hero-title-name');
-    if (titleName) titleName.textContent = (prof.name || "MegaChan Cella").toUpperCase();
+    if (titleName) titleName.textContent = (prof.name || "Jova").toUpperCase();
 
     const heroBgPhoto = document.getElementById('hero-bg-photo');
     if (heroBgPhoto) {
@@ -337,13 +146,13 @@ function renderAllPortfolioSections() {
     }
 
     const bioLeft = document.getElementById('hero-bio-left');
-    if (bioLeft) bioLeft.textContent = prof.heroBio || `Halo, Saya ${prof.name || 'Destina'}, seorang ${prof.title || 'Professional Specialist'}.`;
+    if (bioLeft) bioLeft.textContent = prof.heroBio || `Halo, Saya ${prof.name || 'Jova'}, seorang ${prof.title || 'Professional Specialist'}.`;
 
     const taglineRight = document.getElementById('hero-tagline-right');
     if (taglineRight) taglineRight.textContent = prof.tagline || "Menciptakan solusi digital yang berorientasi pada hasil dan estetika visual modern.";
 
     const heroCopyTag = document.getElementById('hero-copyright-tag');
-    if (heroCopyTag) heroCopyTag.textContent = `© ${prof.name || 'Destina'} 2026`;
+    if (heroCopyTag) heroCopyTag.textContent = `© ${prof.name || 'Jova'} 2026`;
 
     // 3. About Me Section Data
     const aboutSubtitle = document.getElementById('about-subtitle-tag');
@@ -901,9 +710,19 @@ ${(db.certifications || []).map(c => `
 document.addEventListener('DOMContentLoaded', async () => {
     initThemeEngine();
 
-    // Initial Render from LocalStorage immediately
+    // 1. Initial Render from LocalStorage immediately (instant load)
     renderAllPortfolioSections();
     initScrollAnimations();
     initBackToTop();
     initContactForm();
+
+    // 2. Async sync from Cloudflare KV if configured
+    if (typeof fetchCloudflarePortfolioData === 'function') {
+        const cloudData = await fetchCloudflarePortfolioData();
+        if (cloudData) {
+            renderAllPortfolioSections();
+        } else if (typeof updateStorageBadgeUI === 'function') {
+            updateStorageBadgeUI("LocalStorage Active");
+        }
+    }
 });
