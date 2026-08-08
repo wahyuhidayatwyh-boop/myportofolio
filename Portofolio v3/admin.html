@@ -121,16 +121,6 @@
                         data-tab="certifications">
                         <i class="fa-solid fa-award w-5 text-center"></i> <span>Sertifikat & Piagam</span>
                     </button>
-                    <button onclick="switchAdminTab('cloudapi')"
-                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all"
-                        data-tab="cloudapi">
-                        <i class="fa-solid fa-cloud w-5 text-center text-amber-600"></i> <span>Cloud API Setup</span>
-                    </button>
-                    <button onclick="switchAdminTab('firebase')"
-                        class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all"
-                        data-tab="firebase">
-                        <i class="fa-solid fa-fire w-5 text-center text-orange-500"></i> <span>Firebase Setup</span>
-                    </button>
                     <button onclick="switchAdminTab('settings')"
                         class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all"
                         data-tab="settings">
@@ -164,9 +154,9 @@
                     <p class="text-xs text-muted font-medium">Kelola data portofolio personal secara real-time</p>
                 </div>
                 <div class="flex items-center gap-3 shrink-0">
-                    <span id="firebase-status-badge"
+                    <span id="storage-status-badge"
                         class="text-[11px] sm:text-xs font-bold text-bronze bg-bronze/10 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-bronze/20 flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> JSONBin Cloud Active
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> LocalStorage Active
                     </span>
                     <a href="index.html" class="btn-bronze-outline text-xs py-1.5 px-3 sm:py-2 sm:px-4">
                         <i class="fa-solid fa-globe"></i> Live Web
@@ -181,18 +171,11 @@
         </main>
     </div>
 
-    <!-- Firebase JS SDK (Compatibility Mode) -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-    <script src="./js/firebase-config.js"></script>
-    <script src="./js/jsonbin-config.js"></script>
-
     <!-- Application Scripts -->
     <script src="./js/app.js"></script>
     <script src="./js/cms.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            initFirebaseApp();
             initAdminPage();
         });
 

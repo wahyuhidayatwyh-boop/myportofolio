@@ -83,8 +83,6 @@ function switchAdminTab(tabName) {
         experience: "Manajemen Full CRUD Jejak Karir (Work Experience)",
         education: "Manajemen Full CRUD Pendidikan Formal",
         certifications: "Manajemen Full CRUD Sertifikat & Piagam",
-        cloudapi: "Konfigurasi Cloud Database Alternatif (JSONBin / ImgBB)",
-        firebase: "Konfigurasi Firebase Cloud Firestore (24/7 Always Active)",
         settings: "Manajemen Backup & Reset Database"
     };
 
@@ -130,12 +128,6 @@ function renderAdminTabContent(tab) {
             break;
         case 'certifications':
             renderAdminCertificationsTab(area, db);
-            break;
-        case 'cloudapi':
-            renderAdminCloudAPITab(area);
-            break;
-        case 'firebase':
-            renderAdminFirebaseTab(area);
             break;
         case 'settings':
             renderAdminSettingsTab(area, db);

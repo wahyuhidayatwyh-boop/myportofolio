@@ -285,19 +285,6 @@ function getPortfolioData() {
 function savePortfolioData(data) {
     data.updatedAt = Date.now();
     localStorage.setItem('destina_portfolio_db', JSON.stringify(data));
-
-    // Auto-sync to Firebase Firestore if connected
-    if (typeof isFirebaseConnected !== 'undefined' && isFirebaseConnected && dbFirestore) {
-        dbFirestore.collection('portfolio').doc('db').set(data)
-            .then(() => console.log("🔥 Firebase Firestore Sync Success!"))
-            .catch(err => console.error("Firebase sync error:", err));
-    }
-
-    // Auto-sync to JSONBin Cloud if configured
-    if (typeof saveToJSONBinCloud === 'function') {
-        saveToJSONBinCloud(data);
-    }
-
     renderAllPortfolioSections();
 }
 
@@ -311,10 +298,6 @@ function resetPortfolioData() {
     currentExperiencePage = 1;
     currentEducationPage = 1;
     currentCertificationPage = 1;
-
-    if (typeof saveToJSONBinCloud === 'function') {
-        saveToJSONBinCloud(cleanData);
-    }
 
     renderAllPortfolioSections();
     showToast("Data portofolio telah direset ke template bersih!", "info");
@@ -918,30 +901,9 @@ ${(db.certifications || []).map(c => `
 document.addEventListener('DOMContentLoaded', async () => {
     initThemeEngine();
 
-    // 1. Initial Render from LocalStorage immediately
+    // Initial Render from LocalStorage immediately
     renderAllPortfolioSections();
     initScrollAnimations();
     initBackToTop();
     initContactForm();
-
-    // 2. Smart Sync with Cloud Database (Compare Timestamps to prevent overwriting new local edits!)
-    if (typeof fetchFromJSONBinCloud === 'function') {
-        const cloudData = await fetchFromJSONBinCloud();
-        const localData = getPortfolioData();
-
-        if (cloudData && cloudData.profile) {
-            const cloudTime = cloudData.updatedAt || 0;
-            const localTime = localData.updatedAt || 0;
-
-            // Only overwrite local storage if cloud data is NEWER than local edits!
-            if (cloudTime > localTime) {
-                localStorage.setItem('destina_portfolio_db', JSON.stringify(cloudData));
-                console.log("⚡ Cloud data is newer, updated LocalStorage & Re-rendered UI!");
-                renderAllPortfolioSections();
-            } else if (localTime > cloudTime) {
-                console.log("⚡ Local edits are newer than Cloud, pushing local data to JSONBin...");
-                saveToJSONBinCloud(localData);
-            }
-        }
-    }
 });
