@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Visual CMS Dashboard | Portofolio v6</title>
+
+    <link rel="icon" type="image/png" href="./assets/logo tab chrome.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function switchTab(target) {
+            var tabBtns = document.querySelectorAll('.cms-tab-btn');
+            var tabContents = document.querySelectorAll('.cms-tab-content');
+
+            tabBtns.forEach(function(b) {
+                var tab = b.getAttribute('data-tab');
+                if (tab === target) {
+                    b.className = 'cms-tab-btn active px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white flex items-center gap-2 whitespace-nowrap shadow-md cursor-pointer transition-all';
+                } else {
+                    b.className = 'cms-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all';
+                }
+            });
+
+            tabContents.forEach(function(c) { c.classList.add('hidden'); });
+            var targetEl = document.getElementById('tab-' + target);
+            if (targetEl) targetEl.classList.remove('hidden');
+        }
+        window.switchTab = switchTab;
+    </script>
+</head>
+
+<body class="bg-[#f8fafc] text-slate-800 font-['Plus_Jakarta_Sans'] min-h-screen">
+
+    <!-- TOP HEADER NAVIGATION (White Top Sticky Header) -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row items-center justify-between gap-3">
+            <!-- Admin Logo Header -->
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-bold shadow-md">
+                        <i class="fa-solid fa-sliders text-base"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-['Outfit'] font-extrabold text-base text-slate-900 leading-snug">Visual CMS</h1>
+                        <p class="text-[11px] text-slate-500 font-semibold">Executive Dashboard</p>
+                    </div>
+                </div>
+                <a href="index.html" class="md:hidden px-3 py-1.5 bg-slate-900 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow-sm">
+                    <i class="fa-solid fa-globe text-[10px]"></i> <span>Web</span>
+                </a>
+            </div>
+
+            <!-- Center Horizontal Top Tabs Navigation -->
+            <nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 w-full md:w-auto justify-start md:justify-center">
+                <button type="button" data-tab="profile" onclick="switchTab('profile')" class="cms-tab-btn active px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white flex items-center gap-2 whitespace-nowrap shadow-md cursor-pointer transition-all">
+                    <i class="fa-solid fa-user text-xs"></i> <span>Profil & Hero</span>
+                </button>
+                <button type="button" data-tab="about-me" onclick="switchTab('about-me')" class="cms-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all">
+                    <i class="fa-solid fa-id-card text-xs"></i> <span>Tentang & Stats</span>
+                </button>
+                <button type="button" data-tab="contact" onclick="switchTab('contact')" class="cms-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all">
+                    <i class="fa-solid fa-envelope text-xs"></i> <span>Kontak & Sosmed</span>
+                </button>
+                <button type="button" data-tab="projects" onclick="switchTab('projects')" class="cms-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all">
+                    <i class="fa-solid fa-layer-group text-xs"></i> <span>Proyek & Skills</span>
+                </button>
+                <button type="button" data-tab="experience" onclick="switchTab('experience')" class="cms-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 flex items-center gap-2 whitespace-nowrap cursor-pointer transition-all">
+                    <i class="fa-solid fa-briefcase text-xs"></i> <span>Karir & Edu</span>
+                </button>
+            </nav>
+
+            <!-- Right Desktop Quick Actions -->
+            <div class="hidden md:flex items-center gap-2">
+                <a href="index.html" class="px-4 py-2 bg-slate-900 text-white hover:bg-black rounded-xl text-xs font-extrabold flex items-center gap-2 shadow-md transition-all">
+                    <i class="fa-solid fa-globe text-xs"></i> <span>Buka Website</span>
+                </a>
+                <button id="reset-data-btn" class="px-3.5 py-2 bg-rose-50 border border-rose-200 text-rose-600 hover:bg-rose-100 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-rotate-left text-[10px]"></i> <span>Reset</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto p-4 sm:p-8 lg:p-10 space-y-8">
+
+        <!-- 1. TAB PROFIL & HERO -->
+        <div id="tab-profile" class="cms-tab-content space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-user text-slate-900"></i> Pengaturan Profil & Header Hero
+                    </h3>
+                    <button class="save-profile-btn px-5 py-2.5 bg-slate-900 text-white hover:bg-black font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-floppy-disk"></i> Simpan Profil
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Nama Lengkap / Brand</label>
+                        <input type="text" id="input-name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Jabatan / Main Title</label>
+                        <input type="text" id="input-title" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Hero Bio Singkat</label>
+                        <textarea id="input-heroBio" rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Tagline Slogan</label>
+                        <input type="text" id="input-tagline" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-2">Unggah Avatar Profil</label>
+                        <input type="file" id="profile-avatar-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-slate-900 file:text-white hover:file:bg-black transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-2">Unggah Foto Hero Header</label>
+                        <input type="file" id="hero-bg-photo-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-slate-900 file:text-white hover:file:bg-black transition-all">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. TAB KARTU OVERVIEW -->
+        <div id="tab-overview-cards" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-table-cells-large text-slate-900"></i> Pengaturan Kartu Overview Showcase (Hero 3-Cards)
+                    </h3>
+                    <button class="save-profile-btn px-5 py-2.5 bg-slate-900 text-white hover:bg-black font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-floppy-disk"></i> Simpan Overview Cards
+                    </button>
+                </div>
+
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs text-slate-600 space-y-1">
+                    <span class="font-bold text-slate-900 block">💡 Informasi Kartu 1 (Core Skills)</span>
+                    <p>Poin-poin pada Kartu 1 (Core Skills) secara otomatis disinkronkan dengan 7 skill teratas dari menu <strong>Keahlian (Skills)</strong>.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Services Focus: Judul Utama (Kartu 2)</label>
+                        <input type="text" id="input-servicesTitle" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Services Focus: Deskripsi Singkat (Kartu 2)</label>
+                        <input type="text" id="input-servicesDesc" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Collaborate Banner: Judul Utama (Kartu 3)</label>
+                        <input type="text" id="input-collaborateTitle" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Collaborate Banner: Deskripsi Slogan (Kartu 3)</label>
+                        <input type="text" id="input-collaborateDesc" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. TAB TENTANG SAYA & STATS -->
+        <div id="tab-about-me" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-slate-900"></i> Pengaturan Seksi Tentang Saya & Angka Statistik
+                    </h3>
+                    <button class="save-profile-btn px-5 py-2.5 bg-slate-900 text-white hover:bg-black font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-floppy-disk"></i> Simpan Tentang Saya
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">About Subtitle Tag</label>
+                        <input type="text" id="input-aboutSubtitle" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">About Title Heading</label>
+                        <input type="text" id="input-aboutTitle" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Lengkap (About Me)</label>
+                        <textarea id="input-about" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Stat: Tahun Pengalaman</label>
+                        <input type="text" id="input-yearsExp" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Stat: Proyek Selesai</label>
+                        <input type="text" id="input-projectsDone" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Stat: Klien Puas</label>
+                        <input type="text" id="input-happyClients" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-2">Unggah Foto About Showcase</label>
+                        <input type="file" id="about-photo-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-slate-900 file:text-white hover:file:bg-black transition-all">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. TAB KONTAK & SOSMED -->
+        <div id="tab-contact" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-slate-900"></i> Pengaturan Informasi Kontak & Sosial Media
+                    </h3>
+                    <button class="save-profile-btn px-5 py-2.5 bg-slate-900 text-white hover:bg-black font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-floppy-disk"></i> Simpan Kontak
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Alamat Email</label>
+                        <input type="email" id="input-email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Nomor Telepon Kontak</label>
+                        <input type="text" id="input-phone" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Nomor WhatsApp</label>
+                        <input type="text" id="input-whatsapp" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Link Download CV</label>
+                        <input type="text" id="input-cvUrl" placeholder="#" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Link GitHub</label>
+                        <input type="text" id="input-github" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Link LinkedIn</label>
+                        <input type="text" id="input-linkedin" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Link Instagram</label>
+                        <input type="text" id="input-instagram" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900 transition-all">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. TAB PROYEK & SKILLS -->
+        <div id="tab-projects" class="cms-tab-content hidden space-y-8">
+            <!-- Section A: Proyek -->
+            <div id="proj-form" class="bg-white border border-slate-200 rounded-3xl p-6 space-y-4 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                    <span><i class="fa-solid fa-layer-group text-slate-900"></i> Tambah / Edit Proyek Portofolio</span>
+                </h3>
+                <input type="hidden" id="proj-id">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Judul Proyek</label>
+                        <input type="text" id="proj-title" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Kategori (e.g. Web Application)</label>
+                        <input type="text" id="proj-category" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Proyek</label>
+                        <textarea id="proj-desc" rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Tags (pisahkan koma)</label>
+                        <input type="text" id="proj-tags" placeholder="React, Node.js, Tailwind" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">URL Foto Sampul</label>
+                        <input type="text" id="proj-image" placeholder="./assets/bg-orang.png" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Atau Unggah Gambar Sampul</label>
+                        <input type="file" id="proj-image-file" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-slate-900 file:text-white hover:file:bg-black">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Link Live Demo</label>
+                        <input type="text" id="proj-demoUrl" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Link Repository GitHub</label>
+                        <input type="text" id="proj-repoUrl" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 pt-2">
+                    <button onclick="addOrUpdateProject()" class="px-5 py-2.5 bg-slate-900 hover:bg-black text-white font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-md"><i class="fa-solid fa-check"></i> Simpan Proyek</button>
+                    <button onclick="clearProjectForm()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs">Batal</button>
+                </div>
+
+                <div id="cms-projects-list" class="space-y-3 pt-4 border-t border-slate-100"></div>
+            </div>
+
+            <!-- Section B: Skills -->
+            <div id="skill-form" class="bg-white border border-slate-200 rounded-3xl p-6 space-y-4 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                    <span><i class="fa-solid fa-code text-slate-900"></i> Tambah / Edit Skill Keahlian</span>
+                </h3>
+                <input type="hidden" id="skill-id">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Nama Skill</label>
+                        <input type="text" id="skill-name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Tingkat / Level (%)</label>
+                        <input type="number" id="skill-level" min="1" max="100" value="85" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Kategori</label>
+                        <input type="text" id="skill-category" placeholder="Frontend / Backend / Design" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Icon FontAwesome</label>
+                        <input type="text" id="skill-icon" placeholder="fa-code" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 pt-2">
+                    <button onclick="addOrUpdateSkill()" class="px-5 py-2.5 bg-slate-900 hover:bg-black text-white font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-md"><i class="fa-solid fa-check"></i> Simpan Skill</button>
+                    <button onclick="clearSkillForm()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs">Batal</button>
+                </div>
+
+                <div id="cms-skills-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-4 border-t border-slate-100"></div>
+            </div>
+        </div>
+
+        <!-- 5. TAB KARIR & EDUKASI -->
+        <div id="tab-experience" class="cms-tab-content hidden space-y-8">
+            <!-- Part A: Work Experience -->
+            <div id="exp-form" class="bg-white border border-slate-200 rounded-3xl p-6 space-y-4 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                    <span><i class="fa-solid fa-briefcase text-slate-900"></i> Tambah / Edit Pengalaman Kerja</span>
+                </h3>
+                <input type="hidden" id="exp-id">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Jabatan / Role</label>
+                        <input type="text" id="exp-role" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Perusahaan / Organisasi</label>
+                        <input type="text" id="exp-company" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Periode (e.g. 2022 - 2024)</label>
+                        <input type="text" id="exp-period" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div class="md:col-span-3">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Tugas</label>
+                        <textarea id="exp-desc" rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900"></textarea>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 pt-2">
+                    <button onclick="addOrUpdateExp()" class="px-5 py-2.5 bg-slate-900 hover:bg-black text-white font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-md"><i class="fa-solid fa-check"></i> Simpan Pengalaman</button>
+                    <button onclick="clearExpForm()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs">Batal</button>
+                </div>
+
+                <div id="cms-exp-list" class="space-y-3 pt-4 border-t border-slate-100"></div>
+            </div>
+
+            <!-- Part B: Education -->
+            <div id="edu-form" class="bg-white border border-slate-200 rounded-3xl p-6 space-y-4 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                    <span><i class="fa-solid fa-graduation-cap text-slate-900"></i> Tambah / Edit Riwayat Pendidikan</span>
+                </h3>
+                <input type="hidden" id="edu-id">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Gelar / Program Studi</label>
+                        <input type="text" id="edu-degree" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Institusi / Universitas</label>
+                        <input type="text" id="edu-inst" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Tahun (e.g. 2018 - 2022)</label>
+                        <input type="text" id="edu-year" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div class="md:col-span-3">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Catatan Singkat</label>
+                        <input type="text" id="edu-desc" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 pt-2">
+                    <button onclick="addOrUpdateEdu()" class="px-5 py-2.5 bg-slate-900 hover:bg-black text-white font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-md"><i class="fa-solid fa-check"></i> Simpan Pendidikan</button>
+                    <button onclick="clearEduForm()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs">Batal</button>
+                </div>
+
+                <div id="cms-edu-list" class="space-y-3 pt-4 border-t border-slate-100"></div>
+            </div>
+
+            <!-- Part C: Certifications -->
+            <div id="cert-form" class="bg-white border border-slate-200 rounded-3xl p-6 space-y-4 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                    <span><i class="fa-solid fa-certificate text-slate-900"></i> Tambah / Edit Sertifikasi</span>
+                </h3>
+                <input type="hidden" id="cert-id">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Nama Sertifikat</label>
+                        <input type="text" id="cert-title" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Penerbit (Issuer)</label>
+                        <input type="text" id="cert-issuer" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Tahun</label>
+                        <input type="text" id="cert-year" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">URL Gambar Sertifikat</label>
+                        <input type="text" id="cert-image" placeholder="./assets/bg-orang.png" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-slate-900 text-sm outline-none focus:bg-white focus:border-slate-900">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Atau Unggah Gambar Sertifikat</label>
+                        <input type="file" id="cert-image-file" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-slate-900 file:text-white hover:file:bg-black">
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 pt-2">
+                    <button onclick="addOrUpdateCert()" class="px-5 py-2.5 bg-slate-900 hover:bg-black text-white font-extrabold rounded-xl text-xs flex items-center gap-1.5 shadow-md"><i class="fa-solid fa-check"></i> Simpan Sertifikat</button>
+                    <button onclick="clearCertForm()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs">Batal</button>
+                </div>
+
+                <div id="cms-cert-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-4 border-t border-slate-100"></div>
+            </div>
+        </div>
+    </main>
+</div>
+
+    <!-- JavaScript Files -->
+    <script src="./js/app.js"></script>
+    <script src="./js/cms.js"></script>
+</body>
+
+</html>

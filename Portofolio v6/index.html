@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kevin - Executive Personal Portfolio v6 (White Curved Card & Dark Theme Edition).">
+    <meta name="author" content="Kevin">
+    <meta property="og:title" content="Kevin | Executive Personal Portfolio v6">
+    <meta property="og:description" content="Executive Personal Portfolio & Software Engineering Showcase by Kevin.">
+    <meta property="og:type" content="website">
+    <title>Kevin | Executive Personal Portfolio v6</title>
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="./assets/logo tab chrome.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-[#0c0d10] text-slate-100 selection:bg-white selection:text-[#0c0d10]">
+
+    <!-- 1. TOP EXECUTIVE HEADER NAVBAR -->
+    <header class="w-full absolute top-0 left-0 right-0 z-50 py-6 px-4 sm:px-8 md:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            
+            <!-- Left Brand Logo -->
+            <a href="#home" class="flex items-center gap-3 text-white text-decoration-none group">
+                <div class="w-9 h-9 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center text-lg font-bold shadow-md group-hover:border-white transition-colors">
+                    <i class="fa-solid fa-asterisk"></i>
+                </div>
+                <span id="brand-logo-name" class="font-['Outfit'] font-extrabold text-xl tracking-tight text-white">Kevin</span>
+            </a>
+
+            <!-- Center Horizontal Inline Navigation Links -->
+            <nav class="hidden md:flex items-center gap-5 lg:gap-7">
+                <a href="#home" class="nav-link-mockup font-semibold text-xs text-white/70 hover:text-white transition-colors tracking-wide">Beranda</a>
+                <a href="#overview" class="nav-link-mockup font-semibold text-xs text-white/70 hover:text-white transition-colors tracking-wide">Overview</a>
+                <a href="#about" class="nav-link-mockup font-semibold text-xs text-white/70 hover:text-white transition-colors tracking-wide">Tentang Saya</a>
+                <a href="#projects" class="nav-link-mockup font-semibold text-xs text-white/70 hover:text-white transition-colors tracking-wide">Proyek</a>
+                <a href="#skills" class="nav-link-mockup font-semibold text-xs text-white/70 hover:text-white transition-colors tracking-wide">Keahlian</a>
+                <a href="#experience" class="nav-link-mockup font-semibold text-xs text-white/70 hover:text-white transition-colors tracking-wide">Pengalaman</a>
+                <a href="#education" class="nav-link-mockup font-semibold text-xs text-white/70 hover:text-white transition-colors tracking-wide">Pendidikan</a>
+                <a href="#contact" class="nav-link-mockup font-semibold text-xs text-white/70 hover:text-white transition-colors tracking-wide">Kontak</a>
+            </nav>
+
+            <!-- Right Action Pill Buttons -->
+            <div class="flex items-center gap-4 relative">
+                <a href="admin.html" class="bg-white text-slate-900 font-extrabold text-xs px-5 py-2.5 rounded-full hover:bg-slate-100 transition-all shadow-lg flex items-center gap-1.5">
+                    <i class="fa-solid fa-lock text-[10px]"></i> <span>Admin CMS</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button type="button" id="desktop-nav-toggle" class="md:hidden w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center border border-white/20">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <!-- Mobile Dropdown Menu -->
+                <div id="desktop-nav-dropdown" class="nav-dropdown-menu hidden">
+                    <div class="p-2 space-y-1">
+                        <a href="#home" class="nav-dropdown-item"><i class="fa-solid fa-house w-5 text-white"></i><span>Beranda</span></a>
+                        <a href="#overview" class="nav-dropdown-item"><i class="fa-solid fa-star w-5 text-white"></i><span>Overview</span></a>
+                        <a href="#about" class="nav-dropdown-item"><i class="fa-solid fa-user w-5 text-white"></i><span>Tentang Saya</span></a>
+                        <a href="#projects" class="nav-dropdown-item"><i class="fa-solid fa-layer-group w-5 text-white"></i><span>Karya Proyek</span></a>
+                        <a href="#skills" class="nav-dropdown-item"><i class="fa-solid fa-code w-5 text-white"></i><span>Keahlian</span></a>
+                        <a href="#experience" class="nav-dropdown-item"><i class="fa-solid fa-briefcase w-5 text-white"></i><span>Pengalaman Karir</span></a>
+                        <a href="#education" class="nav-dropdown-item"><i class="fa-solid fa-graduation-cap w-5 text-white"></i><span>Pendidikan & Sertifikat</span></a>
+                        <a href="#contact" class="nav-dropdown-item"><i class="fa-solid fa-envelope w-5 text-white"></i><span>Kontak</span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- FLOATING BOTTOM NAVIGATION BAR (Mobile & Tablet - Ultra Transparent Glassmorphism) -->
+    <div id="floating-bottom-nav" class="lg:hidden fixed bottom-4 left-3 right-3 z-50 bg-black/20 backdrop-blur-xl border border-white/20 rounded-full p-1.5 shadow-2xl flex items-center justify-between">
+        <a href="#home" class="nav-bottom-item active">
+            <i class="fa-solid fa-house text-xs"></i>
+            <span class="text-[9px]">Beranda</span>
+        </a>
+        <a href="#overview" class="nav-bottom-item">
+            <i class="fa-solid fa-star text-xs"></i>
+            <span class="text-[9px]">Overview</span>
+        </a>
+        <a href="#about" class="nav-bottom-item">
+            <i class="fa-solid fa-user text-xs"></i>
+            <span class="text-[9px]">About</span>
+        </a>
+        <a href="#projects" class="nav-bottom-item">
+            <i class="fa-solid fa-layer-group text-xs"></i>
+            <span class="text-[9px]">Proyek</span>
+        </a>
+        <a href="#skills" class="nav-bottom-item">
+            <i class="fa-solid fa-code text-xs"></i>
+            <span class="text-[9px]">Skills</span>
+        </a>
+        <a href="#experience" class="nav-bottom-item">
+            <i class="fa-solid fa-briefcase text-xs"></i>
+            <span class="text-[9px]">Karir</span>
+        </a>
+        <a href="#contact" class="nav-bottom-item">
+            <i class="fa-solid fa-envelope text-xs"></i>
+            <span class="text-[9px]">Kontak</span>
+        </a>
+    </div>
+
+    <!-- 2. HERO SECTION (DARK EXECUTIVE TOP HEADER) -->
+    <section id="home" class="hero-dark-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative pt-6 pb-4">
+
+            <!-- Main Hero Headline (Matching Photo Title Mockup) -->
+            <div class="max-w-4xl space-y-4">
+                <span class="font-script text-3xl sm:text-5xl text-white block">Halo, Saya <span id="hero-title-name">Kevin</span></span>
+                <h1 id="hero-title-role" class="hero-title-dark">
+                    Full Stack Web Developer & Creative Specialist
+                </h1>
+                
+                <div class="max-w-2xl pt-2">
+                    <p id="hero-bio-left" class="text-slate-300 text-base sm:text-xl leading-relaxed font-medium">
+                        Halo, saya Kevin. Selamat datang di portofolio personal & showcase karya profesional saya.
+                    </p>
+                    <p id="hero-tagline-right" class="text-sm text-white font-semibold mt-2"></p>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap items-center gap-4 pt-6">
+                    <a href="#projects" class="btn-lime-pill">
+                        <i class="fa-solid fa-layer-group"></i> <span>Lihat Karya Proyek</span>
+                    </a>
+                    <a id="hero-cv-btn" href="#" target="_blank" class="btn-dark-pill">
+                        <i class="fa-solid fa-file-arrow-down text-xs"></i> <span>Download CV</span>
+                    </a>
+                    <a href="#overview" class="btn-dark-pill">
+                        <span>(Jelajahi Desain)</span> <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. MAIN WHITE CURVED BODY CONTAINER -->
+    <main class="main-white-container">
+
+        <!-- 3.1 TOP 3-COLUMN FEATURE SHOWCASE GRID -->
+        <section id="overview" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-16 sm:mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+                
+                <!-- Column 1: Core Skills (Narrowest: 3 columns) -->
+                <div class="md:col-span-3 feature-card-light flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Core Skills</span>
+                        <ul id="overview-skills-list" class="space-y-2 text-xs sm:text-sm font-bold text-slate-800">
+                            <li class="flex items-center gap-2"><span class="text-slate-900 text-base">•</span> Web Development</li>
+                            <li class="flex items-center gap-2"><span class="text-slate-900 text-base">•</span> Frontend React & Next.js</li>
+                            <li class="flex items-center gap-2"><span class="text-slate-900 text-base">•</span> Backend APIs & Node.js</li>
+                            <li class="flex items-center gap-2"><span class="text-slate-900 text-base">•</span> UI/UX & Design Systems</li>
+                            <li class="flex items-center gap-2"><span class="text-slate-900 text-base">•</span> Database Architecture</li>
+                            <li class="flex items-center gap-2"><span class="text-slate-900 text-base">•</span> Cloud & DevOps</li>
+                            <li class="flex items-center gap-2"><span class="text-slate-900 text-base">•</span> High Performance Apps</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 mt-4">
+                        <a href="#skills" class="text-xs font-extrabold text-slate-900 hover:text-black inline-flex items-center gap-1.5">
+                            Lihat Semua Keahlian <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Highlight Feature Card (Medium: 4 columns) -->
+                <div class="md:col-span-4 feature-card-light flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Services Focus</span>
+                        <h3 id="overview-services-title" class="font-display text-xl sm:text-2xl font-extrabold text-slate-900 mb-3">
+                            Full Stack Web & Software Engineering
+                        </h3>
+                        <p id="overview-services-desc" class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                            Membangun aplikasi web berperforma tinggi, skalabel, responsif, dan berestetika visual modern dengan standar arsitektur terbaik.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#about" class="btn-dark-pill text-xs">
+                            <span>Tentang Pengalaman</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 3: Dark Focal Banner Box (Widest: 5 columns) -->
+                <div class="md:col-span-5 feature-card-dark flex flex-col justify-between">
+                    <div>
+                        <span class="bg-white text-[#0c0d10] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-4">Collaborate</span>
+                        <h3 id="overview-collaborate-title" class="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-snug mb-3">
+                            Let's Build Your Brand Together!
+                        </h3>
+                        <p id="overview-collaborate-desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+                            Punya ide proyek digital baru atau butuh pengembang profesional untuk merealisasikan visi Anda?
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#contact" class="btn-white-pill text-xs sm:text-sm font-extrabold w-full justify-center">
+                            <span>Mari Berdiskusi Proyek</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3.2 STATS COUNTER BAR -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 mb-16 sm:mb-24">
+            <div class="stats-bar-card grid grid-cols-3 gap-4 text-center">
+                <div>
+                    <span id="stat-years-exp" class="stat-num">04+</span>
+                    <div class="stat-lbl">Tahun Pengalaman</div>
+                </div>
+                <div>
+                    <span id="stat-projects-done" class="stat-num">25+</span>
+                    <div class="stat-lbl">Proyek Selesai</div>
+                </div>
+                <div>
+                    <span id="stat-happy-clients" class="stat-num">15+</span>
+                    <div class="stat-lbl">Klien Puas</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.3 CLEAN MINIMALIST ABOUT ME SECTION (Black text/accent on white body) -->
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-28">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <!-- Left Showcase Photo -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
+                        <img id="about-photo" src="./assets/bg-orang.png" onerror="this.onerror=null;this.src='./assets/bg-orang.png'" class="w-full h-[320px] sm:h-[440px] object-cover group-hover:scale-105 transition-transform duration-700" alt="About Photo">
+                        <span class="absolute top-4 left-4 bg-[#111317] text-white text-xs font-extrabold py-1 px-3 rounded-full shadow-lg">01 / ABOUT</span>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="lg:col-span-7 space-y-4 sm:space-y-6">
+                    <span id="about-subtitle-tag" class="font-script text-2xl text-slate-900 block font-bold">Behind The Code</span>
+                    <h2 id="about-title-heading" class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                        Crafting Exceptional Digital Experiences Through Clean Code & Visual Elegance.
+                    </h2>
+                    <p id="about-description" class="text-slate-600 text-base sm:text-lg leading-relaxed"></p>
+                    <div class="pt-2">
+                        <a href="#contact" class="btn-dark-pill inline-flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> <span>Kirim Pesan Sekarang</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.4 FEATURED PROJECTS SECTION -->
+        <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-28">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Karya Proyek Terbaru</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Capabilities <span class="bg-[#111317] text-white px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Together</span></h2>
+                </div>
+                <p class="text-xs text-slate-500 max-w-xs">Galeri karya aplikasi web, sistem manajemen, dan platform digital yang telah dibangun.</p>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+            <div id="projects-pagination"></div>
+        </section>
+
+        <!-- 3.5 TECHNICAL SKILLS SECTION -->
+        <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-28">
+            <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+                <span class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Keahlian & Teknologi</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">Technical <span class="bg-[#111317] text-white px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Skills</span></h2>
+            </div>
+
+            <div id="skills-container-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+            <div id="skills-pagination"></div>
+        </section>
+
+        <!-- 3.6 WORK EXPERIENCE TIMELINE -->
+        <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-28">
+            <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+                <span class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Jejak Karir</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">Work <span class="bg-[#111317] text-white px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Experience</span></h2>
+            </div>
+
+            <div id="experience-timeline" class="timeline-container max-w-4xl mx-auto"></div>
+            <div id="experience-pagination"></div>
+        </section>
+
+        <!-- 3.7 EDUCATION & CERTIFICATIONS -->
+        <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-28 space-y-16">
+            <!-- Education -->
+            <div>
+                <div class="text-center max-w-xl mx-auto mb-8 space-y-2">
+                    <span class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Latar Belakang Akademis</span>
+                    <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900">Pendidikan <span class="bg-[#111317] text-white px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Formal</span></h2>
+                </div>
+                <div id="education-cards-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+                <div id="education-pagination"></div>
+            </div>
+
+            <!-- Certifications -->
+            <div>
+                <div class="text-center max-w-xl mx-auto mb-8 space-y-2">
+                    <span class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Sertifikat & Piagam</span>
+                    <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slate-900">Certifications & <span class="bg-[#111317] text-white px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Awards</span></h2>
+                </div>
+                <div id="certifications-photos-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+                <div id="certifications-pagination"></div>
+            </div>
+        </section>
+
+        <!-- 3.8 EDITORIAL CONTACT SECTION -->
+        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-[#f8fafc] border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xl">
+                <!-- Left Direct Contact Info -->
+                <div class="lg:col-span-6 space-y-5">
+                    <span class="font-script text-2xl text-slate-900 font-bold block">Mari Berdiskusi</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-slate-900 leading-tight">
+                        Let's Build Something <span class="bg-[#111317] text-white px-3 py-0.5 rounded-2xl font-extrabold inline-block">Extraordinary</span> Together.
+                    </h2>
+                    <p class="text-slate-600 text-sm leading-relaxed max-w-md">
+                        Punya ide proyek menarik atau ingin berkolaborasi? Jangan ragu untuk menghubungi saya secara langsung melalui email atau WhatsApp.
+                    </p>
+
+                    <div>
+                        <span class="text-xs font-extrabold text-slate-400 uppercase block mb-1">Direct Email Address</span>
+                        <a id="contact-email-link" href="#" class="text-xl sm:text-2xl font-bold font-display text-slate-900 hover:text-black break-all transition-colors">
+                            <span id="contact-email-text"></span>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a id="contact-wa-link" href="#" target="_blank" class="btn-dark-pill inline-flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg text-white"></i> <span id="contact-wa-text"></span>
+                        </a>
+                        <div class="flex items-center gap-3">
+                            <a id="social-github" href="#" target="_blank" class="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-800 flex items-center justify-center hover:bg-slate-900 hover:text-white shadow-sm transition-all">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a id="social-linkedin" href="#" target="_blank" class="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-800 flex items-center justify-center hover:bg-slate-900 hover:text-white shadow-sm transition-all">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a id="social-instagram" href="#" target="_blank" class="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-800 flex items-center justify-center hover:bg-slate-900 hover:text-white shadow-sm transition-all">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Contact Form -->
+                <div class="lg:col-span-6 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-lg">
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="text-xs font-bold text-slate-500 uppercase block mb-1">Nama Anda</label>
+                            <input type="text" id="contact-name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm outline-none focus:border-slate-900" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-slate-500 uppercase block mb-1">Alamat Email</label>
+                            <input type="email" id="contact-email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm outline-none focus:border-slate-900" placeholder="nama@email.com" required>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-slate-500 uppercase block mb-1">Detail Pesan / Proyek</label>
+                            <textarea id="contact-message" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm outline-none focus:border-slate-900" rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-dark-pill w-full justify-center py-3.5 text-xs uppercase tracking-wider font-extrabold shadow-lg">
+                            <i class="fa-solid fa-paper-plane text-white"></i> Kirim Pesan Sekarang
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 4. DARK EXECUTIVE FOOTER SECTION -->
+    <footer class="footer-dark-block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white text-[#0c0d10] flex items-center justify-center text-xl font-bold">
+                    <i class="fa-solid fa-asterisk"></i>
+                </div>
+                <div class="text-center md:text-left">
+                    <p id="footer-brand-name" class="font-display text-xl font-bold uppercase tracking-wider text-white">Kevin</p>
+                    <p class="font-script text-lg text-slate-300 font-bold block">Executive Personal Portfolio v6</p>
+                    <p id="footer-copyright-text" class="text-xs text-slate-400 mt-0.5">© 2026 Kevin. All rights reserved.</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-6 text-xl text-slate-300">
+                <a id="footer-github" href="#" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a id="footer-linkedin" href="#" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a id="footer-instagram" href="#" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Floating Button -->
+    <button id="back-to-top" class="back-to-top-btn" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Lightbox Detail Modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button onclick="closeProjectModal()" class="modal-close-btn">&times;</button>
+            <div id="project-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Application JavaScript Files -->
+    <script src="./js/cloudflare-config.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

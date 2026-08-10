@@ -529,12 +529,12 @@
             </div>
             <h1>Evolusi Portofolio Web Wahyu Hidayat</h1>
             <p>
-                Selamat datang di repositori portofolio resmi. Pilih dan akses versi portofolio yang ingin Anda lihat di bawah ini. Versi terbaru <strong>Portofolio v5</strong> direkomendasikan dengan tampilan Creatix Dark, aksen font tulisan tangan, pendaran blur atmosferik, dan CMS visual in-page.
+                Selamat datang di repositori portofolio resmi. Pilih dan akses versi portofolio yang ingin Anda lihat di bawah ini. Versi terbaru <strong>Portofolio v6</strong> direkomendasikan dengan tata letak Executive White Card, 3-column feature showcase grid, header dark eksklusif, dan CMS visual in-page.
             </p>
             <div class="quick-actions">
-                <a href="./Portofolio%20v5/index.html" class="btn btn-primary">
+                <a href="./Portofolio%20v6/index.html" class="btn btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    Buka Portofolio v5 (Terbaru)
+                    Buka Portofolio v6 (Terbaru)
                 </a>
                 <a href="#versions" class="btn btn-secondary">
                     Lihat Semua Versi
@@ -545,7 +545,7 @@
         <!-- Auto Redirect Notice -->
         <div id="redirectNotice" class="redirect-notice">
             <div>
-                ⚡ <strong>Mengarahkan otomatis:</strong> Membuka <em>Portofolio v5 (Terbaru)</em> dalam <span id="countdown">7</span> detik...
+                ⚡ <strong>Mengarahkan otomatis:</strong> Membuka <em>Portofolio v6 (Terbaru)</em> dalam <span id="countdown">7</span> detik...
             </div>
             <div style="display: flex; gap: 0.5rem; align-items: center;">
                 <button id="btnGoNow" class="btn-sm-cancel" style="background: var(--emerald); color: #000; font-weight:700;">Buka Sekarang</button>
@@ -561,10 +561,37 @@
             </div>
 
             <div class="versions-grid">
-                <!-- Portofolio v5 -->
+                <!-- Portofolio v6 -->
                 <div class="version-card featured">
                     <div class="card-top">
-                        <span class="version-tag tag-v4" style="background: rgba(153, 240, 38, 0.15); color: #99f026; border-color: rgba(153, 240, 38, 0.3);">v5.0 • Terbaru (Utama)</span>
+                        <span class="version-tag tag-v4" style="background: rgba(153, 240, 38, 0.15); color: #99f026; border-color: rgba(153, 240, 38, 0.3);">v6.0 • Terbaru (Utama)</span>
+                        <span class="release-date">Agustus 2026</span>
+                    </div>
+                    <h3 class="card-title">Portofolio v6</h3>
+                    <p class="card-desc">
+                        Desain Executive White Card & Dark Header inspired layout dengan container melengkung rounded-t-[36px], 3-column top capabilities grid, featured project showcase cards, dan Full In-Page Visual Form CMS Dashboard.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">Executive White Card UI</span>
+                        <span class="tech-pill">3-Column Grid</span>
+                        <span class="tech-pill">Single Menu Dropdown</span>
+                        <span class="tech-pill">Visual Form CMS Engine</span>
+                    </div>
+                    <div class="card-actions">
+                        <a href="./Portofolio%20v6/index.html" class="btn btn-primary" style="background: #99f026; color: #0b0c10; font-weight: 800;">
+                            <span>🚀 Lihat Website</span>
+                        </a>
+                        <a href="./Portofolio%20v6/admin.html" class="btn btn-secondary">
+                            <span>⚙️ Admin CMS</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Portofolio v5 -->
+                <div class="version-card">
+                    <div class="card-top">
+                        <span class="version-tag tag-v4" style="background: rgba(153, 240, 38, 0.1); color: #99f026; border-color: rgba(153, 240, 38, 0.2);">v5.0 • Creatix Dark</span>
                         <span class="release-date">Agustus 2026</span>
                     </div>
                     <h3 class="card-title">Portofolio v5</h3>
@@ -579,7 +606,7 @@
                         <span class="tech-pill">Visual Form CMS Engine</span>
                     </div>
                     <div class="card-actions">
-                        <a href="./Portofolio%20v5/index.html" class="btn btn-primary" style="background: #99f026; color: #0b0c10; font-weight: 800;">
+                        <a href="./Portofolio%20v5/index.html" class="btn btn-secondary">
                             <span>🚀 Lihat Website</span>
                         </a>
                         <a href="./Portofolio%20v5/admin.html" class="btn btn-secondary">
@@ -695,7 +722,7 @@
                 if (countdownEl) countdownEl.textContent = timeLeft;
                 if (timeLeft <= 0) {
                     clearInterval(timer);
-                    window.location.href = './Portofolio%20v5/index.html';
+                    window.location.href = './Portofolio%20v6/index.html';
                 }
             }, 1000);
 
@@ -707,7 +734,7 @@
 
             goNowBtn.addEventListener('click', () => {
                 clearInterval(timer);
-                window.location.href = './Portofolio%20v5/index.html';
+                window.location.href = './Portofolio%20v6/index.html';
             });
         }
     </script>
