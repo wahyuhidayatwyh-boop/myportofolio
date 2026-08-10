@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin CMS Dashboard - Portfolio v5">
+    <title>Admin CMS Dashboard | Portfolio v5</title>
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="./assets/logo tab chrome.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;600;800&family=Poppins:wght@400;600;800&family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Dancing+Script:wght@700&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-[#0b0c10] text-white min-h-screen">
+
+    <!-- PIN SECURITY AUTH SCREEN -->
+    <div id="cms-pin-screen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0b0c10]">
+        <div class="max-w-md w-full bg-[#181b26] border border-[#99f026]/30 rounded-3xl p-8 shadow-2xl text-center space-y-6">
+            <div class="w-16 h-16 rounded-full bg-[#99f026] text-[#0b0c10] flex items-center justify-center text-3xl font-bold mx-auto shadow-lg shadow-[#99f026]/20">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold font-display text-white mb-1">CMS Admin Security</h2>
+                <p class="text-xs text-slate-400">Masukkan Kata Sandi / PIN Keamanan (Default: <code class="text-[#99f026]">1234</code>)</p>
+            </div>
+
+            <form id="cms-pin-form" class="space-y-4">
+                <input type="password" id="cms-pin-input" class="w-full bg-[#0b0c10] border border-white/10 rounded-xl px-4 py-3 text-center text-xl font-bold text-white tracking-widest outline-none focus:border-[#99f026]" placeholder="• • • •" required>
+                <button type="submit" class="btn-lime-pill w-full justify-center text-xs uppercase tracking-wider font-extrabold py-3.5 shadow-lg">
+                    <i class="fa-solid fa-key"></i> Masuk Dashboard Admin
+                </button>
+            </form>
+
+            <a href="index.html" class="inline-block text-xs font-bold text-slate-400 hover:text-[#99f026] transition-colors">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Website Utama
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN ADMIN DASHBOARD LAYOUT -->
+    <div id="cms-admin-dashboard" class="hidden flex-1 flex flex-col md:flex-row min-h-screen">
+
+        <!-- MOBILE NAVBAR TOP HEADER & TAB SCROLLER -->
+        <div class="md:hidden sticky top-0 z-40 bg-[#141721] border-b border-white/10">
+            <div class="p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="./assets/logo tab chrome.png" alt="Admin Logo" class="w-8 h-8 rounded-full object-cover border border-[#99f026]">
+                    <span class="font-bold text-white font-display">CMS Admin</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="index.html" class="text-xs font-bold text-[#99f026] hover:underline mr-1">Live Site ↗</a>
+                    <button onclick="lockAdminCMS()" class="text-xs font-bold text-red-400 border border-red-500/30 px-3 py-1.5 rounded-xl">
+                        <i class="fa-solid fa-lock"></i> Lock
+                    </button>
+                </div>
+            </div>
+
+            <!-- Horizontal Scrollable Navigation Tabs (Mobile Only) -->
+            <div class="flex items-center gap-2 px-4 pb-3 overflow-x-auto whitespace-nowrap no-scrollbar border-t border-white/5 pt-2">
+                <button onclick="switchAdminTab('profile')" class="admin-tab-btn active px-3.5 py-1.5 rounded-full text-xs font-bold shrink-0 border border-white/10" data-tab="profile">
+                    <i class="fa-solid fa-user text-[11px] mr-1.5"></i> Profil
+                </button>
+                <button onclick="switchAdminTab('projects')" class="admin-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold shrink-0 border border-white/10" data-tab="projects">
+                    <i class="fa-solid fa-layer-group text-[11px] mr-1.5"></i> Proyek
+                </button>
+                <button onclick="switchAdminTab('skills')" class="admin-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold shrink-0 border border-white/10" data-tab="skills">
+                    <i class="fa-solid fa-code text-[11px] mr-1.5"></i> Skills
+                </button>
+                <button onclick="switchAdminTab('experiences')" class="admin-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold shrink-0 border border-white/10" data-tab="experiences">
+                    <i class="fa-solid fa-briefcase text-[11px] mr-1.5"></i> Pengalaman
+                </button>
+                <button onclick="switchAdminTab('education')" class="admin-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold shrink-0 border border-white/10" data-tab="education">
+                    <i class="fa-solid fa-graduation-cap text-[11px] mr-1.5"></i> Pendidikan
+                </button>
+                <button onclick="switchAdminTab('certifications')" class="admin-tab-btn px-3.5 py-1.5 rounded-full text-xs font-bold shrink-0 border border-white/10" data-tab="certifications">
+                    <i class="fa-solid fa-certificate text-[11px] mr-1.5"></i> Sertifikat
+                </button>
+            </div>
+        </div>
+
+        <!-- SIDEBAR NAVIGATION (DESKTOP) -->
+        <aside class="hidden md:flex w-72 bg-[#141721] border-r border-white/10 p-6 flex-col justify-between shrink-0">
+            <div class="space-y-6">
+                <!-- Brand Header -->
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <div class="flex items-center gap-3">
+                        <img src="./assets/logo tab chrome.png" alt="Admin Logo" class="w-9 h-9 rounded-full object-cover border border-[#99f026]">
+                        <span class="font-extrabold text-white font-display text-lg">Admin CMS v5</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs (Exact v3) -->
+                <nav class="space-y-1.5">
+                    <button onclick="switchAdminTab('profile')" class="admin-tab-btn active w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="profile">
+                        <i class="fa-solid fa-user w-5 text-center"></i> <span>Profil & Hero</span>
+                    </button>
+                    <button onclick="switchAdminTab('projects')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="projects">
+                        <i class="fa-solid fa-layer-group w-5 text-center"></i> <span>Proyek Portfolio</span>
+                    </button>
+                    <button onclick="switchAdminTab('skills')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="skills">
+                        <i class="fa-solid fa-code w-5 text-center"></i> <span>Keahlian & Skills</span>
+                    </button>
+                    <button onclick="switchAdminTab('experiences')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="experiences">
+                        <i class="fa-solid fa-briefcase w-5 text-center"></i> <span>Pengalaman Kerja</span>
+                    </button>
+                    <button onclick="switchAdminTab('education')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="education">
+                        <i class="fa-solid fa-graduation-cap w-5 text-center"></i> <span>Pendidikan Formal</span>
+                    </button>
+                    <button onclick="switchAdminTab('certifications')" class="admin-tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-bold text-sm transition-all" data-tab="certifications">
+                        <i class="fa-solid fa-certificate w-5 text-center"></i> <span>Sertifikat & Piagam</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Footer Controls -->
+            <div class="pt-6 border-t border-white/10 space-y-3">
+                <a href="index.html" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-2xl bg-white/5 border border-white/10 text-xs font-bold text-white hover:text-[#99f026] hover:border-[#99f026] transition-all">
+                    <i class="fa-solid fa-globe"></i> Lihat Website Live ↗
+                </a>
+                <button onclick="lockAdminCMS()" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-2xl bg-red-500/10 border border-red-500/30 text-xs font-bold text-red-400 hover:bg-red-500 hover:text-white transition-all">
+                    <i class="fa-solid fa-right-from-bracket"></i> Keluar & Kunci PIN
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN DASHBOARD CONTENT AREA -->
+        <main class="flex-1 p-4 sm:p-10 max-w-5xl">
+            <div id="admin-tab-content">
+                <!-- Injected by cms.js -->
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Application JavaScript Files -->
+    <script src="./js/cloudflare-config.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/cms.js"></script>
+</body>
+
+</html>

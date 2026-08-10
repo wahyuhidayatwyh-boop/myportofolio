@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kevin - Personal Portfolio & Executive Showcase v5 (Creatix White Edition).">
+    <meta name="author" content="Kevin">
+    <meta property="og:title" content="Kevin | Personal Portfolio v5">
+    <meta property="og:description" content="Personal Portfolio & Executive Showcase by Kevin.">
+    <meta property="og:type" content="website">
+    <title>Kevin | Personal Portfolio v5</title>
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="./assets/logo tab chrome.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;600;800&family=Poppins:wght@400;600;800&family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Dancing+Script:wght@700&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="relative bg-[#0b0c10] text-white">
+
+    <!-- Desktop & Mobile Top Navbar Pill -->
+    <header class="navbar-wrapper">
+        <nav class="navbar-pill">
+            <a href="#home" class="brand-logo-btn">
+                <div class="brand-logo-icon overflow-hidden bg-transparent">
+                    <img src="./assets/logo tab chrome.png" alt="Kevin Logo" class="w-full h-full object-cover rounded-full">
+                </div>
+                <span class="brand-logo-name">Kevin</span>
+            </a>
+
+            <!-- Action Controls & Compact Nav Menu Trigger -->
+            <div class="flex items-center gap-2 relative">
+                <!-- Compact Nav Menu Button -->
+                <button type="button" id="desktop-nav-toggle" class="nav-menu-btn">
+                    <i class="fa-solid fa-bars-staggered text-[#99f026]"></i>
+                    <span class="text-xs font-bold">Menu</span>
+                    <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 transition-transform duration-300" id="desktop-nav-chevron"></i>
+                </button>
+
+                <!-- Admin Link -->
+                <a href="admin.html" class="admin-badge-btn">
+                    <i class="fa-solid fa-lock text-xs"></i> <span>Admin</span>
+                </a>
+
+                <!-- Floating Glassmorphism Dropdown Menu (All Nav Choices) -->
+                <div id="desktop-nav-dropdown" class="nav-dropdown-menu hidden">
+                    <div class="p-2 space-y-1">
+                        <a href="#home" class="nav-dropdown-item">
+                            <i class="fa-solid fa-house w-5 text-[#99f026]"></i>
+                            <span>Home</span>
+                        </a>
+                        <a href="#about" class="nav-dropdown-item">
+                            <i class="fa-solid fa-user w-5 text-[#99f026]"></i>
+                            <span>About Me</span>
+                        </a>
+                        <a href="#projects" class="nav-dropdown-item">
+                            <i class="fa-solid fa-layer-group w-5 text-[#99f026]"></i>
+                            <span>Featured Projects</span>
+                        </a>
+                        <a href="#skills" class="nav-dropdown-item">
+                            <i class="fa-solid fa-code w-5 text-[#99f026]"></i>
+                            <span>Technical Skills</span>
+                        </a>
+                        <a href="#experience" class="nav-dropdown-item">
+                            <i class="fa-solid fa-briefcase w-5 text-[#99f026]"></i>
+                            <span>Work Experience</span>
+                        </a>
+                        <a href="#education" class="nav-dropdown-item">
+                            <i class="fa-solid fa-graduation-cap w-5 text-[#99f026]"></i>
+                            <span>Education & Certificates</span>
+                        </a>
+                        <a href="#contact" class="nav-dropdown-item">
+                            <i class="fa-solid fa-envelope w-5 text-[#99f026]"></i>
+                            <span>Contact</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Floating Bottom Navigation Bar (Mobile & Tablet Only) -->
+    <div
+        class="lg:hidden fixed bottom-3 left-3 right-3 z-50 bg-[#141721]/95 backdrop-blur-md border border-white/10 rounded-full px-3 py-2 shadow-2xl flex items-center justify-around">
+        <a href="#home"
+            class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-[#99f026] text-xs font-semibold">
+            <i class="fa-solid fa-house text-sm sm:text-base"></i>
+            <span class="text-[10px]">Home</span>
+        </a>
+        <a href="#about"
+            class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-[#99f026] text-xs font-semibold">
+            <i class="fa-solid fa-user text-sm sm:text-base"></i>
+            <span class="text-[10px]">About</span>
+        </a>
+        <a href="#projects"
+            class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-[#99f026] text-xs font-semibold">
+            <i class="fa-solid fa-layer-group text-sm sm:text-base"></i>
+            <span class="text-[10px]">Proyek</span>
+        </a>
+        <a href="#skills"
+            class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-[#99f026] text-xs font-semibold">
+            <i class="fa-solid fa-code text-sm sm:text-base"></i>
+            <span class="text-[10px]">Skills</span>
+        </a>
+        <a href="#contact"
+            class="flex flex-col items-center gap-0.5 text-slate-400 hover:text-[#99f026] text-xs font-semibold">
+            <i class="fa-solid fa-envelope text-sm sm:text-base"></i>
+            <span class="text-[10px]">Kontak</span>
+        </a>
+    </div>
+
+    <!-- 1. HERO SECTION (WHITE CURVED CONTAINER - CREATIX DESIGN) -->
+    <section id="home" class="hero-white-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative">
+
+            <!-- Top Left Decorative Green Sparkle -->
+            <div class="absolute top-0 left-2 sm:left-4 text-[#99f026] text-3xl sm:text-5xl">
+                <i class="fa-solid fa-asterisk"></i>
+            </div>
+
+            <!-- Giant Headline with Name -->
+            <h1 class="hero-title-dark">
+                <span class="font-script text-2xl sm:text-4xl text-[#99f026] block mb-1">Halo, Saya</span>
+                <span id="hero-title-name" class="text-slate-900">Kevin</span>
+            </h1>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center mt-4 sm:mt-6">
+
+                <!-- Left Paragraph Bio & Tagline -->
+                <div class="lg:col-span-4 space-y-3 sm:space-y-4 text-center lg:text-left">
+                    <div class="flex items-start gap-2 justify-center lg:justify-start">
+                        <i
+                            class="fa-solid fa-arrow-turn-down text-[#99f026] text-lg sm:text-xl transform -rotate-45"></i>
+                        <div>
+                            <p id="hero-bio-left"
+                                class="text-slate-600 text-xs sm:text-base leading-relaxed max-w-sm font-medium">
+                                Halo, saya Kevin. Selamat datang di portofolio personal & showcase karya profesional
+                                saya.
+                            </p>
+                            <p id="hero-tagline-right" class="text-xs text-slate-400 font-semibold mt-1 sm:mt-2"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Portrait Circle Frame -->
+                <div class="lg:col-span-4 flex justify-center my-2 lg:my-0">
+                    <div class="hero-portrait-circle">
+                        <img id="hero-bg-photo" src="./assets/bg-orang.png"
+                            onerror="this.onerror=null;this.src='./assets/bg-orang.png'" class="hero-portrait-img"
+                            alt="Hero Background Photo">
+                    </div>
+                </div>
+
+                <!-- Right Star Rating / Experience Badge -->
+                <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                    <div class="star-rating-badge text-center lg:text-right">
+                        <div class="text-amber-400 text-xs sm:text-sm mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="font-script font-extrabold text-slate-900 text-2xl leading-none">Executive</span>
+                        <span class="text-[10px] sm:text-xs text-slate-500 font-semibold uppercase tracking-wider block">Portfolio v5</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
+                <a href="#projects" class="btn-lime-pill">
+                    <i class="fa-solid fa-layer-group"></i> <span>Lihat Karya Proyek</span>
+                </a>
+                <a href="#about" class="btn-dark-pill">
+                    <span>(Scroll down)</span> <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MAIN DARK CONTENT CONTAINER -->
+    <main class="relative bg-[#0b0c10] pt-8 sm:pt-12 pb-16 sm:pb-24 space-y-16 sm:space-y-28 overflow-hidden">
+        
+        <!-- Seamless Atmospheric Background Glow Blobs -->
+        <div class="ambient-glow-blob top-[5%] right-[-5%] w-[600px] h-[600px]"></div>
+        <div class="ambient-glow-blob top-[22%] left-[-10%] w-[550px] h-[550px]"></div>
+        <div class="ambient-glow-blob top-[45%] right-[-5%] w-[600px] h-[600px]"></div>
+        <div class="ambient-glow-blob top-[68%] left-[-8%] w-[550px] h-[550px]"></div>
+        <div class="ambient-glow-blob top-[88%] right-[-5%] w-[600px] h-[600px]"></div>
+
+        <!-- STATS COUNTER BAR (EXACT V3 METRICS) -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+            <div class="stats-bar-card grid grid-cols-3 gap-2 sm:gap-6 text-center">
+                <div>
+                    <span id="stat-years-exp" class="stat-num">04+</span>
+                    <div id="stat-years-exp-label" class="stat-lbl">Tahun Pengalaman</div>
+                </div>
+                <div>
+                    <span id="stat-projects-done" class="stat-num">25+</span>
+                    <div id="stat-projects-done-label" class="stat-lbl">Proyek Selesai</div>
+                </div>
+                <div>
+                    <span id="stat-happy-clients" class="stat-num">15+</span>
+                    <div id="stat-happy-clients-label" class="stat-lbl">Klien Puas</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. CLEAN MINIMALIST ABOUT ME SECTION (BEHIND THE CODE) -->
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <!-- Left Showcase Photo Container -->
+                <div class="lg:col-span-5">
+                    <div
+                        class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+                        <img id="about-photo" src="./assets/bg-orang.png"
+                            onerror="this.onerror=null;this.src='./assets/bg-orang.png'"
+                            class="w-full h-[320px] sm:h-[440px] object-cover group-hover:scale-105 transition-transform duration-700"
+                            alt="About Photo">
+                        <span
+                            class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[#99f026] text-[#0b0c10] text-[10px] sm:text-xs font-extrabold py-1 px-3 rounded-full shadow-lg">01
+                            / ABOUT</span>
+                    </div>
+                </div>
+
+                <!-- Right Clean Minimalist Content -->
+                <div class="lg:col-span-7 space-y-4 sm:space-y-6">
+                    <span id="about-subtitle-tag" class="section-tag font-script text-2xl text-[#99f026] block">Behind The Code</span>
+                    <h2 id="about-title-heading"
+                        class="font-display text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                        Crafting Exceptional Digital Experiences Through Clean Code & Visual Elegance.
+                    </h2>
+
+                    <p id="about-description" class="text-slate-300 text-sm sm:text-lg leading-relaxed"></p>
+
+                    <div class="pt-2">
+                        <a href="#contact" class="btn-lime-pill inline-flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> <span>Mari Berdiskusi Proyek</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTINUOUS MARQUEE TICKER -->
+        <div class="marquee-strip">
+            <div class="marquee-strip-inner">
+                <span>Innovate ✦ Inspire ✦ Create</span>
+                <span>Full Stack Development ✦ High Performance Apps ✦ UI/UX Mastery</span>
+                <span>Innovate ✦ Inspire ✦ Create</span>
+            </div>
+        </div>
+
+        <!-- 3. FEATURED PROJECTS SECTION (3 PER PAGE - EXACT V3) -->
+        <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+            <div class="text-center max-w-xl mx-auto mb-8 sm:mb-12 space-y-2">
+                <span class="text-xs font-extrabold text-[#99f026] uppercase tracking-wider">Galeri Foto Karya</span>
+                <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Featured <span class="bg-[#99f026] text-[#0b0c10] px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Projects</span></h2>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+            <div id="projects-pagination"></div>
+        </section>
+
+        <!-- 4. TECHNICAL SKILLS SECTION (3 PER PAGE - EXACT V3) -->
+        <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+            <div class="text-center max-w-xl mx-auto mb-8 sm:mb-12 space-y-2">
+                <span class="text-xs font-extrabold text-[#99f026] uppercase tracking-wider">Keahlian & Teknologi</span>
+                <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Technical <span class="bg-[#99f026] text-[#0b0c10] px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Skills</span></h2>
+            </div>
+
+            <div id="skills-container-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+            <div id="skills-pagination"></div>
+        </section>
+
+        <!-- 5. WORK EXPERIENCE TIMELINE (3 PER PAGE - EXACT V3) -->
+        <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+            <div class="text-center max-w-xl mx-auto mb-8 sm:mb-12 space-y-2">
+                <span class="text-xs font-extrabold text-[#99f026] uppercase tracking-wider">Jejak Karir</span>
+                <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Work <span class="bg-[#99f026] text-[#0b0c10] px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Experience</span></h2>
+            </div>
+
+            <div id="experience-timeline" class="timeline-container max-w-4xl mx-auto"></div>
+            <div id="experience-pagination"></div>
+        </section>
+
+        <!-- 6. EDUCATION & CERTIFICATIONS SECTION (3 PER PAGE EACH - EXACT V3) -->
+        <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10 space-y-14 sm:space-y-20">
+            <!-- Part A: Education Cards -->
+            <div>
+                <div class="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
+                    <span class="text-xs font-extrabold text-[#99f026] uppercase tracking-wider">Latar Belakang Akademis</span>
+                    <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Pendidikan <span class="bg-[#99f026] text-[#0b0c10] px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Formal</span></h2>
+                </div>
+                <div id="education-cards-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+                <div id="education-pagination"></div>
+            </div>
+
+            <!-- Part B: Certificate & Award Photos Showcase -->
+            <div>
+                <div class="text-center max-w-xl mx-auto mb-8 sm:mb-10 space-y-2">
+                    <span class="text-xs font-extrabold text-[#99f026] uppercase tracking-wider">Galeri Foto Sertifikat & Piagam</span>
+                    <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Certifications & <span class="bg-[#99f026] text-[#0b0c10] px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Awards</span></h2>
+                </div>
+                <div id="certifications-photos-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+                <div id="certifications-pagination"></div>
+            </div>
+        </section>
+
+        <!-- 7. HIGH-END EDITORIAL CONTACT SECTION (EXACT V3) -->
+        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <!-- Left Minimalist Editorial Direct Contact -->
+                <div class="lg:col-span-6 space-y-4 sm:space-y-6">
+                    <span class="section-tag font-script text-2xl text-[#99f026] block">Mari Berdiskusi</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                        Let's Build Something <span class="bg-[#99f026] text-[#0b0c10] px-3.5 py-0.5 rounded-2xl font-extrabold inline-block">Extraordinary</span> Together.
+                    </h2>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-md">
+                        Punya ide proyek menarik atau ingin berkolaborasi? Jangan ragu untuk menghubungi saya secara
+                        langsung melalui kontak di bawah ini.
+                    </p>
+
+                    <div>
+                        <span class="text-[10px] sm:text-xs font-extrabold text-slate-400 uppercase block mb-1">Direct
+                            Email Address</span>
+                        <a id="contact-email-link" href="#"
+                            class="text-lg sm:text-2xl font-bold font-display text-[#99f026] hover:underline break-all">
+                            <span id="contact-email-text"></span>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+                        <a id="contact-wa-link" href="#" target="_blank"
+                            class="btn-lime-pill inline-flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> <span id="contact-wa-text"></span>
+                        </a>
+                        <div class="flex items-center gap-3">
+                            <a id="social-github" href="#" target="_blank"
+                                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#181b26] border border-white/10 text-white flex items-center justify-center hover:border-[#99f026] hover:text-[#99f026] transition-all">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a id="social-linkedin" href="#" target="_blank"
+                                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#181b26] border border-white/10 text-white flex items-center justify-center hover:border-[#99f026] hover:text-[#99f026] transition-all">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a id="social-instagram" href="#" target="_blank"
+                                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#181b26] border border-white/10 text-white flex items-center justify-center hover:border-[#99f026] hover:text-[#99f026] transition-all">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Clean Minimalist Form -->
+                <div
+                    class="lg:col-span-6 bg-[#181b26]/90 backdrop-blur-md border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl">
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="text-xs font-bold text-slate-400 uppercase block mb-1">Nama Anda</label>
+                            <input type="text" id="contact-name"
+                                class="w-full bg-[#0b0c10] border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-[#99f026]"
+                                placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-slate-400 uppercase block mb-1">Alamat Email</label>
+                            <input type="email" id="contact-email"
+                                class="w-full bg-[#0b0c10] border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-[#99f026]"
+                                placeholder="nama@email.com" required>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-slate-400 uppercase block mb-1">Detail Pesan /
+                                Proyek</label>
+                            <textarea id="contact-message"
+                                class="w-full bg-[#0b0c10] border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-[#99f026]"
+                                rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="btn-lime-pill w-full justify-center py-3.5 text-xs uppercase tracking-wider font-extrabold shadow-lg">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan Sekarang
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FOOTER (EXACT V3 ELEMENTS) -->
+        <footer class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10 pt-6 sm:pt-10">
+            <div
+                class="bg-[#181b26] border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-full bg-[#99f026] text-[#0b0c10] flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-asterisk"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <p id="footer-brand-name"
+                            class="font-display text-xl font-bold uppercase tracking-wider text-[#99f026]">Kevin</p>
+                        <p class="font-script text-xl text-[#99f026] font-bold block">Executive Personal Portfolio</p>
+                        <p id="footer-copyright-text" class="text-xs text-slate-400 mt-0.5">© 2026 Kevin. All rights
+                            reserved.</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6 text-xl">
+                    <a id="footer-github" href="#" target="_blank" class="hover:text-[#99f026] transition-colors"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a id="footer-linkedin" href="#" target="_blank" class="hover:text-[#99f026] transition-colors"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a id="footer-instagram" href="#" target="_blank" class="hover:text-[#99f026] transition-colors"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Back to Top Floating Button -->
+    <button id="back-to-top" class="back-to-top-btn" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Lightbox Detail Modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button onclick="closeProjectModal()" class="modal-close-btn">&times;</button>
+            <div id="project-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Application JavaScript Files -->
+    <script src="./js/cloudflare-config.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/cms.js"></script>
+</body>
+
+</html>
