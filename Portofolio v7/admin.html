@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Visual CMS Dashboard | Portofolio v7</title>
+
+    <link rel="icon" type="image/png" href="./assets/logo tab chrome.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#f8fafc] text-slate-800 font-['Plus_Jakarta_Sans'] min-h-screen flex flex-col md:flex-row overflow-x-hidden">
+
+    <!-- 1. MOBILE TOP STICKY ADMIN BAR (GARIS 3 HAMBURGER MENU) -->
+    <header class="md:hidden sticky top-0 z-40 bg-[#120204] text-white border-b border-[#ff3b00]/30 shadow-xl px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-[#ff3b00] text-white flex items-center justify-center font-extrabold text-sm shadow-md">
+                <i class="fa-solid fa-sliders text-xs"></i>
+            </div>
+            <div>
+                <h1 class="font-['Outfit'] font-black text-xs text-white leading-tight">Visual CMS v7</h1>
+                <p id="mobile-active-section-name" class="text-[9px] text-[#ff3b00] font-extrabold uppercase tracking-wider">Profil & Hero Utama</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <a href="index.html" target="_blank" class="w-8 h-8 rounded-xl bg-white/10 text-white flex items-center justify-center text-xs border border-white/20">
+                <i class="fa-solid fa-globe"></i>
+            </a>
+            <!-- 3-Line Hamburger Menu Trigger (Garis 3) -->
+            <button type="button" onclick="toggleMobileCMSMenu(true)" class="bg-[#ff3b00] hover:bg-[#e03400] text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md cursor-pointer border border-[#ff3b00]/50">
+                <i class="fa-solid fa-bars text-xs"></i> <span>Menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. MOBILE HAMBURGER MENU DROPDOWN PANEL (GARIS 3 OVERLAY MODAL) -->
+    <div id="mobile-cms-drawer" class="hidden fixed inset-0 z-50 bg-[#120204]/95 backdrop-blur-2xl p-5 md:hidden flex flex-col justify-between overflow-y-auto">
+        <div class="space-y-5">
+            <!-- Modal Header with Close Button -->
+            <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-[#ff3b00] text-white flex items-center justify-center font-bold text-base shadow-md">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div>
+                        <span class="font-['Outfit'] font-black text-white text-base block leading-tight">Pilih Seksi Pengeditan</span>
+                        <span class="text-[9px] text-slate-400 font-medium">Visual CMS Dashboard v7</span>
+                    </div>
+                </div>
+                <button type="button" onclick="toggleMobileCMSMenu(false)" class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center text-sm hover:bg-white/20 transition-all cursor-pointer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- List of 10 CMS Tab Menu Items for Mobile -->
+            <nav class="space-y-2">
+                <button type="button" data-tab="profile" class="cms-mobile-menu-btn active w-full px-4 py-3 rounded-2xl text-xs font-bold bg-[#ff3b00] text-white flex items-center justify-between shadow-lg cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-user w-5 text-center text-sm"></i> Profil & Hero Utama</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="overview" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-images w-5 text-center text-sm"></i> Foto & Judul Overview</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="services" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-bolt w-5 text-center text-sm"></i> Seksi Layanan (4 Cards)</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="impact" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-lightbulb w-5 text-center text-sm"></i> Impact Statements</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="about-me" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-id-card w-5 text-center text-sm"></i> Tentang Saya & Stats</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="projects" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-layer-group w-5 text-center text-sm"></i> Proyek Karya (CRUD)</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="skills" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-code w-5 text-center text-sm"></i> Keahlian & Skills</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="experience" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-briefcase w-5 text-center text-sm"></i> Karir & Pengalaman</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="education" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-graduation-cap w-5 text-center text-sm"></i> Pendidikan & Sertifikat</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button type="button" data-tab="contact" class="cms-mobile-menu-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-200 bg-white/10 hover:bg-white/20 flex items-center justify-between cursor-pointer">
+                    <span class="flex items-center gap-3"><i class="fa-solid fa-envelope w-5 text-center text-sm"></i> Kontak & Sosmed</span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+            </nav>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 space-y-2 mt-4">
+            <a href="index.html" target="_blank" class="w-full px-4 py-3 bg-white/10 hover:bg-white/20 text-white rounded-2xl text-xs font-bold flex items-center justify-center gap-2 border border-white/20">
+                <i class="fa-solid fa-globe"></i> <span>Buka Web Portofolio</span>
+            </a>
+            <button onclick="document.getElementById('reset-data-btn').click()" class="w-full px-4 py-2.5 bg-rose-500/20 text-rose-300 rounded-2xl text-xs font-bold border border-rose-500/30 flex items-center justify-center gap-2 cursor-pointer">
+                <i class="fa-solid fa-rotate-left text-xs"></i> <span>Reset Data</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 3. DESKTOP LEFT SIDEBAR (HIDDEN ON MOBILE, VISIBLE ON DESKTOP) -->
+    <aside class="hidden md:flex w-72 bg-[#120204] text-white flex-shrink-0 border-r border-[#ff3b00]/20 flex-col justify-between p-5 sticky top-0 h-screen overflow-y-auto no-scrollbar">
+        <div class="space-y-6">
+            
+            <!-- Sidebar Header / Brand Logo -->
+            <div class="flex items-center gap-3.5 pb-4 border-b border-white/10 pt-2">
+                <div class="w-10 h-10 rounded-2xl bg-[#ff3b00] text-white flex items-center justify-center font-extrabold text-lg shadow-lg">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <div>
+                    <h1 class="font-['Outfit'] font-black text-base text-white leading-snug">Visual CMS v7</h1>
+                    <p class="text-[10px] text-[#ff3b00] font-extrabold uppercase tracking-wider">Dashboard Portofolio</p>
+                </div>
+            </div>
+
+            <!-- Vertical Navigation Tabs -->
+            <nav class="space-y-1.5">
+                <button type="button" data-tab="profile" class="cms-sidebar-btn active w-full px-4 py-3 rounded-2xl text-xs font-bold bg-[#ff3b00] text-white flex items-center gap-3 shadow-lg transition-all cursor-pointer">
+                    <i class="fa-solid fa-user w-4 text-center"></i> <span>Profil & Hero Utama</span>
+                </button>
+                <button type="button" data-tab="overview" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-images w-4 text-center"></i> <span>Foto & Judul Overview</span>
+                </button>
+                <button type="button" data-tab="services" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-bolt w-4 text-center"></i> <span>Seksi Layanan (4 Cards)</span>
+                </button>
+                <button type="button" data-tab="impact" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-lightbulb w-4 text-center"></i> <span>Impact Statements</span>
+                </button>
+                <button type="button" data-tab="about-me" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-id-card w-4 text-center"></i> <span>Tentang Saya & Stats</span>
+                </button>
+                <button type="button" data-tab="projects" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-layer-group w-4 text-center"></i> <span>Proyek Karya (CRUD)</span>
+                </button>
+                <button type="button" data-tab="skills" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-code w-4 text-center"></i> <span>Keahlian & Skills</span>
+                </button>
+                <button type="button" data-tab="experience" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-briefcase w-4 text-center"></i> <span>Karir & Pengalaman</span>
+                </button>
+                <button type="button" data-tab="education" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-graduation-cap w-4 text-center"></i> <span>Pendidikan & Sertifikat</span>
+                </button>
+                <button type="button" data-tab="contact" class="cms-sidebar-btn w-full px-4 py-3 rounded-2xl text-xs font-bold text-slate-300 hover:text-white hover:bg-white/10 flex items-center gap-3 transition-all cursor-pointer">
+                    <i class="fa-solid fa-envelope w-4 text-center"></i> <span>Kontak & Sosmed</span>
+                </button>
+            </nav>
+
+        </div>
+
+        <!-- Sidebar Bottom Action Buttons -->
+        <div class="pt-6 border-t border-white/10 space-y-2 mt-6">
+            <a href="index.html" target="_blank" class="w-full px-4 py-3 bg-white/10 hover:bg-white/20 text-white rounded-2xl text-xs font-bold flex items-center justify-center gap-2 border border-white/20 transition-all">
+                <i class="fa-solid fa-globe"></i> <span>Buka Website</span>
+            </a>
+            <button id="reset-data-btn" class="w-full px-4 py-2.5 bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 rounded-2xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <i class="fa-solid fa-rotate-left text-[10px]"></i> <span>Reset Data</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- RIGHT MAIN WORKSPACE AREA -->
+    <main class="flex-1 min-w-0 p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 overflow-y-auto">
+
+        <!-- Top Header Banner inside Workspace -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-slate-200 rounded-3xl p-5 sm:p-6 shadow-sm">
+            <div>
+                <span class="text-[10px] sm:text-[11px] font-extrabold text-[#ff3b00] uppercase tracking-wider block mb-0.5">Pengaturan Visual CMS</span>
+                <h2 id="active-tab-title" class="font-['Outfit'] font-black text-lg sm:text-xl text-slate-900">Profil & Hero Utama</h2>
+            </div>
+            <button class="save-profile-btn px-5 sm:px-6 py-3 bg-[#ff3b00] hover:bg-[#e03400] text-white font-extrabold rounded-2xl text-xs flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer border border-[#ff3b00]/50 w-full sm:w-auto">
+                <i class="fa-solid fa-floppy-disk"></i> Simpan Semua Perubahan
+            </button>
+        </div>
+
+        <!-- 1. TAB PROFIL & HERO UTAMA -->
+        <div id="tab-profile" class="cms-tab-content space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <h3 class="text-base font-extrabold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-user text-[#ff3b00]"></i> Teks & Foto Hero Section
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Nama Lengkap / Brand Logo</label>
+                        <input type="text" id="input-name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00] transition-all">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Jabatan / Role Sub-Headline</label>
+                        <input type="text" id="input-title" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00] transition-all">
+                    </div>
+
+                    <!-- 3 Baris Headline Hero -->
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Judul Hero Baris 1 (PENGEMBANG)</label>
+                        <input type="text" id="input-heroTitleLine1" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Judul Hero Baris 2 (WEB & DESAIN)</label>
+                        <input type="text" id="input-heroTitleLine2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Judul Hero Baris 3 (PERSONAL)</label>
+                        <input type="text" id="input-heroTitleLine3" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Bio Hero</label>
+                        <textarea id="input-heroBio" rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Kartu Metric: Angka (85%)</label>
+                        <input type="text" id="input-statMetricVal" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Kartu Metric: Teks Keterangan</label>
+                        <input type="text" id="input-statMetricLbl" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Hero Pill Tag 1</label>
+                        <input type="text" id="input-heroTag1" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Hero Pill Tag 2</label>
+                        <input type="text" id="input-heroTag2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Hero Pill Tag 3</label>
+                        <input type="text" id="input-heroTag3" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+
+                    <!-- File Uploader foto Hero -->
+                    <div class="md:col-span-2 p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                        <label class="text-xs font-bold text-slate-800 block">📷 Unggah Foto Hero Utama (Hero Background Photo)</label>
+                        <input type="file" id="hero-bg-photo-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-[#ff3b00] file:text-white hover:file:bg-[#e03400] transition-all cursor-pointer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. TAB FOTO & JUDUL OVERVIEW -->
+        <div id="tab-overview" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <h3 class="text-base font-extrabold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-images text-[#ff3b00]"></i> Teks & 3 Kartu Foto Overview Section
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Overview Tag Badge (MASA DEPAN DIGITAL)</label>
+                        <input type="text" id="input-overviewBadge" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Judul Utama Overview</label>
+                        <input type="text" id="input-overviewTitle" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Lengkap Overview</label>
+                        <textarea id="input-overviewDesc" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]"></textarea>
+                    </div>
+
+                    <!-- 3 Kartu Foto Uploaders -->
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                        <label class="text-xs font-bold text-slate-800 block">📷 Unggah Kartu Foto 1 (Overview)</label>
+                        <input type="file" id="overview-photo-1-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-[#120204] file:text-[#ff3b00]">
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                        <label class="text-xs font-bold text-slate-800 block">📷 Unggah Kartu Foto 2 (Overview)</label>
+                        <input type="file" id="overview-photo-2-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-[#120204] file:text-[#ff3b00]">
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2 md:col-span-2">
+                        <label class="text-xs font-bold text-slate-800 block">📷 Unggah Kartu Foto 3 (Overview)</label>
+                        <input type="file" id="overview-photo-3-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-[#120204] file:text-[#ff3b00]">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. TAB SEKSI LAYANAN (4 CARDS) -->
+        <div id="tab-services" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <h3 class="text-base font-extrabold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-[#ff3b00]"></i> Teks Header & 4 Kartu Layanan
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Judul Utama Header Layanan</label>
+                        <input type="text" id="input-servicesHeaderTitle" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Header Layanan</label>
+                        <textarea id="input-servicesHeaderDesc" rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]"></textarea>
+                    </div>
+
+                    <!-- Card 1 -->
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                        <span class="text-xs font-extrabold text-[#ff3b00] block">LAYANAN 1</span>
+                        <input type="text" id="input-service1Title" placeholder="Judul Layanan 1" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="text" id="input-service1Desc" placeholder="Deskripsi Layanan 1" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="file" id="service1-img-input" accept="image/*" class="w-full text-xs text-slate-500">
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                        <span class="text-xs font-extrabold text-[#ff3b00] block">LAYANAN 2</span>
+                        <input type="text" id="input-service2Title" placeholder="Judul Layanan 2" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="text" id="input-service2Desc" placeholder="Deskripsi Layanan 2" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="file" id="service2-img-input" accept="image/*" class="w-full text-xs text-slate-500">
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                        <span class="text-xs font-extrabold text-[#ff3b00] block">LAYANAN 3</span>
+                        <input type="text" id="input-service3Title" placeholder="Judul Layanan 3" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="text" id="input-service3Desc" placeholder="Deskripsi Layanan 3" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="file" id="service3-img-input" accept="image/*" class="w-full text-xs text-slate-500">
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                        <span class="text-xs font-extrabold text-[#ff3b00] block">LAYANAN 4</span>
+                        <input type="text" id="input-service4Title" placeholder="Judul Layanan 4" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="text" id="input-service4Desc" placeholder="Deskripsi Layanan 4" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="file" id="service4-img-input" accept="image/*" class="w-full text-xs text-slate-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. TAB IMPACT STATEMENTS -->
+        <div id="tab-impact" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <h3 class="text-base font-extrabold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb text-[#ff3b00]"></i> Teks & 3 Kartu Impact Statements
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Judul Utama Impact Section</label>
+                        <textarea id="input-impactTitle" rows="2" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]"></textarea>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                        <span class="text-xs font-extrabold text-[#ff3b00] block">KARTU 1 (Studio Card)</span>
+                        <input type="text" id="input-impactCard1Desc" placeholder="Keterangan Teks Kartu 1" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="file" id="impact-card1-img-input" accept="image/*" class="w-full text-xs text-slate-500">
+                    </div>
+
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                        <span class="text-xs font-extrabold text-[#ff3b00] block">KARTU 2 (Red Banner)</span>
+                        <input type="text" id="input-impactCard2Title" placeholder="Judul Teks Kartu 2" class="w-full border rounded-xl px-3 py-2 text-xs">
+                    </div>
+
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3 md:col-span-2">
+                        <span class="text-xs font-extrabold text-[#ff3b00] block">KARTU 3 (Silhouette Card)</span>
+                        <input type="text" id="input-impactCard3Btn" placeholder="Teks Tombol Kartu 3" class="w-full border rounded-xl px-3 py-2 text-xs">
+                        <input type="file" id="impact-card3-img-input" accept="image/*" class="w-full text-xs text-slate-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. TAB TENTANG SAYA & STATS -->
+        <div id="tab-about-me" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <h3 class="text-base font-extrabold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-id-card text-[#ff3b00]"></i> Teks Tentang Saya & Angka Statistik
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">About Subtitle Tag</label>
+                        <input type="text" id="input-aboutSubtitle" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">About Title Heading</label>
+                        <input type="text" id="input-aboutTitle" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Lengkap About Me</label>
+                        <textarea id="input-about" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Stat: Tahun Pengalaman</label>
+                        <input type="text" id="input-yearsExp" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Stat: Proyek Selesai</label>
+                        <input type="text" id="input-projectsDone" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Stat: Klien Puas</label>
+                        <input type="text" id="input-happyClients" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                        <label class="text-xs font-bold text-slate-800 block">📷 Unggah Foto About Me</label>
+                        <input type="file" id="about-photo-input" accept="image/*" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-[#120204] file:text-[#ff3b00]">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. TAB PROYEK KARYA (CRUD) -->
+        <div id="tab-projects" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-[#ff3b00]"></i> Daftar Proyek Karya
+                    </h3>
+                    <button type="button" onclick="openProjectModal()" class="px-5 py-2.5 bg-[#ff3b00] hover:bg-[#e03400] text-white font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer">
+                        <i class="fa-solid fa-plus"></i> Tambah Proyek Baru
+                    </button>
+                </div>
+                <div id="cms-projects-list" class="space-y-3"></div>
+            </div>
+        </div>
+
+        <!-- 7. TAB KEAHLIAN / SKILLS (CRUD) -->
+        <div id="tab-skills" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-code text-[#ff3b00]"></i> Daftar Keahlian & Skills
+                    </h3>
+                    <button type="button" onclick="openSkillModal()" class="px-5 py-2.5 bg-[#ff3b00] hover:bg-[#e03400] text-white font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer">
+                        <i class="fa-solid fa-plus"></i> Tambah Skill Baru
+                    </button>
+                </div>
+                <div id="cms-skills-list" class="space-y-3"></div>
+            </div>
+        </div>
+
+        <!-- 8. TAB KARIR & PENGALAMAN (CRUD) -->
+        <div id="tab-experience" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase text-[#ff3b00]"></i> Timeline Pengalaman Karir
+                    </h3>
+                    <button type="button" onclick="openExpModal()" class="px-5 py-2.5 bg-[#ff3b00] hover:bg-[#e03400] text-white font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer">
+                        <i class="fa-solid fa-plus"></i> Tambah Karir
+                    </button>
+                </div>
+                <div id="cms-experiences-list" class="space-y-3"></div>
+            </div>
+        </div>
+
+        <!-- 9. TAB PENDIDIKAN & SERTIFIKAT (CRUD) -->
+        <div id="tab-education" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-[#ff3b00]"></i> Pendidikan Formal
+                    </h3>
+                    <button type="button" onclick="openEduModal()" class="px-5 py-2.5 bg-[#ff3b00] hover:bg-[#e03400] text-white font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer">
+                        <i class="fa-solid fa-plus"></i> Tambah Pendidikan
+                    </button>
+                </div>
+                <div id="cms-education-list" class="space-y-3"></div>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-[#award] text-[#ff3b00]"></i> Sertifikat & Penghargaan
+                    </h3>
+                    <button type="button" onclick="openCertModal()" class="px-5 py-2.5 bg-[#ff3b00] hover:bg-[#e03400] text-white font-extrabold rounded-xl text-xs flex items-center gap-2 shadow-md cursor-pointer">
+                        <i class="fa-solid fa-plus"></i> Tambah Sertifikat
+                    </button>
+                </div>
+                <div id="cms-certifications-list" class="space-y-3"></div>
+            </div>
+        </div>
+
+        <!-- 10. TAB KONTAK & SOSMED -->
+        <div id="tab-contact" class="cms-tab-content hidden space-y-6">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
+                <h3 class="text-base font-extrabold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-[#ff3b00]"></i> Informasi Kontak & Media Sosial
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Alamat Email Direct</label>
+                        <input type="email" id="input-email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Nomor Telepon / Display</label>
+                        <input type="text" id="input-phone" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Nomor WhatsApp Direct (Contoh: 628123456789)</label>
+                        <input type="text" id="input-whatsapp" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">Link CV (PDF / Drive)</label>
+                        <input type="text" id="input-cvUrl" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">URL GitHub</label>
+                        <input type="text" id="input-github" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">URL LinkedIn</label>
+                        <input type="text" id="input-linkedin" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-slate-700 block mb-1">URL Instagram</label>
+                        <input type="text" id="input-instagram" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 text-sm outline-none focus:border-[#ff3b00]">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MODAL POPUPS -->
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4 shadow-2xl">
+            <h3 class="font-bold text-slate-900 text-lg">Form Edit Proyek</h3>
+            <input type="hidden" id="proj-id">
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Judul Proyek</label>
+                <input type="text" id="proj-title" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Kategori Proyek</label>
+                <select id="proj-category" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+                    <option value="Web Application">Web Application</option>
+                    <option value="SaaS Platform">SaaS Platform</option>
+                    <option value="E-Commerce">E-Commerce</option>
+                    <option value="Mobile App & Web">Mobile App & Web</option>
+                </select>
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Tags (Pisahkan koma)</label>
+                <input type="text" id="proj-tags" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Image URL / Path</label>
+                <input type="text" id="proj-image" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+                <input type="file" id="proj-image-file" accept="image/*" class="mt-1 text-xs text-slate-500">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Proyek</label>
+                <textarea id="proj-description" rows="3" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none"></textarea>
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Live Demo URL</label>
+                <input type="text" id="proj-demoUrl" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Repository Code URL</label>
+                <input type="text" id="proj-repoUrl" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button type="button" onclick="closeProjectModal()" class="px-4 py-2 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold">Batal</button>
+                <button type="button" onclick="saveProjectForm()" class="px-5 py-2 bg-[#ff3b00] text-white rounded-xl text-xs font-extrabold">Simpan Proyek</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skill Modal -->
+    <div id="skill-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-md w-full space-y-4 shadow-2xl">
+            <h3 class="font-bold text-slate-900 text-lg">Form Skill / Keahlian</h3>
+            <input type="hidden" id="skill-id">
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Nama Keahlian</label>
+                <input type="text" id="skill-name" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Tingkat Penguasaan (%)</label>
+                <input type="number" id="skill-level" min="1" max="100" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Kategori</label>
+                <input type="text" id="skill-category" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Icon FontAwesome Class (Contoh: fa-code)</label>
+                <input type="text" id="skill-icon" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button type="button" onclick="closeSkillModal()" class="px-4 py-2 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold">Batal</button>
+                <button type="button" onclick="saveSkillForm()" class="px-5 py-2 bg-[#ff3b00] text-white rounded-xl text-xs font-extrabold">Simpan Skill</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exp Modal -->
+    <div id="exp-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4 shadow-2xl">
+            <h3 class="font-bold text-slate-900 text-lg">Form Pengalaman Karir</h3>
+            <input type="hidden" id="exp-id">
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Posisi / Role</label>
+                <input type="text" id="exp-role" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Nama Perusahaan / Studio</label>
+                <input type="text" id="exp-company" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Periode (Contoh: 2023 - Sekarang)</label>
+                <input type="text" id="exp-period" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Pekerjaan</label>
+                <textarea id="exp-description" rows="3" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none"></textarea>
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Skills & Tools (Pisahkan koma)</label>
+                <input type="text" id="exp-skills" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button type="button" onclick="closeExpModal()" class="px-4 py-2 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold">Batal</button>
+                <button type="button" onclick="saveExpForm()" class="px-5 py-2 bg-[#ff3b00] text-white rounded-xl text-xs font-extrabold">Simpan Karir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edu Modal -->
+    <div id="edu-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4 shadow-2xl">
+            <h3 class="font-bold text-slate-900 text-lg">Form Pendidikan</h3>
+            <input type="hidden" id="edu-id">
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Gelar / Program Studio</label>
+                <input type="text" id="edu-degree" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Institusi / Universitas</label>
+                <input type="text" id="edu-institution" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Tahun (Contoh: 2018 - 2022)</label>
+                <input type="text" id="edu-year" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi</label>
+                <textarea id="edu-description" rows="3" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none"></textarea>
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button type="button" onclick="closeEduModal()" class="px-4 py-2 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold">Batal</button>
+                <button type="button" onclick="saveEduForm()" class="px-5 py-2 bg-[#ff3b00] text-white rounded-xl text-xs font-extrabold">Simpan Pendidikan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cert Modal -->
+    <div id="cert-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-lg w-full space-y-4 shadow-2xl">
+            <h3 class="font-bold text-slate-900 text-lg">Form Sertifikat</h3>
+            <input type="hidden" id="cert-id">
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Judul Sertifikat</label>
+                <input type="text" id="cert-title" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Penerbit / Organisation</label>
+                <input type="text" id="cert-issuer" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Tahun</label>
+                <input type="text" id="cert-year" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Image URL / Path</label>
+                <input type="text" id="cert-image" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+                <input type="file" id="cert-image-file" accept="image/*" class="mt-1 text-xs text-slate-500">
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button type="button" onclick="closeCertModal()" class="px-4 py-2 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold">Batal</button>
+                <button type="button" onclick="saveCertForm()" class="px-5 py-2 bg-[#ff3b00] text-white rounded-xl text-xs font-extrabold">Simpan Sertifikat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="./js/app.js"></script>
+    <script src="./js/cms.js"></script>
+</body>
+
+</html>

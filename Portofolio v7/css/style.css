@@ -1,0 +1,387 @@
+/* ==========================================================================
+   PORTOFOLIO V7 - EXACT CREATIVE BRANDING AGENCY & PERSONAL PORTFOLIO DESIGN SYSTEM
+   Featuring Helvetica Neue / Neue Haas Grotesk / Inter Tight UltraLight Typography
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap');
+
+:root {
+    --bg-dark: #120204;
+    --bg-dark-card: #1c0508;
+    --bg-light: #f4f3ef;
+    --bg-white: #ffffff;
+    --accent-red: #ff3b00;
+    --accent-crimson: #d91c1c;
+    --text-dark: #141416;
+    --text-muted: #64748b;
+    --font-heading: 'Helvetica Neue', 'Neue Haas Grotesk', 'Helvetica Now Display', 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-subheading: 'Outfit', 'Inter Tight', sans-serif;
+    --font-body: 'Inter', 'Plus Jakarta Sans', sans-serif;
+    --font-hand: 'Caveat', cursive;
+}
+
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d0203;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff3b00;
+    border-radius: 4px;
+}
+
+/* Exact Agency Typography Classes matching user specification */
+.font-agency-thin {
+    font-family: var(--font-heading);
+    font-weight: 250;
+    letter-spacing: -0.04em; /* Tight tracking -4% */
+    line-height: 0.90; /* Tight line height 0.85–0.95 */
+    text-transform: uppercase;
+}
+
+.font-agency-medium {
+    font-family: var(--font-heading);
+    font-weight: 350;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    text-transform: uppercase;
+}
+
+.font-outfit {
+    font-family: var(--font-subheading);
+}
+
+.text-stroke-white {
+    color: transparent;
+    -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.88);
+}
+
+.text-stroke-dark {
+    color: transparent;
+    -webkit-text-stroke: 1.2px #141416;
+}
+
+.text-stroke-gray {
+    color: transparent;
+    -webkit-text-stroke: 1.2px #a1a1aa;
+}
+
+.text-muted-gray {
+    color: #a1a1aa;
+}
+
+/* Red 3D Sphere Accent Icon */
+.red-3d-capsule {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 20px;
+    background: radial-gradient(circle at 30% 30%, #ff6b3b, #ff3b00 60%, #880000 100%);
+    border-radius: 9999px;
+    box-shadow: 0 4px 12px rgba(255, 59, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    vertical-align: middle;
+    margin: 0 4px;
+}
+
+/* Header Glassmorphism */
+.header-dark {
+    background: rgba(18, 2, 4, 0.88);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Hero Section */
+.hero-container {
+    background: radial-gradient(circle at 50% 30%, #2b050a 0%, #120204 70%);
+    position: relative;
+}
+
+/* Hero Photo Framing & Alignment Rules */
+.hero-photo-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Mobile View: Enlarged photo as requested */
+.hero-photo-fit {
+    max-height: 540px;
+    width: auto;
+    object-fit: contain;
+    object-position: top center;
+    transform: scale(1.10);
+    transform-origin: top center;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+}
+
+/* Desktop View: Shrunk slightly for optimal proportions */
+@media (min-width: 1024px) {
+    .hero-photo-container {
+        top: 68px; /* Starts right below sticky navbar */
+        height: calc(100% - 68px);
+    }
+    .hero-photo-fit {
+        max-height: 580px;
+        width: auto;
+        object-fit: contain;
+        object-position: top center;
+        transform: scale(1.04);
+        transform-origin: top center;
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+    }
+}
+
+/* Light Off-White Main Body Container (Enhanced Spacious Padding) */
+.main-light-container {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border-top-left-radius: 44px;
+    border-top-right-radius: 44px;
+    position: relative;
+    z-index: 20;
+    margin-top: -28px;
+    box-shadow: 0 -25px 50px rgba(0, 0, 0, 0.6);
+    padding-top: 6rem;
+    padding-bottom: 7rem;
+}
+
+/* Asymmetrical Studio Photography Cards System */
+.card-photo-hero {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-photo-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-photo-hero:hover img {
+    transform: scale(1.08);
+}
+.card-photo-hero:hover {
+    box-shadow: 0 25px 45px rgba(255, 59, 0, 0.3);
+}
+
+/* Services 4-Cards Grid matching photo */
+.service-card-red {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 59, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.service-card-red:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 59, 0, 0.3);
+    z-index: 10;
+}
+
+/* Floating White Metric Badge Card */
+.metric-badge-white {
+    background: #ffffff;
+    color: #141416;
+    border-radius: 20px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Pill Buttons */
+.btn-pill-red {
+    background-color: var(--accent-red);
+    color: #ffffff;
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    padding: 0.65rem 1.5rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 59, 0, 0.4);
+}
+.btn-pill-red:hover {
+    background-color: #e03400;
+    transform: translateY(-2px);
+}
+
+.btn-pill-white {
+    background-color: #ffffff;
+    color: #141416;
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    padding: 0.65rem 1.5rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+.btn-pill-white:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+}
+
+.btn-pill-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-family: var(--font-subheading);
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+.btn-pill-outline:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* EXACT Agency Project Card (Matching Reference Photo) */
+.project-agency-card {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    height: 380px;
+    background-color: #120204;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-agency-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(255, 59, 0, 0.3);
+    border-color: rgba(255, 59, 0, 0.5);
+    z-index: 10;
+}
+
+.project-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-agency-card:hover .project-bg-img {
+    transform: scale(1.08);
+}
+
+.project-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(18, 2, 4, 0.95) 0%, rgba(18, 2, 4, 0.6) 55%, rgba(18, 2, 4, 0.25) 100%);
+}
+
+.project-tag-pill {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Polished Pagination Number Buttons System */
+.pagination-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 14px;
+    background-color: #ffffff;
+    color: #141416;
+    border: 1px solid #e2e8f0;
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.pagination-btn:hover:not(.disabled):not(.active) {
+    background-color: #120204;
+    color: #ff3b00;
+    border-color: rgba(255, 59, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(255, 59, 0, 0.2);
+}
+
+.pagination-btn.active {
+    background-color: #120204;
+    color: #ff3b00;
+    border: 2px solid #ff3b00;
+    box-shadow: 0 6px 18px rgba(255, 59, 0, 0.35);
+    transform: scale(1.08);
+    font-weight: 800;
+}
+
+.pagination-btn.nav-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 14px;
+}
+
+.pagination-btn.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    border-color: #e2e8f0;
+    box-shadow: none;
+}
+
+/* Mobile Floating Bottom Glassmorphism Navigation Items */
+.nav-bottom-item {
+    color: #94a3b8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-bottom-item:hover {
+    color: #ffffff;
+}
+.nav-bottom-item.active {
+    background-color: #ff3b00;
+    color: #ffffff !important;
+    box-shadow: 0 4px 18px rgba(255, 59, 0, 0.5);
+    transform: scale(1.05);
+}
