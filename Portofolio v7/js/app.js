@@ -103,6 +103,7 @@ const DEFAULT_PORTFOLIO_DATA = {
             tags: ["React", "TypeScript", "TailwindCSS"],
             image: "./assets/foto.png",
             description: "Platform analitik keuangan modern dengan visualisasi data transaksi real-time, arsitektur responsif, dan antarmuka dark mode.",
+            fullDescription: "Platform analitik keuangan tingkat enterprise ini dirancang khusus untuk memvisualisasikan jutaan data transaksi secara real-time dengan latency di bawah 100ms. Arsitektur Frontend menggunakan React 18, TypeScript, dan TailwindCSS dengan integrasi WebSocket untuk updates grafik finansial tanpa refresh.\n\nSistem dilengkapi modul manajemen risiko, laporan performa kuartalan, audit log transaksi otomatis, serta ekspor data berformat PDF dan Excel. Keamanan data dilindungi enkripsi end-to-end serta otorisasi multi-role yang ketat.",
             demoUrl: "https://example.com/demo1",
             repoUrl: "https://github.com/example/demo1"
         },
@@ -113,6 +114,7 @@ const DEFAULT_PORTFOLIO_DATA = {
             tags: ["Next.js", "Node.js", "AI Integration"],
             image: "./assets/foto.png",
             description: "Aplikasi berbasis kecerdasan buatan untuk membantu desainer dan pembuat konten menghasilkan aset visual secara efisien.",
+            fullDescription: "Creatix AI Studio mengintegrasikan API generative AI modern untuk menghasilkan aset visual, materi copywriting, dan banner promosi bisnis dalam hitungan detik.\n\nPlatform dibangun dengan Next.js App Router, Server Actions, dan Node.js microservices. Dilengkapi editor kanvas interaktif, fitur kolaborasi tim real-time, serta penyimpanan cloud terenkripsi untuk aset desain resolusi tinggi.",
             demoUrl: "https://example.com/demo2",
             repoUrl: "https://github.com/example/demo2"
         },
@@ -123,6 +125,7 @@ const DEFAULT_PORTFOLIO_DATA = {
             tags: ["Full Stack", "Stripe API", "Animation"],
             image: "./assets/foto.png",
             description: "Toko online performa tinggi untuk brand fashion eksklusif dengan sistem checkout instan dan animasi interaktif.",
+            fullDescription: "Solusi storefront e-commerce mewah yang mengutamakan kecepatan akses dan estetika visual tingkat tinggi. Menggunakan arsitektur Headless Commerce dengan integrasi Stripe API untuk metode pembayaran internasional serta sistem stok otomatis.\n\nToko online ini mencapai skor Google Lighthouse 99/100 pada pengujian performa mobile, dilengkapi animasi mikro Framer Motion yang memberikan pengalaman belanja imersif.",
             demoUrl: "https://example.com/demo3",
             repoUrl: "https://github.com/example/demo3"
         },
@@ -133,16 +136,52 @@ const DEFAULT_PORTFOLIO_DATA = {
             tags: ["UI/UX", "React Native", "WebRTC"],
             image: "./assets/foto.png",
             description: "Aplikasi layanan kesehatan untuk janji temu dokter online, konsultasi video, dan manajemen rekam medis digital.",
+            fullDescription: "Aplikasi telemedicine terintegrasi yang menghubungkan pasien dengan ratusan spesialis medis secara instan. Fitur utama mencakup konsultasi video HD menggunakan WebRTC, pemesanan obat dengan kurir ekspres, serta rekam medis digital HIPAA-compliant.",
             demoUrl: "https://example.com/demo4",
             repoUrl: "https://github.com/example/demo4"
         }
     ],
     skills: [
-        { id: 1, name: "Frontend Development (React/Next.js)", level: 95, category: "Frontend", icon: "fa-code" },
-        { id: 2, name: "Backend APIs & Node.js Architecture", level: 90, category: "Backend", icon: "fa-server" },
-        { id: 3, name: "UI/UX & Modern Design Systems", level: 88, category: "Design", icon: "fa-palette" },
-        { id: 4, name: "Database Architecture & Optimization", level: 85, category: "Database", icon: "fa-database" },
-        { id: 5, name: "Cloud & DevOps (Vercel/Docker/AWS)", level: 82, category: "DevOps", icon: "fa-cloud" }
+        { 
+            id: 1, 
+            name: "Frontend Development (React/Next.js)", 
+            level: 95, 
+            category: "Frontend", 
+            icon: "fa-code",
+            fullDescription: "Spesialisasi mendalam dalam membangun antarmuka web modern, responsif, dan dinamis menggunakan React.js, Next.js (App Router), TypeScript, dan TailwindCSS. Berpengalaman mengoptimalkan performa Core Web Vitals, manajemen state kompleks (Zustand/Redux), serta komponen visual berestetika tinggi."
+        },
+        { 
+            id: 2, 
+            name: "Backend APIs & Node.js Architecture", 
+            level: 90, 
+            category: "Backend", 
+            icon: "fa-server",
+            fullDescription: "Perancangan RESTful API dan GraphQL yang aman, scalable, dan cepat menggunakan Node.js, Express, NestJS, dan TypeScript. Terbiasa mengimplementasikan otentikasi JWT, sistem proteksi rate-limiting, Caching Redis, serta arsitektur Microservices."
+        },
+        { 
+            id: 3, 
+            name: "UI/UX & Modern Design Systems", 
+            level: 88, 
+            category: "Design", 
+            icon: "fa-palette",
+            fullDescription: "Perancangan sistem visual dan antarmuka pengguna presisi tinggi berbasis prinsip UI/UX modern, aksesibilitas WCAG, serta sistem desain interaktif. Menguasai pembuatan prototipe interaktif, tipografi agency, glassmorphism, dan animasi mikro."
+        },
+        { 
+            id: 4, 
+            name: "Database Architecture & Optimization", 
+            level: 85, 
+            category: "Database", 
+            icon: "fa-database",
+            fullDescription: "Pengelolaan dan optimasi database relasional dan NoSQL seperti PostgreSQL, MySQL, dan MongoDB. Ahli dalam pembuatan skema terstruktur, optimasi query berkecepatan tinggi, indexing, serta ORM seperti Prisma dan TypeORM."
+        },
+        { 
+            id: 5, 
+            name: "Cloud & DevOps (Vercel/Docker/AWS)", 
+            level: 82, 
+            category: "DevOps", 
+            icon: "fa-cloud",
+            fullDescription: "Deployment otomatis dan pengelolaan server cloud menggunakan Vercel, Netlify, Docker, AWS S3, dan CI/CD Workflows. Memastikan aplikasi terkonfigurasi dengan domain kustom, sertifikat SSL HTTPS otomatis, dan monitoring server 24/7."
+        }
     ],
     experiences: [
         {
@@ -441,21 +480,21 @@ function renderProjects() {
         container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 text-sm font-semibold">Tidak ada proyek dalam kategori ini.</div>`;
     } else {
         container.innerHTML = paginated.map((proj, idx) => {
-            // Apply creative asymmetrical studio heights per card
-            let heightClass = "h-[350px] self-end";
+            // Apply creative asymmetrical studio heights per card (Compact on mobile, full on desktop)
+            let heightClass = "h-[220px] sm:h-[350px] self-end";
             let highlightClass = "";
             
             if (idx % 3 === 1) {
                 // Center Focal Hero Card (Taller & Highlighted)
-                heightClass = "h-[420px] self-center";
-                highlightClass = "border-2 border-[#ff3b00]/60 shadow-2xl scale-[1.02] z-10";
+                heightClass = "h-[260px] sm:h-[420px] self-center";
+                highlightClass = "border-2 border-[#ff3b00]/60 shadow-2xl scale-[1.02] sm:scale-[1.02] z-10";
             } else if (idx % 3 === 2) {
                 // Right Card (Medium height)
-                heightClass = "h-[375px] self-start";
+                heightClass = "h-[235px] sm:h-[375px] self-start";
             }
 
             return `
-                <div class="project-agency-card group ${heightClass} ${highlightClass}">
+                <div class="project-agency-card group ${heightClass} ${highlightClass} rounded-2xl sm:rounded-[28px]">
                     <!-- Full Studio Canvas Background Image -->
                     <img src="${escapeHtml(proj.image || './assets/foto.png')}" alt="${escapeHtml(proj.title)}" class="project-bg-img" onerror="this.src='./assets/foto.png'">
                     
@@ -463,30 +502,25 @@ function renderProjects() {
                     <div class="project-card-overlay"></div>
 
                     <!-- Top Left Pill Badge -->
-                    <div class="absolute top-5 left-5 z-10">
-                        <span class="project-tag-pill">${escapeHtml(proj.category || 'PROYEK')}</span>
+                    <div class="absolute top-2.5 left-2.5 sm:top-5 sm:left-5 z-10">
+                        <span class="project-tag-pill text-[7px] sm:text-[9px] px-2 py-0.5 sm:px-3.5 sm:py-1.5">${escapeHtml(proj.category || 'PROYEK')}</span>
                     </div>
 
                     <!-- Bottom Title, Description & Action Links -->
-                    <div class="relative z-10 p-6 sm:p-7 flex flex-col justify-between h-full">
+                    <div class="relative z-10 p-3 sm:p-7 flex flex-col justify-between h-full">
                         <div></div>
-                        <div class="space-y-2.5">
-                            <div class="flex flex-wrap gap-1.5 mb-1">
-                                ${(proj.tags || []).map(t => `<span class="bg-white/10 backdrop-blur-md text-white border border-white/20 text-[9px] font-bold px-2.5 py-0.5 rounded-full">${escapeHtml(t)}</span>`).join('')}
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pt-1">
-                                <h3 class="font-agency-thin text-sm sm:text-base text-white font-light uppercase leading-snug tracking-[-0.02em] group-hover:text-[#ff3b00] transition-colors">
+                        <div class="space-y-1.5 sm:space-y-2.5">
+                            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-1 sm:gap-2 pt-0.5 sm:pt-1">
+                                <h3 class="font-agency-thin text-xs sm:text-base text-white font-light uppercase leading-snug tracking-[-0.02em] group-hover:text-[#ff3b00] transition-colors line-clamp-1">
                                     ${escapeHtml(proj.title)}
                                 </h3>
-                                <p class="text-[10px] text-slate-300 leading-snug font-medium line-clamp-2 shrink-0 max-w-[160px]">
+                                <p class="text-[8px] sm:text-[10px] text-slate-300 leading-snug font-medium line-clamp-1 sm:line-clamp-2 shrink-0 max-w-[160px]">
                                     ${escapeHtml(proj.description || '')}
                                 </p>
                             </div>
-
-                            <div class="pt-3 border-t border-white/15 flex items-center justify-between text-xs">
-                                ${proj.demoUrl ? `<a href="${escapeHtml(proj.demoUrl)}" target="_blank" class="text-xs font-bold text-[#ff3b00] hover:underline inline-flex items-center gap-1">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>` : '<span></span>'}
-                                ${proj.repoUrl ? `<a href="${escapeHtml(proj.repoUrl)}" target="_blank" class="text-xs font-semibold text-slate-300 hover:text-white inline-flex items-center gap-1"><i class="fa-brands fa-github text-sm"></i> Kode Repo</a>` : ''}
+                            <div class="pt-1.5 sm:pt-3 border-t border-white/15 flex items-center justify-between gap-1 text-[9px] sm:text-xs">
+                                <a href="detail.html?type=project&id=${proj.id}" class="text-[8px] sm:text-[10px] font-bold text-white hover:text-[#ff3b00] inline-flex items-center gap-1 bg-white/10 hover:bg-white/20 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-white/20 transition-all shrink-0">Lihat Detail <i class="fa-solid fa-arrow-right text-[7px] sm:text-[8px]"></i></a>
+                                ${proj.demoUrl ? `<a href="${escapeHtml(proj.demoUrl)}" target="_blank" class="text-[9px] sm:text-xs font-bold text-[#ff3b00] hover:underline inline-flex items-center gap-1">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></a>` : ''}
                             </div>
                         </div>
                     </div>
@@ -542,8 +576,8 @@ function renderSkills() {
 
         // Dynamic Asymmetrical Styles (Middle Card Larger & Highlighted)
         const cardStyle = isMiddle
-            ? "bg-white text-slate-900 border-2 border-[#ff3b00] shadow-2xl scale-105 z-10 p-7 sm:p-8 rounded-[32px] min-h-[340px]"
-            : "bg-[#141416] text-white border border-[#ff3b00]/30 shadow-xl p-6 sm:p-7 rounded-[28px] min-h-[280px] self-center";
+            ? "bg-white text-slate-900 border-2 border-[#ff3b00] shadow-2xl scale-[1.02] sm:scale-105 z-10 p-3.5 sm:p-8 rounded-[20px] sm:rounded-[32px] min-h-[200px] sm:min-h-[340px]"
+            : "bg-[#141416] text-white border border-[#ff3b00]/30 shadow-xl p-3 sm:p-7 rounded-[18px] sm:rounded-[28px] min-h-[175px] sm:min-h-[280px] self-center";
 
         const iconBg = isMiddle
             ? "bg-[#120204] text-[#ff3b00] border border-[#ff3b00]/30"
@@ -556,39 +590,39 @@ function renderSkills() {
         return `
             <div class="group relative ${cardStyle} hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between overflow-hidden">
                 <!-- Large Agency Watermark Number -->
-                <span class="absolute top-4 right-6 font-agency-thin text-5xl sm:text-6xl ${isMiddle ? 'text-slate-200' : 'text-white/10'} group-hover:text-[#ff3b00]/20 transition-colors pointer-events-none select-none font-light">
+                <span class="absolute top-2 right-3 sm:top-4 sm:right-6 font-agency-thin text-3xl sm:text-6xl ${isMiddle ? 'text-slate-200' : 'text-white/10'} group-hover:text-[#ff3b00]/20 transition-colors pointer-events-none select-none font-light">
                     ${itemNumber}
                 </span>
 
-                <div class="relative z-10 space-y-4">
+                <div class="relative z-10 space-y-2 sm:space-y-4">
                     <!-- Top Icon & Category Badge -->
                     <div class="flex items-center justify-between">
-                        <div class="w-11 h-11 rounded-2xl ${iconBg} flex items-center justify-center text-lg shadow-md">
+                        <div class="w-8 h-8 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl ${iconBg} flex items-center justify-center text-xs sm:text-lg shadow-md">
                             <i class="fa-solid ${s.icon || 'fa-code'}"></i>
                         </div>
-                        <span class="text-[10px] font-extrabold ${categoryColor} bg-rose-50/20 border border-[#ff3b00]/30 px-3 py-1 rounded-full uppercase tracking-wider">
+                        <span class="text-[8px] sm:text-[10px] font-extrabold ${categoryColor} bg-rose-50/20 border border-[#ff3b00]/30 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider">
                             ${escapeHtml(s.category || 'Tech')}
                         </span>
                     </div>
 
                     <!-- Title & Level -->
                     <div>
-                        <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 block mb-1">
-                            KEAHLIAN UTAMA
+                        <span class="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-widest text-slate-400 block mb-0.5 sm:mb-1">
+                            KEAHLIAN
                         </span>
-                        <h4 class="font-agency-thin ${titleColor} font-light text-lg sm:text-xl uppercase leading-snug tracking-[-0.02em] group-hover:text-[#ff3b00] transition-colors">
+                        <h4 class="font-agency-thin ${titleColor} font-light text-xs sm:text-xl uppercase leading-snug tracking-[-0.02em] group-hover:text-[#ff3b00] transition-colors line-clamp-1">
                             ${escapeHtml(s.name)}
                         </h4>
                     </div>
                 </div>
 
                 <!-- Skill Level Progress Bar -->
-                <div class="relative z-10 pt-4 space-y-1.5 border-t ${isMiddle ? 'border-slate-100' : 'border-white/10'}">
-                    <div class="flex items-center justify-between text-xs font-bold">
-                        <span class="text-[10px] uppercase tracking-wider ${isMiddle ? 'text-slate-500' : 'text-slate-400'}">Tingkat Penguasaan</span>
-                        <span class="text-xs font-extrabold text-[#ff3b00]">${s.level}%</span>
+                <div class="relative z-10 pt-2 sm:pt-4 space-y-1 sm:space-y-1.5 border-t ${isMiddle ? 'border-slate-100' : 'border-white/10'}">
+                    <div class="flex items-center justify-between text-[9px] sm:text-xs font-bold">
+                        <span class="text-[8px] sm:text-[10px] uppercase tracking-wider ${isMiddle ? 'text-slate-500' : 'text-slate-400'}">Tingkat</span>
+                        <span class="text-[9px] sm:text-xs font-extrabold text-[#ff3b00]">${s.level}%</span>
                     </div>
-                    <div class="w-full ${barTrackBg} rounded-full h-2.5 overflow-hidden p-0.5">
+                    <div class="w-full ${barTrackBg} rounded-full h-1.5 sm:h-2.5 overflow-hidden p-0.5">
                         <div class="skill-bar-inner h-full rounded-full" style="width: ${s.level}%"></div>
                     </div>
                 </div>
@@ -707,15 +741,15 @@ function renderEducation() {
     const paginated = edu.slice(startIndex, startIndex + EDUCATION_PER_PAGE);
 
     container.innerHTML = paginated.map(item => `
-        <div class="card-light flex flex-col justify-between space-y-4">
-            <div class="space-y-2">
-                <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-base font-bold">
+        <div class="card-light flex flex-col justify-between space-y-2 sm:space-y-4 p-3 sm:p-6 rounded-2xl sm:rounded-3xl">
+            <div class="space-y-1.5 sm:space-y-2">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-slate-900 text-white flex items-center justify-center text-xs sm:text-base font-bold">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <span class="text-[10px] font-extrabold text-[#ff3b00] uppercase tracking-wider block">${escapeHtml(item.year)}</span>
-                <h4 class="font-agency-thin text-slate-900 text-base leading-snug font-light">${escapeHtml(item.degree)}</h4>
-                <p class="text-xs font-bold text-slate-500">${escapeHtml(item.institution)}</p>
-                <p class="text-xs text-slate-600 leading-relaxed pt-1">${escapeHtml(item.description || '')}</p>
+                <span class="text-[8px] sm:text-[10px] font-extrabold text-[#ff3b00] uppercase tracking-wider block">${escapeHtml(item.year)}</span>
+                <h4 class="font-agency-thin text-slate-900 text-xs sm:text-base leading-snug font-light line-clamp-1">${escapeHtml(item.degree)}</h4>
+                <p class="text-[10px] sm:text-xs font-bold text-slate-500 line-clamp-1">${escapeHtml(item.institution)}</p>
+                <p class="text-[9px] sm:text-xs text-slate-600 leading-relaxed pt-0.5 sm:pt-1 line-clamp-2">${escapeHtml(item.description || '')}</p>
             </div>
         </div>
     `).join("");
@@ -742,14 +776,17 @@ function renderCertifications() {
     const paginated = certs.slice(startIndex, startIndex + CERTIFICATIONS_PER_PAGE);
 
     container.innerHTML = paginated.map(c => `
-        <div class="card-light overflow-hidden p-0 flex flex-col justify-between">
-            <div class="h-44 overflow-hidden relative">
+        <div class="card-light overflow-hidden p-0 flex flex-col justify-between rounded-xl sm:rounded-3xl">
+            <div class="h-24 sm:h-44 overflow-hidden relative">
                 <img src="${escapeHtml(c.image || './assets/foto.png')}" alt="${escapeHtml(c.title)}" class="w-full h-full object-cover" onerror="this.src='./assets/foto.png'">
-                <span class="absolute top-3 right-3 bg-[#120204] text-[#ff3b00] border border-[#ff3b00]/30 text-[10px] font-extrabold px-3 py-1 rounded-full shadow-md">${escapeHtml(c.year)}</span>
+                <span class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-[#120204] text-[#ff3b00] border border-[#ff3b00]/30 text-[8px] sm:text-[10px] font-extrabold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md">${escapeHtml(c.year)}</span>
             </div>
-            <div class="p-5 space-y-2">
-                <h4 class="font-agency-thin text-slate-900 text-sm leading-snug font-light">${escapeHtml(c.title)}</h4>
-                <p class="text-xs font-semibold text-slate-500">${escapeHtml(c.issuer)}</p>
+            <div class="p-3 sm:p-5 space-y-1 sm:space-y-2">
+                <h4 class="font-agency-thin text-slate-900 text-xs sm:text-sm leading-snug font-light line-clamp-1">${escapeHtml(c.title)}</h4>
+                <p class="text-[9px] sm:text-xs font-semibold text-slate-500 line-clamp-1">${escapeHtml(c.issuer)}</p>
+                <div class="pt-1.5 border-t border-slate-100 flex items-center justify-between">
+                    <a href="detail.html?type=cert&id=${c.id}" class="text-[8px] sm:text-[10px] font-extrabold text-[#ff3b00] hover:underline inline-flex items-center gap-1">Lihat Detail <i class="fa-solid fa-arrow-right text-[7px] sm:text-[8px]"></i></a>
+                </div>
             </div>
         </div>
     `).join("");

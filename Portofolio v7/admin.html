@@ -560,8 +560,12 @@
                 <input type="file" id="proj-image-file" accept="image/*" class="mt-1 text-xs text-slate-500">
             </div>
             <div>
-                <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Proyek</label>
-                <textarea id="proj-description" rows="3" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none"></textarea>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Singkat (Kartu Home)</label>
+                <textarea id="proj-description" rows="2" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none"></textarea>
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Detail Lengkap (Halaman detail.html)</label>
+                <textarea id="proj-fullDescription" rows="4" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none" placeholder="Tuliskan rincian arsitektur, latar belakang, dan fitur lengkap proyek..."></textarea>
             </div>
             <div>
                 <label class="text-xs font-bold text-slate-700 block mb-1">Live Demo URL</label>
@@ -598,6 +602,10 @@
             <div>
                 <label class="text-xs font-bold text-slate-700 block mb-1">Icon FontAwesome Class (Contoh: fa-code)</label>
                 <input type="text" id="skill-icon" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none">
+            </div>
+            <div>
+                <label class="text-xs font-bold text-slate-700 block mb-1">Deskripsi Detail Lengkap (Halaman detail.html)</label>
+                <textarea id="skill-fullDescription" rows="3" class="w-full bg-slate-50 border rounded-xl px-4 py-2 text-sm outline-none" placeholder="Penjelasan mengenai pengalaman dan cakupan penerapan teknologi ini..."></textarea>
             </div>
             <div class="flex items-center justify-end gap-2 pt-2">
                 <button type="button" onclick="closeSkillModal()" class="px-4 py-2 bg-slate-200 text-slate-800 rounded-xl text-xs font-bold">Batal</button>

@@ -124,23 +124,34 @@ body {
     overflow: hidden;
 }
 
-/* Mobile View: Enlarged photo as requested */
-.hero-photo-fit {
-    max-height: 540px;
-    width: auto;
-    object-fit: contain;
-    object-position: top center;
-    transform: scale(1.10);
-    transform-origin: top center;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+/* Mobile View: Full unblocked face with all elements shifted up */
+@media (max-width: 1023px) {
+    .hero-photo-container {
+        justify-content: center;
+        right: 0;
+        top: -15px;
+        height: calc(100% + 15px);
+    }
+    .hero-photo-fit {
+        max-height: 480px;
+        width: auto;
+        object-fit: contain;
+        object-position: top center;
+        transform: translateY(-25px);
+        transform-origin: top center;
+        opacity: 0.70;
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+    }
 }
 
-/* Desktop View: Shrunk slightly for optimal proportions */
+/* Desktop View: Centered focal photo between left & right columns */
 @media (min-width: 1024px) {
     .hero-photo-container {
         top: 68px; /* Starts right below sticky navbar */
         height: calc(100% - 68px);
+        justify-content: center;
+        right: 0;
     }
     .hero-photo-fit {
         max-height: 580px;
@@ -149,6 +160,7 @@ body {
         object-position: top center;
         transform: scale(1.04);
         transform-origin: top center;
+        opacity: 0.60;
         -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
         mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
     }
@@ -273,7 +285,6 @@ body {
     position: relative;
     border-radius: 28px;
     overflow: hidden;
-    height: 380px;
     background-color: #120204;
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);

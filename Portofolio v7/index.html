@@ -85,26 +85,26 @@
     </nav>
 
     <!-- 2. HERO HEADER SECTION -->
-    <section id="home" class="relative pt-32 pb-28 overflow-hidden hero-container min-h-[580px] lg:min-h-[660px]">
+    <section id="home" class="relative pt-16 sm:pt-32 pb-20 sm:pb-28 overflow-hidden hero-container min-h-[440px] lg:min-h-[660px]">
         
         <!-- Background Hero Photo -->
         <div class="hero-photo-container">
-            <img id="hero-main-photo" src="./assets/foto1.png" alt="Hero Model" class="hero-photo-fit filter contrast-110 brightness-90 opacity-60 transition-all" onerror="this.src='./assets/foto1.png'">
+            <img id="hero-main-photo" src="./assets/foto1.png" alt="Hero Model" class="hero-photo-fit filter contrast-110 brightness-90 opacity-70 transition-all" onerror="this.src='./assets/foto1.png'">
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10 pt-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end min-h-[460px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10 pt-1 sm:pt-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end min-h-[380px] lg:min-h-[460px]">
                 
-                <!-- Left Hero Column: SUMBER IDE KREATIF + 85% Metric Badge -->
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="space-y-1">
+                <!-- Left Hero Column: SUMBER IDE KREATIF + 85% Metric Badge (Hidden on Mobile, Shown on Desktop Left) -->
+                <div class="hidden lg:block lg:col-span-4 space-y-6">
+                    <div class="space-y-1.5">
                         <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-300 block mb-2">SUMBER IDE KREATIF</span>
                         <p id="hero-bio" class="text-xs text-slate-300 leading-relaxed font-medium max-w-xs"></p>
                     </div>
 
                     <!-- Floating White Metric Badge Card -->
                     <div class="flex items-center gap-3 pt-4">
-                        <div class="metric-badge-white">
+                        <div class="metric-badge-white py-4 px-5">
                             <div>
                                 <span id="stat-metric-val" class="font-agency-thin text-3xl font-light text-[#141416] block leading-none">85%</span>
                                 <span id="stat-metric-lbl" class="text-[9px] text-slate-500 font-bold block mt-1">Efisiensi & Performansi</span>
@@ -119,31 +119,31 @@
                     </div>
                 </div>
 
-                <!-- Center Spacer -->
-                <div class="lg:col-span-3"></div>
+                <!-- Center Spacer (Desktop Center) -->
+                <div class="lg:col-span-3 hidden lg:block"></div>
 
-                <!-- Right Hero Column: PENGEMBANG WEB & DESAIN PERSONAL -->
-                <div class="lg:col-span-5 text-right space-y-6">
-                    <div class="space-y-3">
-                        <h1 class="font-agency-thin text-4xl sm:text-6xl text-white uppercase leading-[0.90] tracking-[-0.04em]">
+                <!-- Right Hero Column: PENGEMBANG WEB & DESAIN PERSONAL (Desktop Right) -->
+                <div class="lg:col-span-5 text-left lg:text-right space-y-3 sm:space-y-6 pb-6 sm:pb-0">
+                    <div class="space-y-2 sm:space-y-3">
+                        <h1 class="font-agency-thin text-3xl sm:text-6xl text-white uppercase leading-[0.90] tracking-[-0.04em]">
                             <span id="hero-title-1" class="text-stroke-white block font-extralight opacity-90">PENGEMBANG</span>
                             <span id="hero-title-2" class="text-white block font-light">WEB & DESAIN</span>
                             <span id="hero-title-3" class="text-white block font-light">PERSONAL</span>
                         </h1>
                         
-                        <div class="flex items-center justify-end gap-3 pt-2">
-                            <p id="hero-role" class="text-xs text-slate-300 font-medium max-w-xs text-right"></p>
-                            <a href="#overview" class="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center text-white text-xs hover:bg-[#ff3b00] hover:border-[#ff3b00] transition-all">
+                        <div class="flex items-center justify-start lg:justify-end gap-3 pt-1 sm:pt-2">
+                            <p id="hero-role" class="text-xs text-slate-300 font-medium max-w-xs text-left lg:text-right"></p>
+                            <a href="#overview" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/30 flex items-center justify-center text-white text-xs hover:bg-[#ff3b00] hover:border-[#ff3b00] transition-all shrink-0">
                                 <i class="fa-solid fa-arrow-down"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Stacked Horizontal Pill Badges -->
-                    <div class="flex flex-wrap items-center justify-end gap-2 pt-2">
-                        <span id="hero-tag-1" class="bg-white/10 border border-white/20 px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-slate-200">STRATEGI WEB</span>
-                        <span id="hero-tag-2" class="bg-white/10 border border-white/20 px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-widest text-slate-200">FULL STACK</span>
-                        <span id="hero-tag-3" class="bg-[#ff3b00] text-white px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-widest shadow-md">ARSIEKSI KREATIF</span>
+                    <!-- Stacked Horizontal Pill Badges (Shifted UP on Mobile) -->
+                    <div class="flex flex-wrap items-center justify-start lg:justify-end gap-1.5 sm:gap-2 pt-0.5 sm:pt-2">
+                        <span id="hero-tag-1" class="bg-white/10 border border-white/20 px-3 py-1 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase tracking-widest text-slate-200">STRATEGI WEB</span>
+                        <span id="hero-tag-2" class="bg-white/10 border border-white/20 px-3 py-1 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase tracking-widest text-slate-200">FULL STACK</span>
+                        <span id="hero-tag-3" class="bg-[#ff3b00] text-white px-3 py-1 rounded-full text-[8px] sm:text-[9px] font-extrabold uppercase tracking-widest shadow-md">ARSIEKSI KREATIF</span>
                     </div>
                 </div>
 
@@ -172,24 +172,24 @@
             </div>
 
             <!-- Row of 3 Creative Studio Photography Cards (Asymmetrical Varying Heights) -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-center">
                 <div class="md:col-span-2 hidden md:block">
                     <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 block font-agency-thin">
                         PROYEK KARYA TERBARU
                     </span>
                 </div>
 
-                <div class="md:col-span-10 grid grid-cols-1 sm:grid-cols-3 gap-6 items-end">
+                <div class="md:col-span-10 grid grid-cols-3 gap-2 sm:gap-6 items-end">
                     <!-- Card 1: Compact Height -->
-                    <div class="card-photo-hero h-[250px] self-end">
+                    <div class="card-photo-hero h-[140px] sm:h-[250px] self-end">
                         <img id="overview-photo-1" src="./assets/foto.png" alt="Foto Proyek 1" onerror="this.src='./assets/foto.png'">
                     </div>
                     <!-- Card 2: Focal Hero Height (Taller + Glow Accent) -->
-                    <div class="card-photo-hero h-[350px] border-2 border-[#ff3b00]/60 shadow-2xl scale-105 z-10">
+                    <div class="card-photo-hero h-[190px] sm:h-[350px] border-2 border-[#ff3b00]/60 shadow-2xl scale-105 z-10">
                         <img id="overview-photo-2" src="./assets/foto.png" alt="Foto Proyek 2" onerror="this.src='./assets/foto.png'">
                     </div>
                     <!-- Card 3: Medium Tall Height -->
-                    <div class="card-photo-hero h-[290px] self-center">
+                    <div class="card-photo-hero h-[160px] sm:h-[290px] self-center">
                         <img id="overview-photo-3" src="./assets/foto.png" alt="Foto Proyek 3" onerror="this.src='./assets/foto.png'">
                     </div>
                 </div>
@@ -198,62 +198,62 @@
         </section>
 
         <!-- 3.2 SECTION 3: SEMUA YANG ANDA BUTUHKAN UNTUK BERKEMBANG -->
-        <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-36">
+        <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-36">
             
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <h2 id="services-header-title" class="font-agency-thin text-3xl sm:text-5xl text-[#141416] uppercase leading-[0.92] tracking-[-0.04em]">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-4">
+                <h2 id="services-header-title" class="font-agency-thin text-2xl sm:text-5xl text-[#141416] uppercase leading-[0.92] tracking-[-0.04em]">
                     SEMUA <span class="text-stroke-gray font-extralight">YANG</span> ANDA <span class="text-[#ff3b00] font-light">BUTUHKAN UNTUK BERKEMBANG</span>
                 </h2>
                 <p id="services-header-desc" class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto pt-1"></p>
             </div>
 
-            <!-- 4 Service Cards Horizontal Showcase (2 Middle Cards Larger) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+            <!-- 4 Service Cards Horizontal Showcase (2-Column Grid on Mobile) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 items-center">
                 <!-- Card 1: Outer Left (Compact) -->
-                <div class="service-card-red bg-[#141416] text-white p-6 flex flex-col justify-between h-[310px] self-center">
-                    <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">INTI SOLUSI</span>
-                    <div class="h-28 my-2 rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
+                <div class="service-card-red bg-[#141416] text-white p-3 sm:p-6 flex flex-col justify-between h-[210px] sm:h-[310px] self-center">
+                    <span class="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-widest text-slate-400">INTI SOLUSI</span>
+                    <div class="h-16 sm:h-28 my-1 sm:my-2 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
                         <img id="service-1-img" src="./assets/foto.png" class="w-full h-full object-cover" onerror="this.src='./assets/foto.png'">
                     </div>
                     <div>
-                        <h3 id="service-1-title" class="font-agency-thin text-base text-white font-light">Strategi Web & Aplikasi</h3>
-                        <p id="service-1-desc" class="text-[10px] text-slate-400 mt-1 line-clamp-2"></p>
+                        <h3 id="service-1-title" class="font-agency-thin text-xs sm:text-base text-white font-light">Strategi Web & Aplikasi</h3>
+                        <p id="service-1-desc" class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5 sm:mt-1 line-clamp-2"></p>
                     </div>
                 </div>
 
                 <!-- Card 2: Middle 1 (LARGER & TALLER) -->
-                <div class="service-card-red bg-[#200407] text-white p-7 flex flex-col justify-between h-[390px] border-2 border-[#ff3b00] shadow-2xl scale-105 z-10">
-                    <span class="text-[9px] font-extrabold uppercase tracking-widest text-[#ff3b00]">SISTEM VISUAL</span>
-                    <div class="h-44 my-3 rounded-2xl overflow-hidden bg-black/60 border border-[#ff3b00]/30 flex items-center justify-center">
+                <div class="service-card-red bg-[#200407] text-white p-3.5 sm:p-7 flex flex-col justify-between h-[250px] sm:h-[390px] border-2 border-[#ff3b00] shadow-2xl scale-[1.02] sm:scale-105 z-10">
+                    <span class="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-widest text-[#ff3b00]">SISTEM VISUAL</span>
+                    <div class="h-24 sm:h-44 my-1.5 sm:my-3 rounded-xl sm:rounded-2xl overflow-hidden bg-black/60 border border-[#ff3b00]/30 flex items-center justify-center">
                         <img id="service-2-img" src="./assets/foto.png" class="w-full h-full object-cover" onerror="this.src='./assets/foto.png'">
                     </div>
                     <div>
-                        <h3 id="service-2-title" class="font-agency-thin text-xl text-white font-light">Identitas Visual & UI/UX</h3>
-                        <p id="service-2-desc" class="text-[10px] text-slate-300 mt-1 line-clamp-2"></p>
+                        <h3 id="service-2-title" class="font-agency-thin text-sm sm:text-xl text-white font-light">Identitas Visual & UI/UX</h3>
+                        <p id="service-2-desc" class="text-[9px] sm:text-[10px] text-slate-300 mt-0.5 sm:mt-1 line-clamp-2"></p>
                     </div>
                 </div>
 
                 <!-- Card 3: Middle 2 (LARGER & TALLER) -->
-                <div class="service-card-red bg-gradient-to-b from-[#ff3b00] to-[#b81d00] text-white p-7 flex flex-col justify-between h-[390px] border-2 border-[#ff3b00]/60 shadow-2xl scale-105 z-10">
-                    <span class="text-[9px] font-extrabold uppercase tracking-widest text-white/90">SISTEM SKALABEL</span>
-                    <div class="h-44 my-3 rounded-2xl overflow-hidden bg-black/30 border border-white/20">
+                <div class="service-card-red bg-gradient-to-b from-[#ff3b00] to-[#b81d00] text-white p-3.5 sm:p-7 flex flex-col justify-between h-[250px] sm:h-[390px] border-2 border-[#ff3b00]/60 shadow-2xl scale-[1.02] sm:scale-105 z-10">
+                    <span class="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-widest text-white/90">SISTEM SKALABEL</span>
+                    <div class="h-24 sm:h-44 my-1.5 sm:my-3 rounded-xl sm:rounded-2xl overflow-hidden bg-black/30 border border-white/20">
                         <img id="service-3-img" src="./assets/foto.png" class="w-full h-full object-cover" onerror="this.src='./assets/foto.png'">
                     </div>
                     <div>
-                        <h3 id="service-3-title" class="font-agency-thin text-xl text-white font-light">Arsitektur Software</h3>
-                        <p id="service-3-desc" class="text-[10px] text-white/80 mt-1 line-clamp-2"></p>
+                        <h3 id="service-3-title" class="font-agency-thin text-sm sm:text-xl text-white font-light">Arsitektur Software</h3>
+                        <p id="service-3-desc" class="text-[9px] sm:text-[10px] text-white/80 mt-0.5 sm:mt-1 line-clamp-2"></p>
                     </div>
                 </div>
 
                 <!-- Card 4: Outer Right (Compact) -->
-                <div class="service-card-red bg-[#141416] text-white p-6 flex flex-col justify-between h-[310px] self-center">
-                    <span class="text-[9px] font-extrabold uppercase tracking-widest text-slate-400">EKSEKUSI KODE</span>
-                    <div class="h-28 my-2 rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
+                <div class="service-card-red bg-[#141416] text-white p-3 sm:p-6 flex flex-col justify-between h-[210px] sm:h-[310px] self-center">
+                    <span class="text-[8px] sm:text-[9px] font-extrabold uppercase tracking-widest text-slate-400">EKSEKUSI KODE</span>
+                    <div class="h-16 sm:h-28 my-1 sm:my-2 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
                         <img id="service-4-img" src="./assets/foto.png" class="w-full h-full object-cover" onerror="this.src='./assets/foto.png'">
                     </div>
                     <div>
-                        <h3 id="service-4-title" class="font-agency-thin text-base text-white font-light">Pengembangan Full Stack</h3>
-                        <p id="service-4-desc" class="text-[10px] text-slate-400 mt-1 line-clamp-2"></p>
+                        <h3 id="service-4-title" class="font-agency-thin text-xs sm:text-base text-white font-light">Pengembangan Full Stack</h3>
+                        <p id="service-4-desc" class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5 sm:mt-1 line-clamp-2"></p>
                     </div>
                 </div>
             </div>
@@ -270,27 +270,27 @@
                 </h2>
             </div>
 
-            <!-- 3 Cards Layout -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <!-- 3 Cards Layout (3 Columns on Mobile) -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-6">
                 <!-- Card 1: Portrait Studio Card -->
-                <div class="rounded-3xl overflow-hidden bg-white border border-slate-200 p-4 shadow-lg space-y-4">
-                    <div class="h-56 rounded-2xl overflow-hidden">
+                <div class="rounded-xl sm:rounded-3xl overflow-hidden bg-white border border-slate-200 p-2 sm:p-4 shadow-lg space-y-2 sm:space-y-4">
+                    <div class="h-24 sm:h-56 rounded-lg sm:rounded-2xl overflow-hidden">
                         <img id="impact-card1-img" src="./assets/foto.png" class="w-full h-full object-cover" onerror="this.src='./assets/foto.png'">
                     </div>
-                    <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
-                        <span class="text-[#ff3b00]"><i class="fa-solid fa-asterisk"></i></span>
-                        <p id="impact-card1-desc" class="text-[10px] text-slate-500"></p>
+                    <div class="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-bold text-slate-700">
+                        <span class="text-[#ff3b00]"><i class="fa-solid fa-asterisk text-[8px]"></i></span>
+                        <p id="impact-card1-desc" class="text-[8px] sm:text-[10px] text-slate-500 line-clamp-2"></p>
                     </div>
                 </div>
 
                 <!-- Card 2: Vibrant Red Gradient Card -->
-                <div class="rounded-3xl overflow-hidden bg-gradient-to-br from-[#ff3b00] to-[#b81d00] p-6 text-white shadow-xl flex flex-col justify-between h-80 relative">
-                    <span class="w-7 h-7 rounded-lg bg-white/20 flex items-center justify-center text-xs font-bold">K</span>
-                    <div class="space-y-4">
-                        <h3 id="impact-card2-title" class="font-agency-thin text-2xl font-light leading-tight"></h3>
-                        <div class="flex items-center gap-2">
-                            <span class="border border-white/40 rounded-full px-4 py-1 text-xs font-semibold">Proyek & Portfolio</span>
-                            <a href="#projects" class="w-9 h-9 rounded-full bg-white text-[#141416] flex items-center justify-center text-xs font-bold hover:scale-110 transition-all">
+                <div class="rounded-xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#ff3b00] to-[#b81d00] p-3 sm:p-6 text-white shadow-xl flex flex-col justify-between h-48 sm:h-80 relative">
+                    <span class="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg bg-white/20 flex items-center justify-center text-[10px] sm:text-xs font-bold">K</span>
+                    <div class="space-y-2 sm:space-y-4">
+                        <h3 id="impact-card2-title" class="font-agency-thin text-xs sm:text-2xl font-light leading-tight"></h3>
+                        <div class="flex items-center gap-1.5 sm:gap-2">
+                            <span class="border border-white/40 rounded-full px-2 py-0.5 sm:px-4 sm:py-1 text-[8px] sm:text-xs font-semibold">Portofolio</span>
+                            <a href="#projects" class="w-6 h-6 sm:w-9 sm:h-9 rounded-full bg-white text-[#141416] flex items-center justify-center text-[9px] sm:text-xs font-bold hover:scale-110 transition-all">
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -298,14 +298,14 @@
                 </div>
 
                 <!-- Card 3: Moody Silhouette Card with Pill Button -->
-                <div class="rounded-3xl overflow-hidden bg-[#141416] p-6 text-white shadow-xl flex flex-col justify-between h-80 relative">
+                <div class="rounded-xl sm:rounded-3xl overflow-hidden bg-[#141416] p-3 sm:p-6 text-white shadow-xl flex flex-col justify-between h-48 sm:h-80 relative">
                     <div class="absolute inset-0 opacity-40">
                         <img id="impact-card3-img" src="./assets/foto.png" class="w-full h-full object-cover" onerror="this.src='./assets/foto.png'">
                     </div>
                     <div class="relative z-10"></div>
                     <div class="relative z-10 pt-auto text-center">
-                        <a href="#contact" class="btn-pill-white text-xs font-black w-full justify-center">
-                            <span id="impact-card3-btn">JELAJAHI SEKARANG</span> <i class="fa-solid fa-arrow-up-right text-xs"></i>
+                        <a href="#contact" class="btn-pill-white text-[9px] sm:text-xs font-black w-full justify-center px-2 py-1 sm:px-4 sm:py-2">
+                            <span id="impact-card3-btn">JELAJAHI</span> <i class="fa-solid fa-arrow-up-right text-[8px] sm:text-xs"></i>
                         </a>
                     </div>
                 </div>
@@ -314,43 +314,44 @@
         </section>
 
         <!-- 3.4 DYNAMIC PROJECTS SHOWCASE (CRUD) -->
-        <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-36">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-36">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-4 sm:gap-6">
                 <div>
-                    <span class="text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block mb-2">Galeri Karya Proyek</span>
-                    <h2 class="font-agency-thin text-3xl sm:text-5xl text-[#141416] uppercase">Capabilities <span class="text-[#ff3b00] font-light">Together</span></h2>
+                    <span class="text-[10px] sm:text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block mb-1.5">Galeri Karya Proyek</span>
+                    <h2 class="font-agency-thin text-2xl sm:text-5xl text-[#141416] uppercase">Capabilities <span class="text-[#ff3b00] font-light">Together</span></h2>
                 </div>
 
                 <!-- Category Filters -->
-                <div class="flex flex-wrap items-center gap-2">
-                    <button type="button" data-cat="All" onclick="filterProjects('All')" class="project-filter-btn px-4 py-2 rounded-full text-xs font-extrabold bg-[#141416] text-[#ff3b00] border border-[#ff3b00]/40 shadow-sm">Semua</button>
-                    <button type="button" data-cat="Web Application" onclick="filterProjects('Web Application')" class="project-filter-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-all">Aplikasi Web</button>
-                    <button type="button" data-cat="SaaS Platform" onclick="filterProjects('SaaS Platform')" class="project-filter-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-all">Platform SaaS</button>
-                    <button type="button" data-cat="E-Commerce" onclick="filterProjects('E-Commerce')" class="project-filter-btn px-4 py-2 rounded-full text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-all">E-Commerce</button>
+                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <button type="button" data-cat="All" onclick="filterProjects('All')" class="project-filter-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs font-extrabold bg-[#141416] text-[#ff3b00] border border-[#ff3b00]/40 shadow-sm">Semua</button>
+                    <button type="button" data-cat="Web Application" onclick="filterProjects('Web Application')" class="project-filter-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-all">Aplikasi Web</button>
+                    <button type="button" data-cat="SaaS Platform" onclick="filterProjects('SaaS Platform')" class="project-filter-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-all">Platform SaaS</button>
+                    <button type="button" data-cat="E-Commerce" onclick="filterProjects('E-Commerce')" class="project-filter-btn px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-all">E-Commerce</button>
                 </div>
             </div>
 
-            <!-- Projects Grid (Creative Asymmetrical Layout) -->
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-end"></div>
+            <!-- Projects Grid (2 Columns on Mobile, 3 Columns on Desktop) -->
+            <div id="projects-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-8 items-end"></div>
             <div id="projects-pagination"></div>
         </section>
 
         <!-- 3.5 TECHNICAL SKILLS SECTION (CRUD) -->
-        <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-36">
-            <div class="text-center max-w-xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block">Keahlian & Teknologi</span>
-                <h2 class="font-agency-thin text-3xl sm:text-5xl text-[#141416] uppercase">Technical <span class="text-[#ff3b00] font-light">Skills</span></h2>
+        <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-36">
+            <div class="text-center max-w-xl mx-auto mb-10 sm:mb-16 space-y-2 sm:space-y-3">
+                <span class="text-[10px] sm:text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block">Keahlian & Teknologi</span>
+                <h2 class="font-agency-thin text-2xl sm:text-5xl text-[#141416] uppercase">Technical <span class="text-[#ff3b00] font-light">Skills</span></h2>
             </div>
 
-            <div id="skills-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-center"></div>
+            <!-- Skills Grid (2 Columns on Mobile, 3 Columns on Desktop) -->
+            <div id="skills-container" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-8 items-center"></div>
             <div id="skills-pagination"></div>
         </section>
 
         <!-- 3.6 WORK EXPERIENCE TIMELINE (CRUD) -->
-        <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-36">
-            <div class="text-center max-w-xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block">Jejak Karir</span>
-                <h2 class="font-agency-thin text-3xl sm:text-5xl text-[#141416] uppercase">Work <span class="text-[#ff3b00] font-light">Experience</span></h2>
+        <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-36">
+            <div class="text-center max-w-xl mx-auto mb-10 sm:mb-16 space-y-2 sm:space-y-3">
+                <span class="text-[10px] sm:text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block">Jejak Karir</span>
+                <h2 class="font-agency-thin text-2xl sm:text-5xl text-[#141416] uppercase">Work <span class="text-[#ff3b00] font-light">Experience</span></h2>
             </div>
 
             <div id="experience-timeline" class="max-w-6xl mx-auto"></div>
@@ -358,77 +359,79 @@
         </section>
 
         <!-- 3.7 EDUCATION & CERTIFICATIONS (CRUD) -->
-        <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-36 space-y-24">
+        <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 mb-20 sm:mb-36 space-y-16 sm:space-y-24">
             <!-- Formal Education -->
             <div>
-                <div class="text-center max-w-xl mx-auto mb-14 space-y-3">
-                    <span class="text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block">Latar Belakang Akademis</span>
-                    <h2 class="font-agency-thin text-2xl sm:text-4xl text-[#141416] uppercase">Pendidikan <span class="text-[#ff3b00] font-light">Formal</span></h2>
+                <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14 space-y-2 sm:space-y-3">
+                    <span class="text-[10px] sm:text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block">Latar Belakang Akademis</span>
+                    <h2 class="font-agency-thin text-xl sm:text-4xl text-[#141416] uppercase">Pendidikan <span class="text-[#ff3b00] font-light">Formal</span></h2>
                 </div>
-                <div id="education-cards-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+                <!-- Education Grid (2 Columns on Mobile) -->
+                <div id="education-cards-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-8"></div>
                 <div id="education-pagination"></div>
             </div>
 
             <!-- Certifications & Awards -->
             <div>
-                <div class="text-center max-w-xl mx-auto mb-14 space-y-3">
-                    <span class="text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block">Sertifikat & Lisensi</span>
-                    <h2 class="font-agency-thin text-2xl sm:text-4xl text-[#141416] uppercase">Certifications & <span class="text-[#ff3b00] font-light">Awards</span></h2>
+                <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14 space-y-2 sm:space-y-3">
+                    <span class="text-[10px] sm:text-xs font-extrabold text-[#ff3b00] uppercase tracking-widest block">Sertifikat & Lisensi</span>
+                    <h2 class="font-agency-thin text-xl sm:text-4xl text-[#141416] uppercase">Certifications & <span class="text-[#ff3b00] font-light">Awards</span></h2>
                 </div>
-                <div id="certifications-photos-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"></div>
+                <!-- Certifications Grid (2 Columns on Mobile) -->
+                <div id="certifications-photos-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-8"></div>
                 <div id="certifications-pagination"></div>
             </div>
         </section>
 
         <!-- 3.8 CONTACT SECTION -->
         <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-[#141416] border border-[#ff3b00]/30 rounded-3xl p-8 sm:p-16 shadow-2xl text-white relative overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center bg-[#141416] border border-[#ff3b00]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-16 shadow-2xl text-white relative overflow-hidden">
                 <!-- Left Info -->
-                <div class="lg:col-span-6 space-y-6 relative z-10">
-                    <span class="font-hand text-3xl text-[#ff3b00] font-bold block">Mari Berdiskusi Proyek</span>
-                    <h2 class="font-agency-thin text-3xl sm:text-5xl uppercase leading-tight">
+                <div class="lg:col-span-6 space-y-3 sm:space-y-6 relative z-10">
+                    <span class="font-hand text-xl sm:text-3xl text-[#ff3b00] font-bold block">Mari Berdiskusi Proyek</span>
+                    <h2 class="font-agency-thin text-2xl sm:text-5xl uppercase leading-tight">
                         WE TURN IDEAS INTO <span class="text-[#ff3b00]">STATEMENTS.</span>
                     </h2>
-                    <p class="text-slate-300 text-sm leading-relaxed max-w-md font-medium">
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-md font-medium">
                         Punya ide proyek menarik atau berminat untuk berkolaborasi? Jangan ragu untuk menghubungi secara langsung melalui email atau WhatsApp.
                     </p>
 
-                    <div class="space-y-1 pt-2">
-                        <span class="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest block">Alamat Email Direct</span>
-                        <a id="contact-email-link" href="#" class="text-xl sm:text-2xl font-agency-thin text-white hover:text-[#ff3b00] transition-colors break-all">
+                    <div class="space-y-0.5 sm:space-y-1 pt-1 sm:pt-2">
+                        <span class="text-[9px] sm:text-[11px] font-extrabold text-slate-400 uppercase tracking-widest block">Alamat Email Direct</span>
+                        <a id="contact-email-link" href="#" class="text-sm sm:text-2xl font-agency-thin text-white hover:text-[#ff3b00] transition-colors break-all">
                             <span id="contact-email-text"></span>
                         </a>
                     </div>
 
-                    <div class="flex flex-wrap items-center gap-4 pt-4">
-                        <a id="contact-wa-link" href="#" target="_blank" class="btn-pill-red text-xs">
-                            <i class="fa-brands fa-whatsapp text-base"></i> <span id="contact-wa-text">WhatsApp</span>
+                    <div class="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-2 sm:pt-4">
+                        <a id="contact-wa-link" href="#" target="_blank" class="btn-pill-red text-[10px] sm:text-xs py-1.5 px-3.5 sm:py-2.5 sm:px-6">
+                            <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i> <span id="contact-wa-text">WhatsApp</span>
                         </a>
-                        <div class="flex items-center gap-3">
-                            <a id="social-github" href="#" target="_blank" class="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[#ff3b00] transition-all"><i class="fa-brands fa-github"></i></a>
-                            <a id="social-linkedin" href="#" target="_blank" class="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[#ff3b00] transition-all"><i class="fa-brands fa-linkedin"></i></a>
-                            <a id="social-instagram" href="#" target="_blank" class="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[#ff3b00] transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <div class="flex items-center gap-2 sm:gap-3">
+                            <a id="social-github" href="#" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[#ff3b00] transition-all text-xs sm:text-base"><i class="fa-brands fa-github"></i></a>
+                            <a id="social-linkedin" href="#" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[#ff3b00] transition-all text-xs sm:text-base"><i class="fa-brands fa-linkedin"></i></a>
+                            <a id="social-instagram" href="#" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[#ff3b00] transition-all text-xs sm:text-base"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Right Form -->
-                <div class="lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 text-slate-900 shadow-xl relative z-10">
-                    <form id="contact-form" class="space-y-4">
+                <div class="lg:col-span-6 bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-slate-900 shadow-xl relative z-10">
+                    <form id="contact-form" class="space-y-2.5 sm:space-y-4">
                         <div>
-                            <label class="text-xs font-extrabold text-slate-700 uppercase tracking-wider block mb-1">Nama Anda</label>
-                            <input type="text" id="contact-name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm outline-none focus:border-[#ff3b00] transition-all" placeholder="Masukkan nama Anda" required>
+                            <label class="text-[10px] sm:text-xs font-extrabold text-slate-700 uppercase tracking-wider block mb-0.5 sm:mb-1">Nama Anda</label>
+                            <input type="text" id="contact-name" class="w-full bg-slate-50 border border-slate-200 rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm outline-none focus:border-[#ff3b00] transition-all" placeholder="Masukkan nama Anda" required>
                         </div>
                         <div>
-                            <label class="text-xs font-extrabold text-slate-700 uppercase tracking-wider block mb-1">Alamat Email</label>
-                            <input type="email" id="contact-email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm outline-none focus:border-[#ff3b00] transition-all" placeholder="nama@email.com" required>
+                            <label class="text-[10px] sm:text-xs font-extrabold text-slate-700 uppercase tracking-wider block mb-0.5 sm:mb-1">Alamat Email</label>
+                            <input type="email" id="contact-email" class="w-full bg-slate-50 border border-slate-200 rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm outline-none focus:border-[#ff3b00] transition-all" placeholder="nama@email.com" required>
                         </div>
                         <div>
-                            <label class="text-xs font-extrabold text-slate-700 uppercase tracking-wider block mb-1">Detail Pesan / Proyek</label>
-                            <textarea id="contact-message" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm outline-none focus:border-[#ff3b00] transition-all" rows="4" placeholder="Tuliskan detail kebutuhan proyek Anda di sini..." required></textarea>
+                            <label class="text-[10px] sm:text-xs font-extrabold text-slate-700 uppercase tracking-wider block mb-0.5 sm:mb-1">Detail Pesan / Proyek</label>
+                            <textarea id="contact-message" class="w-full bg-slate-50 border border-slate-200 rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm outline-none focus:border-[#ff3b00] transition-all" rows="3" placeholder="Tuliskan detail kebutuhan proyek Anda di sini..." required></textarea>
                         </div>
-                        <button type="submit" class="btn-pill-red w-full justify-center py-4 text-xs uppercase tracking-widest font-black shadow-lg">
-                            <i class="fa-solid fa-paper-plane text-white"></i> Kirim Pesan Sekarang
+                        <button type="submit" class="btn-pill-red w-full justify-center py-2.5 sm:py-4 text-[10px] sm:text-xs uppercase tracking-widest font-black shadow-lg">
+                            <i class="fa-solid fa-paper-plane text-white text-xs sm:text-base"></i> Kirim Pesan Sekarang
                         </button>
                     </form>
                 </div>
@@ -439,19 +442,19 @@
     </main>
 
     <!-- 4. DARK FOOTER -->
-    <footer class="bg-[#0d0203] text-white py-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-lg bg-[#ff3b00] text-white flex items-center justify-center text-base font-bold shadow-lg">
+    <footer class="bg-[#0d0203] text-white py-6 sm:py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-[#ff3b00] text-white flex items-center justify-center text-xs sm:text-base font-bold shadow-lg">
                     K
                 </div>
                 <div>
-                    <span class="font-agency-thin text-xl tracking-wide uppercase text-white block">Kevin</span>
-                    <span class="text-xs text-slate-400 font-medium">Portofolio Personal Full Stack Web Developer & Creative Director</span>
+                    <span class="font-agency-thin text-base sm:text-xl tracking-wide uppercase text-white block">Kevin</span>
+                    <span class="text-[10px] sm:text-xs text-slate-400 font-medium">Portofolio Personal Full Stack Web Developer & Creative Director</span>
                 </div>
             </div>
-            <p class="text-xs text-slate-500">© 2026 Kevin. All rights reserved.</p>
-            <div class="flex items-center space-x-5 text-slate-400 text-lg">
+            <p class="text-[10px] sm:text-xs text-slate-500">© 2026 Kevin. All rights reserved.</p>
+            <div class="flex items-center space-x-4 sm:space-x-5 text-slate-400 text-sm sm:text-lg">
                 <a id="footer-github" href="#" target="_blank" class="hover:text-[#ff3b00] transition-colors"><i class="fa-brands fa-github"></i></a>
                 <a id="footer-linkedin" href="#" target="_blank" class="hover:text-[#ff3b00] transition-colors"><i class="fa-brands fa-linkedin"></i></a>
                 <a id="footer-instagram" href="#" target="_blank" class="hover:text-[#ff3b00] transition-colors"><i class="fa-brands fa-instagram"></i></a>

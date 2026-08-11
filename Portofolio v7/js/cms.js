@@ -449,6 +449,7 @@ window.openProjectModal = function() {
     setInputValue("proj-tags", "React, TailwindCSS");
     setInputValue("proj-image", "./assets/foto.png");
     setInputValue("proj-description", "");
+    setInputValue("proj-fullDescription", "");
     setInputValue("proj-demoUrl", "");
     setInputValue("proj-repoUrl", "");
     document.getElementById("project-modal").classList.remove("hidden");
@@ -468,6 +469,7 @@ window.editProject = function(id) {
     setInputValue("proj-tags", (p.tags || []).join(", "));
     setInputValue("proj-image", p.image || "./assets/foto.png");
     setInputValue("proj-description", p.description);
+    setInputValue("proj-fullDescription", p.fullDescription || p.description || "");
     setInputValue("proj-demoUrl", p.demoUrl);
     setInputValue("proj-repoUrl", p.repoUrl);
 
@@ -481,6 +483,7 @@ window.saveProjectForm = function() {
     const tagsStr = getInputValue("proj-tags");
     const image = getInputValue("proj-image") || "./assets/foto.png";
     const description = getInputValue("proj-description");
+    const fullDescription = getInputValue("proj-fullDescription") || description;
     const demoUrl = getInputValue("proj-demoUrl");
     const repoUrl = getInputValue("proj-repoUrl");
 
@@ -494,11 +497,11 @@ window.saveProjectForm = function() {
     if (id) {
         const index = cmsData.projects.findIndex(item => item.id === parseInt(id));
         if (index !== -1) {
-            cmsData.projects[index] = { id: parseInt(id), title, category, tags, image, description, demoUrl, repoUrl };
+            cmsData.projects[index] = { id: parseInt(id), title, category, tags, image, description, fullDescription, demoUrl, repoUrl };
         }
     } else {
         const newId = Date.now();
-        cmsData.projects.push({ id: newId, title, category, tags, image, description, demoUrl, repoUrl });
+        cmsData.projects.push({ id: newId, title, category, tags, image, description, fullDescription, demoUrl, repoUrl });
     }
 
     saveCMSData();
@@ -541,6 +544,7 @@ window.openSkillModal = function() {
     setInputValue("skill-level", "85");
     setInputValue("skill-category", "Frontend");
     setInputValue("skill-icon", "fa-code");
+    setInputValue("skill-fullDescription", "");
     document.getElementById("skill-modal").classList.remove("hidden");
 };
 
@@ -557,6 +561,7 @@ window.editSkill = function(id) {
     setInputValue("skill-level", s.level);
     setInputValue("skill-category", s.category);
     setInputValue("skill-icon", s.icon);
+    setInputValue("skill-fullDescription", s.fullDescription || "");
 
     document.getElementById("skill-modal").classList.remove("hidden");
 };
@@ -567,6 +572,27 @@ window.saveSkillForm = function() {
     const level = parseInt(getInputValue("skill-level")) || 80;
     const category = getInputValue("skill-category");
     const icon = getInputValue("skill-icon") || "fa-code";
+    const fullDescription = getInputValue("skill-fullDescription");
+
+    if (!name) {
+        alert("Nama keahlian tidak boleh kosong!");
+        return;
+    }
+
+    if (id) {
+        const index = cmsData.skills.findIndex(item => item.id === parseInt(id));
+        if (index !== -1) {
+            cmsData.skills[index] = { id: parseInt(id), name, level, category, icon, fullDescription };
+        }
+    } else {
+        const newId = Date.now();
+        cmsData.skills.push({ id: newId, name, level, category, icon, fullDescription });
+    }
+
+    saveCMSData();
+    renderSkillsList();
+    closeSkillModal();
+};
 
     if (!name) {
         alert("Nama keahlian wajib diisi!");
